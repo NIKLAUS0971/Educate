@@ -119,7 +119,7 @@ export const data: IData[] = [
                 description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
                 price: 110,
                 location: 'Nizami rayon, Cəmşid Naxçıvanski' 
-            },
+            }
         ]
             
     }

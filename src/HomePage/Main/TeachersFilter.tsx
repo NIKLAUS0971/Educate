@@ -10,6 +10,8 @@ import { useEffect } from "react";
 import * as React from 'react';
 
 import '../Shared/Style/TeachersFilter.css'
+import { SortingArrow } from '../Shared/icons/SortingArrow'
+import { SortDown } from '../Shared/icons/SortDown'
 
 
 
@@ -32,7 +34,7 @@ export function TeachersFilter() {
                 data.profetion.toLowerCase().includes(e.target.search.value.toLowerCase()))
     }
 
- 
+
 
     const applyFilters = () => {
         let updateList = DataList
@@ -55,11 +57,11 @@ export function TeachersFilter() {
 
 
         //Rating Filter
-        if(sortRating){
-            updateList = updateList.sort((a, b) =>b.rating - a.rating )
+        if (sortRating) {
+            updateList = updateList.sort((a, b) => b.rating - a.rating)
         }
-           
-      
+
+
 
         setList(updateList)
     }
@@ -85,7 +87,9 @@ export function TeachersFilter() {
                     <div className="wrapper_for_search_filter_all_teachers_wrapper">
                         <div className="all_teachers_wrapper">
                             <div className="all_teachers">Müəllimlər</div>
-                            <div className="number_of_teachers">(400 müəllim)</div>
+                            <div className="number_of_teachers">
+                            ({list ? (list.length) : null} müəllim)
+                            </div>
                         </div>
                         <form className="wrapper_for_search_filter" onSubmit={(e) => clickIt(e)}>
                             <label >
@@ -100,16 +104,15 @@ export function TeachersFilter() {
                                     <button className="tab1 tabs_toggle is-active">Hamısı</button>
                                     <button className="tab2 tabs_toggle">Yer olan</button>
                                 </div>
-                                <button type="button" onClick={()=>setSortRating(!sortRating)} className="button_for_dropdown">
-                                    <img src="../icon/up down arrow .svg" alt="" />
+                                <button type="button" onClick={() => setSortRating(!sortRating)} className="button_for_dropdown">
+                                    <SortingArrow />
                                     <p className="raiting_for_dropdown">Reytinqə görə sırala</p>
-                                    <img className="icon_down_for_dropdown" src="../icon/Down.svg" alt="" />
+                                    <SortDown />
                                 </button>
                             </div>
                         </form>
                     </div>
                     <div className="all_cart_and_filter">
-
                         <ul className="first_item" >
                             <CollapseFilter
                                 list={list}
@@ -120,19 +123,17 @@ export function TeachersFilter() {
                                 setSelectedPrice={setSelectedPrice}
                             />
                         </ul>
-
                         <div className='anly_all_card'>
-
                             {
                                 list.length === 0 ? <EmptiFile /> :
                                     list.map((item: any, index: any) => {
 
-                                        return (
-                                            <>
-                                                <AllCard data={item} key={index} />
-                                            </>
-                                        )
-                                    })
+                                    return (
+                                        <>
+                                            <AllCard data={item} key={index} />
+                                        </>
+                                    )
+                                })
                             }
                         </div>
                     </div>

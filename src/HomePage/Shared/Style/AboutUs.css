@@ -1,0 +1,350 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Mulish';
+}
+
+::placeholder{
+    position:absolute;
+    margin-top: -3px;
+    color: #BCC7D1;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    font-family: 'Mulish';
+    font-style: normal;
+}
+
+
+/* banner_wrapper */
+
+.banner_banner_wrapper{
+    width: 100%;
+    border-bottom: 1px solid #E4EBF1;
+}
+
+.banner_wrapper{
+    width: 100%;
+   
+}
+
+/*container*/
+
+.container{
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+/* header => navigation_logo_wrapper */
+
+.firstItem {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0;
+    gap: 19px;
+}
+
+
+.firstChilds {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+    color: #6C757D;
+    list-style-type: none;
+    transition: .2s;
+}
+
+
+.firstChilds:hover{
+    color: #7F5AF0;
+    transition: .2s;
+}
+li{
+    list-style-type: none;
+}
+
+.navigation_logo_wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 14px 0;
+    height: 43px;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 30px;
+    width: 100%;
+    max-width: 77px;
+    font-family: 'Inter';
+    color: #7F5AF0;
+}
+.header_form{
+    display: flex;
+    gap: 16px;
+}
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    gap: 30px;
+    width: 100%;
+    max-width: 708px;
+}
+.secondItem {
+    display: flex;
+    width: 100%;
+    max-width: 431px;
+    padding: 0;
+}
+.secondCilds {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #464D54;
+    text-decoration: none;
+    list-style-type: none;
+    transition: .2s;
+}
+
+.secondCilds:hover{
+    color: #7F5AF0;
+    transition: .2s;
+}
+
+/* dropdown_btn_wrapper */
+
+.select {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 79px;
+    cursor: pointer;
+    height: 40px;
+    padding: 9px 16px;
+    border: 1px solid #DBE4EC;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.select:hover{
+    border: 1px solid #6C757D;
+    z-index: 1;
+}
+.selected{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #464D54;
+}
+.menu {
+    position: absolute;
+    margin-left: -17px;
+    width: 79px;
+    border: 1px solid #6C757D;
+    border-radius: 5px;
+    background: #FFFFFF;
+    margin-bottom: -40px;
+    z-index: 2;
+    display: none;
+    box-sizing: border-box;
+}
+
+.firstDropDownIcon{
+    color: #6C757D;
+}
+.secondDropDownIcon {
+    position: absolute;
+    margin-left: 42px;
+    margin-top: 7px;
+    color: #6C757D;
+}
+.option{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #6C757D;
+}
+.option1 {
+    cursor: pointer;
+    padding: 9px 29px 10px 16px;
+    height: 19px;
+    border-bottom: 1px solid #6C757D;
+}
+
+.option2 {
+    cursor: pointer;
+    padding: 9px 10px 9px 17px;
+}
+.save_icon_btn {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    height: 40px;
+    border: 1px solid #DBE4EC;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 40px;
+}
+
+.save_btn{
+    fill: #616E7A;
+    width: 20px;
+    height: 20px;
+}
+
+
+.btn_come_in {
+    display: flex;
+    align-items: center;
+    padding: 11px 20px;
+    background: #7F5AF0;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    color: #FFFFFF;
+    transition: .2s;
+    height: 40px;
+    box-sizing: border-box;
+  }
+
+.btn_come_in:hover{
+    background: #663FD7;
+    border-radius: 5px;
+    transition: .2s;
+}
+
+/* wrapper_banner_wrapper */
+
+.wrapper_banner_wrapper_AboutUs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 68px;
+    padding: 0;
+    background: #FBFCFD;
+    border-top: 1px solid #DBE4EC;
+    border-bottom: 1px solid #DBE4EC;
+}
+
+.wrapper_inside_history_back{
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    height: 20px;
+}
+.Home_page{
+    font-weight: 600;
+    color: #98A4AE;
+    font-size: 16px;
+    text-decoration: none;
+}
+.teachers{
+    font-weight: 600;
+    font-size: 16px;
+    color: #464D54;
+}
+
+/* about_us */
+
+.wrapper_about_us{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    max-width: 712px;
+    margin: 64px auto 0;
+}
+
+.About_us{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    color: #464D54;    
+}
+
+.image{
+    width: 100%;
+    height: 343px;
+    background: #EDF1F4;
+    border-radius: 10px;
+}
+.only_about_us{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.talks_about_us{
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    color: #464D54;
+}
+
+/* footer */
+.footer{
+    margin-top: 170px;
+    min-height: 76px;
+}
+.wrapper_inside_footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 76px;
+    border-top: 1px solid #DBE4EC;
+}
+.wrapper_about_low_and_about_us{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 497px;
+}
+.all_rights_reserved{
+    font-weight: 400;
+    font-size: 16px;
+    color: #464D54;
+}
+.about_as_third_items{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 156px;
+    padding: 0;
+}
+.third_child{
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    color: #464D54;
+    text-decoration-line: underline;
+    transition: .2s;
+}
+
+.social_network{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 148px;
+}
+/* hover change_icons_color */
+
+.change_icons_color{
+    fill: #CDD5EB;
+    transition: .2s;
+}
+
+.change_icons_color:hover{
+    fill: #7F5AF0;
+    transition: .2s;
+}

@@ -3,41 +3,55 @@ import React, { useState } from 'react'
 import '../Shared/Style/Style.css'
 import { Link } from 'react-router-dom';
 export function Header() {
-    const[selectItem, setSelectItem] = useState("Az");
+    const [selectItem, setSelectItem] = useState("Az");
     return (
-        <div className="banner_wrapper">
-            <div className="container">
-                <div className="navigation_logo_wrapper">
-                    <div className="logo">logo</div>
-                    <div className="navigation">
-                        <ul className="secondItem">
-                            <li>
-                                <Link className="secondCilds" to="/">Ana səhifə</Link>
-                            </li>
-                            <li>
-                                <Link className="secondCilds" to="teachers">Müəllimlər</Link>
-                            </li>
-                            <li>
-                                <Link className="secondCilds" to="category">Kateqoriylar</Link>
-                            </li>
-                            <li>
-                                <Link className="secondCilds" to="map">Xəritədə tap</Link>
-                            </li>
-                        </ul>
-                        <form action="" className="header_form">
-                            
-                            <Dropdown selectItem={selectItem} setSelectItem={setSelectItem}/>
-                            
-                            <a href="../our progect/Favorites/favorites.html" className="save_icon_btn">
-                                <svg className="save_btn" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5.66999 20.8766C5.55703 20.9521 5.42567 20.9956 5.28993 21.0023C5.15419 21.0089 5.01919 20.9786 4.89934 20.9146C4.7795 20.8505 4.67932 20.755 4.60951 20.6384C4.5397 20.5218 4.50288 20.3885 4.50299 20.2526V6.01455C4.50299 5.21994 4.81824 4.45779 5.37955 3.89535C5.94086 3.33291 6.70238 3.01614 7.49699 3.01455L16.497 2.99805C16.891 2.99726 17.2812 3.07408 17.6455 3.22412C18.0098 3.37415 18.3409 3.59447 18.6201 3.87249C18.8992 4.15051 19.1208 4.48078 19.2723 4.84446C19.4238 5.20813 19.5022 5.59809 19.503 5.99205V20.2511C19.5031 20.387 19.4663 20.5203 19.3965 20.6369C19.3267 20.7535 19.2265 20.849 19.1066 20.9131C18.9868 20.9771 18.8518 21.0075 18.7161 21.0008C18.5803 20.9941 18.4489 20.9506 18.336 20.8751L12.003 16.6451L5.66999 20.8751V20.8766ZM18.003 5.99955L17.9925 5.82255C17.9491 5.45743 17.7731 5.12097 17.498 4.87707C17.2228 4.63317 16.8677 4.49882 16.5 4.49955L7.49999 4.51455C7.10269 4.51535 6.72193 4.67373 6.44127 4.95495C6.16061 5.23617 6.00299 5.61725 6.00299 6.01455V18.8501L11.586 15.1211C11.7094 15.0385 11.8545 14.9944 12.003 14.9944C12.1515 14.9944 12.2966 15.0385 12.42 15.1211L18.003 18.8501V5.99955Z" />
-                                </svg>
-                            </a>
-                            <a href="../our progect/Profile settings html/profile settings.html" id="myBtn" className="btn_come_in">Daxil ol</a>
-                        </form>
+        <>
+            <div className="banner_wrapper">
+                <div className="container">
+                    <ul className="firstItem">
+                        <li>
+                            <Link className="firstChilds" to="about_us">Haqqımızda</Link>
+                        </li>
+                        <li>
+                            <Link className="firstChilds" to="contact">Əlaqə</Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div className="banner_wrapper">
+                <div className="container">
+                    <div className="navigation_logo_wrapper">
+                        <div className="logo">logo</div>
+                        <div className="navigation">
+                            <ul className="secondItem">
+                                <li>
+                                    <Link className="secondCilds" to="/">Ana səhifə</Link>
+                                </li>
+                                <li>
+                                    <Link className="secondCilds" to="teachers">Müəllimlər</Link>
+                                </li>
+                                <li>
+                                    <Link className="secondCilds" to="category">Kateqoriylar</Link>
+                                </li>
+                                <li>
+                                    <Link className="secondCilds" to="map">Xəritədə tap</Link>
+                                </li>
+                            </ul>
+                            <form action="" className="header_form">
+
+                                <Dropdown selectItem={selectItem} setSelectItem={setSelectItem} />
+
+                                <a href="../our progect/Favorites/favorites.html" className="save_icon_btn">
+                                    <svg className="save_btn" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.66999 20.8766C5.55703 20.9521 5.42567 20.9956 5.28993 21.0023C5.15419 21.0089 5.01919 20.9786 4.89934 20.9146C4.7795 20.8505 4.67932 20.755 4.60951 20.6384C4.5397 20.5218 4.50288 20.3885 4.50299 20.2526V6.01455C4.50299 5.21994 4.81824 4.45779 5.37955 3.89535C5.94086 3.33291 6.70238 3.01614 7.49699 3.01455L16.497 2.99805C16.891 2.99726 17.2812 3.07408 17.6455 3.22412C18.0098 3.37415 18.3409 3.59447 18.6201 3.87249C18.8992 4.15051 19.1208 4.48078 19.2723 4.84446C19.4238 5.20813 19.5022 5.59809 19.503 5.99205V20.2511C19.5031 20.387 19.4663 20.5203 19.3965 20.6369C19.3267 20.7535 19.2265 20.849 19.1066 20.9131C18.9868 20.9771 18.8518 21.0075 18.7161 21.0008C18.5803 20.9941 18.4489 20.9506 18.336 20.8751L12.003 16.6451L5.66999 20.8751V20.8766ZM18.003 5.99955L17.9925 5.82255C17.9491 5.45743 17.7731 5.12097 17.498 4.87707C17.2228 4.63317 16.8677 4.49882 16.5 4.49955L7.49999 4.51455C7.10269 4.51535 6.72193 4.67373 6.44127 4.95495C6.16061 5.23617 6.00299 5.61725 6.00299 6.01455V18.8501L11.586 15.1211C11.7094 15.0385 11.8545 14.9944 12.003 14.9944C12.1515 14.9944 12.2966 15.0385 12.42 15.1211L18.003 18.8501V5.99955Z" />
+                                    </svg>
+                                </a>
+                                <a href="../our progect/Profile settings html/profile settings.html" id="myBtn" className="btn_come_in">Daxil ol</a>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }

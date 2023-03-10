@@ -1,9 +1,8 @@
-import { IData2 } from "../../../Modul/Modul"
+import Rectangly111 from "../../../Shared/foto/Rectangly111.png"
+import { RatingStart } from "../../../Shared/icons/RatingStar"
 
 
-// interface ProductProps {
-//     data: IData2
-// }
+
 
 
 export function AllCard({data}:any) {
@@ -13,6 +12,7 @@ export function AllCard({data}:any) {
             <div className="carts cart1">
                 <div className="information_about_teacher">
                     <div className="foto_information_and_icon_teacher">
+                        <img src={Rectangly111} alt="" />
                         <a href="../our progect/Teachers card/Teachers card.html" className="foto_information_teacher">
                             <div className="foto_teacher">
 
@@ -28,7 +28,7 @@ export function AllCard({data}:any) {
                     </div>
                     <div className="wrapper_rating">
                         <div className="rating">
-                            <p className="rating_number">{data.rating}</p>
+                            <p className="rating_number">{data.rating} <RatingStart /></p>
 
                         </div>
                     </div>

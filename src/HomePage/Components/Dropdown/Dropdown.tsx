@@ -1,12 +1,20 @@
 
 import React, { useState } from 'react'
-import { Down } from '../../Shared/icons/Down'
+import { JustDown } from '../../Shared/icons/JustDown'
 import { LineLenguage } from '../../Shared/icons/LineLenguage'
+import { SortDown } from '../../Shared/icons/SortDown'
 
 
 export const Dropdown = ({ selectItem, setSelectItem }: any) => {
+    
     const options = ["Az", "Ru"]
     const [isActive, setIsActive] = useState(false)
+
+    const rotate ={
+        transform: isActive ? 'rotate(180deg)' : '',
+        transition: 'transform 200ms ease',
+    }
+
     return (
         <div className="dropdown">
             <div className="dropdown-btn" onClick={(e) => {
@@ -14,7 +22,7 @@ export const Dropdown = ({ selectItem, setSelectItem }: any) => {
             }}>
                 <span>{selectItem}</span>
                 <div>
-                    <Down />
+                    <JustDown style={rotate}/>
                 </div>
             </div>
             {
