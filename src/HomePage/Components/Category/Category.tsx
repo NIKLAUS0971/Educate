@@ -1,13 +1,11 @@
 import { Card } from "../Card/Card";
-import { IData } from "../../Modul/Modul"
+// import { IData } from "../../Modul/Modul"
 import { IconCategory } from "../../Shared/icons/IconCategory";
 
-interface ProductProps {
-    data: IData
-}
 
 
-export function Categories(props: ProductProps) {
+
+export function Categories(props: any) {
 
 
     return (
@@ -26,7 +24,7 @@ export function Categories(props: ProductProps) {
             </div>
             <div className="only_carts_wrapper">
                 {
-                    props.data.data.map((elem: any, index) => {
+                    props.data.data.map((elem: any, index:any) => {
                         return (
                             <>
                                 <Card data={elem} key={index} />

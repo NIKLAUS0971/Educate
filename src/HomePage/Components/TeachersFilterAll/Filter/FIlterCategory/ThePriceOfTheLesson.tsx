@@ -12,7 +12,7 @@ function valuetext(value: number) {
     return `${value}°C`;
 }
 
-export const ThePriceOfTheLesson = ({ data, selectedPrice, setSelectedPrice }: any) => {
+export const ThePriceOfTheLesson = ({ selectedPrice, setSelectedPrice, data }: any) => {
 
     const [isOpen, setIsOpen] = useState(false)
     const [mouseover, setMouseover] = useState(false)
@@ -34,21 +34,6 @@ export const ThePriceOfTheLesson = ({ data, selectedPrice, setSelectedPrice }: a
         color: isOpen ? '#663FD7' : mouseover ? '#663FD7' : ''
     }
 
-    // const applyFilters = () => {
-    //     let updateList = elems
-
-    //     const minPrice = selectedPrice[0]
-    //     const maxPrice = selectedPrice[1]
-
-    //     updateList = updateList.filter((item: any) => item.price >= minPrice && item.price <= maxPrice);
-        
-    //     setList(updateList)
-    // }
-
-
-    // useEffect(() => {
-    //     applyFilters()
-    // }, [selectedPrice])
 
     return (
         <>
@@ -69,7 +54,7 @@ export const ThePriceOfTheLesson = ({ data, selectedPrice, setSelectedPrice }: a
                         onChange={handleChange}
                         valueLabelDisplay="auto"
                         getAriaValueText={valuetext}
-                        max={500}
+                        max={1500}
                         color="secondary"
                     /></> : null
                 }

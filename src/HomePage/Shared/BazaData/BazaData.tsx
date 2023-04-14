@@ -1,7 +1,7 @@
 
 import { IData } from "../../Modul/Modul"
 
-export const data: IData[] = [
+export const data = [
     {
         category: 'Xarici Dil',
         data:[

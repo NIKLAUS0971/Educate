@@ -1,5 +1,5 @@
 
-import { IData, IData2 } from "../../Modul/Modul"
+// import { IData, IData2 } from "../../Modul/Modul"
 import { Location } from "../../Shared/icons/Location"
 import { Payment } from "../../Shared/icons/Payment"
 
@@ -7,12 +7,9 @@ import Rectangly111 from '../../Shared/foto/Rectangly111.png'
 import { Star } from "../../Shared/icons/Star"
 
 
-interface ProductProps {
-    data: IData2
-}
 
 
-export function Card(props: ProductProps) {
+export function Card(props: any) {
     console.log(props)
 
     return (

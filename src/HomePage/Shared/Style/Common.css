@@ -1,0 +1,25 @@
+.button_container{
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+    width: 100%;
+}
+.accordion_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 269px;
+    min-height: 62px;
+}
+.accordion{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+.a{
+    height: 30px;
+    width: 100px;
+    border: 1px solid black;
+}

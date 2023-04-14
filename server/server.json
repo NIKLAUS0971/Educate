@@ -1,0 +1,128 @@
+{
+    "data":[
+        {
+            "category": "UX/UI Dizayn",
+            "data":[
+                {
+                    "title": "Adilə Vahubova",
+                    "profetion": "UX/UI Dizayn",
+                    "rating": 5,
+                    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                    "price": 1500,
+                    "location": "Nizami rayon, Cəmşid Naxçıvanski" 
+                },
+                {
+                    "title": "Anastasiya Dubrovskaya",
+                    "profetion": "UX/UI Dizayn",
+                    "rating": 4,
+                    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                    "price": 500,
+                    "location": "Nizami rayon, Cəmşid Naxçıvanski" 
+                },
+                {
+                    "title": "Anastasiya Arxipova",
+                    "profetion": "UX/UI Dizayn",
+                    "rating": 3,
+                    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                    "price": 250,
+                    "location": "Nizami rayon, Cəmşid Naxçıvanski" 
+                } 
+        
+            ]
+                
+        },
+        {
+            "category": "Teachers",
+            "data":[
+                {
+                    "title": "Yevgeniya Novosad",
+                    "profetion": "Teachers",
+                    "rating": 5,
+                    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                    "price": 1000,
+                    "location": "Nizami rayon, Cəmşid Naxçıvanski" 
+                },
+                {
+                    "title": "Yevgeniya Poltoradina",
+                    "profetion": "Teachers",
+                    "rating": 4,
+                    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                    "price": 700,
+                    "location": "Nizami rayon, Cəmşid Naxçıvanski" 
+                },
+                {
+                    "title": "Natasha Shevkanyuk",
+                    "profetion": "Teachers",
+                    "rating": 3,
+                    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                    "price": 350,
+                    "location": "Nizami rayon, Cəmşid Naxçıvanski" 
+                } 
+        
+            ]
+                
+        },
+        {
+            "category": "AvtoProm",
+            "data":[
+                {
+                    "title": "Sabira Alakayeva",
+                    "profetion": "Driver",
+                    "rating": 5,
+                    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                    "price": 900,
+                    "location": "Nizami rayon, Cəmşid Naxçıvanski" 
+                },
+                {
+                    "title": "Rachel Babinskaya",
+                    "profetion": "Driver",
+                    "rating": 4,
+                    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                    "price": 550,
+                    "location": "Nizami rayon, Cəmşid Naxçıvanski" 
+                },
+                {
+                    "title": "Anastasiya",
+                    "profetion": "Driver",
+                    "rating": 3,
+                    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                    "price": 350,
+                    "location": "Nizami rayon, Cəmşid Naxçıvanski" 
+                } 
+        
+            ]
+                
+        },
+        {
+            "category": "Xarici Dil",
+            "data":[
+                {
+                    "title": "Sholpan Ismurzina",
+                    "profetion": "Russian",
+                    "rating": 5,
+                    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                    "price": 800,
+                    "location": "Nizami rayon, Cəmşid Naxçıvanski" 
+                },
+                {
+                    "title": "Monika Belluchi",
+                    "profetion": "Russian",
+                    "rating": 4,
+                    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                    "price": 450,
+                    "location": "Nizami rayon, Cəmşid Naxçıvanski" 
+                },
+                {
+                    "title": "Megan Fox",
+                    "profetion": "Russian",
+                    "rating": 3,
+                    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                    "price": 150,
+                    "location": "Nizami rayon, Cəmşid Naxçıvanski" 
+                } 
+        
+            ]
+                
+        }
+    ]
+}

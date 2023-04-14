@@ -1,75 +1,19 @@
 import { SelectPage } from '../Components/TeachersFilterAll/SelectPage/SelectPage'
-import { data } from '../Shared/BazaData/BazaData'
-import { useState } from 'react'
 import { CollapseFilter } from '../Components/TeachersFilterAll/Filter/Collapse/CollapseFilter'
-import { IData2 } from '../Modul/Modul'
 import { AllCard } from '../Components/TeachersFilterAll/AllCards/AllCard'
 import { EmptiFile } from '../Components/EmptiFile/EmptiFile'
 import { BlackSearch } from '../Shared/icons/BlackSearch'
-import { useEffect } from "react";
+import { SortingArrow } from '../Shared/icons/SortingArrow'
+import { SortDown } from '../Shared/icons/SortDown'
+import { useLogicalAtions } from '../Shared/LogicalActions/LogicalActions'
 import * as React from 'react';
 
 import '../Shared/Style/TeachersFilter.css'
-import { SortingArrow } from '../Shared/icons/SortingArrow'
-import { SortDown } from '../Shared/icons/SortDown'
 
 
 
 export function TeachersFilter() {
-
-    let arrDataList: IData2[] = [];
-    let DataList: IData2[] = data.flatMap((elem: any) => {
-        return elem.data;
-    });
-
-    const [search, setSearch] = useState("")
-    const [list, setList] = useState(DataList);
-    const [sortRating, setSortRating] = useState(false)
-    const [selectedPrice, setSelectedPrice] = React.useState<number[]>([100, 500]);
-
-    const clickIt = (e: any) => {
-        e.preventDefault()
-        arrDataList = DataList.filter(
-            data => data.title.toLowerCase().includes(e.target.search.value.toLowerCase()) ||
-                data.profetion.toLowerCase().includes(e.target.search.value.toLowerCase()))
-    }
-
-
-
-    const applyFilters = () => {
-        let updateList = DataList
-
-        // Search Filter
-        if (search) {
-            updateList = updateList.filter((item: any) => {
-                return search.toLowerCase() === ''
-                    ? item :
-                    item.title.toLowerCase().includes(search.toLowerCase()) ||
-                    item.profetion.toLowerCase().includes(search.toLowerCase());
-            });
-        }
-
-        // Price Filter
-        const minPrice = selectedPrice[0]
-        const maxPrice = selectedPrice[1]
-
-        updateList = updateList.filter((item: any) => item.price >= minPrice && item.price <= maxPrice);
-
-
-        //Rating Filter
-        if (sortRating) {
-            updateList = updateList.sort((a, b) => b.rating - a.rating)
-        }
-
-
-
-        setList(updateList)
-    }
-
-
-    useEffect(() => {
-        applyFilters()
-    }, [selectedPrice, search, sortRating])
+    const { loading, list, sortRating, selectedPrice, search, setSearch, setSortRating, setSelectedPrice, setList } = useLogicalAtions()
 
     return (
         <>
@@ -88,14 +32,13 @@ export function TeachersFilter() {
                         <div className="all_teachers_wrapper">
                             <div className="all_teachers">Müəllimlər</div>
                             <div className="number_of_teachers">
-                            ({list ? (list.length) : null} müəllim)
+                                ({list ? (list.length) : null} müəllim)
                             </div>
                         </div>
-                        <form className="wrapper_for_search_filter" onSubmit={(e) => clickIt(e)}>
+                        <form className="wrapper_for_search_filter" >
                             <label >
                                 <input name="search" value={search} type="text" id="search" className="input_search" placeholder="Axtar" onChange={(e) => setSearch(e.target.value)} />
                             </label>
-
                             <button type="submit" className="inputSearch">
                                 <BlackSearch />
                             </button>
@@ -124,16 +67,13 @@ export function TeachersFilter() {
                             />
                         </ul>
                         <div className='anly_all_card'>
-                            {
-                                list.length === 0 ? <EmptiFile /> :
-                                    list.map((item: any, index: any) => {
-
-                                    return (
-                                        <>
-                                            <AllCard data={item} key={index} />
-                                        </>
-                                    )
-                                })
+                            {loading ? <h1>Loading...</h1> : list.length === 0 ? <EmptiFile /> : list.map((item, index) => {
+                                return (
+                                    <>
+                                        <AllCard data={item} key={index} />
+                                    </>
+                                )
+                            })
                             }
                         </div>
                     </div>

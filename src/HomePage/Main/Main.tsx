@@ -6,12 +6,11 @@ import { Categories } from '../Components/Category/Category'
 import { data } from '../Shared/BazaData/BazaData'
 import { BigIcon } from '../Shared/icons/BigIcon'
 import Slider from "react-slick";
-
-import '../Shared/Style/Style.css'
 import { Search } from '../Shared/icons/Search';
 import { FindeOnTheMap } from '../Components/FindeOnTheMap/FindeOnTheMap';
 import { ShowSlider } from '../Components/Slider/ShowSlider';
 
+import '../Shared/Style/Style.css'
 
 export function Main() {
     return (
