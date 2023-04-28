@@ -41,6 +41,7 @@ export function Main() {
                             <FindeOnTheMap />
                             <Categories data={data[2]} />
                             <Categories data={data[3]} />
+                            
                         </div>
                     </div>
                 </div>

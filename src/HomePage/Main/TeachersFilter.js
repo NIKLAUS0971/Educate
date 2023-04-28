@@ -9,6 +9,8 @@ import { useLogicalAtions } from '../Shared/LogicalActions/LogicalActions'
 import * as React from 'react';
 
 import '../Shared/Style/TeachersFilter.css'
+// import { FilterData } from './Men'
+
 
 
 
@@ -56,6 +58,7 @@ export function TeachersFilter() {
                         </form>
                     </div>
                     <div className="all_cart_and_filter">
+                        
                         <ul className="first_item" >
                             <CollapseFilter
                                 list={list}
@@ -80,6 +83,7 @@ export function TeachersFilter() {
                 </div>
             </div>
             <SelectPage />
+            {/* <FilterData /> */}
         </>
     )
 }

@@ -1,23 +1,86 @@
 import { ThePriceOfTheLesson } from '../FIlterCategory/ThePriceOfTheLesson';
-import { Accordion } from './Accordion';
-import { filterData, icons } from '../../../../Shared/BazaData/filterData';
+import { filterData } from '../../../../Shared/BazaData/filterData';
+import { Subject } from '../FIlterCategory/Subject';
+import { Direction } from '../FIlterCategory/Direction';
+import { District } from '../FIlterCategory/District';
+import { City } from '../FIlterCategory/City';
+import { Territory } from '../FIlterCategory/Territory';
+import { Subway } from '../FIlterCategory/Subway';
+import { TeachingFormat } from '../FIlterCategory/TeachingFormat';
+import { TypeOfStudy } from '../FIlterCategory/TypeOfStudy';
+import { GenderOfTheTeacher } from '../FIlterCategory/GenderOfTheTeacher';
 
 
 
 export const CollapseFilter = ({ list, search, setSearch, setList, selectedPrice, setSelectedPrice, sortRating }) => {
 
 
-    const data = filterData.name.map((item, index) => {
+    const data = filterData.map((item, index) => {
 
-        const Icon = filterData.ic[index]
-
-        return (
-            <>
-                <div className='accordion' >
-                     <Accordion  Icon={<Icon />} data={item.name} />
-                </div>
-            </>
-        )
+        if(index === 0){
+            return(
+                <>
+                    <Subject  data={item.name}/>
+                </>
+            )
+        } else if(index === 1){
+            return(
+                <>
+                <Direction data={item.name}/>
+                </>
+            )
+        }else if(index === 2){
+            return(
+                <>
+                <ThePriceOfTheLesson
+                selectedPrice={selectedPrice}
+                setSelectedPrice={setSelectedPrice}
+                data={item.name}/>
+                </>
+            )
+        }else if(index === 3){
+            return(
+                <>
+                <City data={item.name}/>
+                </>
+            )
+        }else if(index === 4){
+            return(
+                <>
+                <District data={item.name}/>
+                </>
+            )
+        }else if(index === 5){
+            return(
+                <>
+                <Territory data={item.name}/>
+                </>
+            )
+        }else if(index === 6){
+            return(
+                <>
+                <Subway data={item.name}/>
+                </>
+            )
+        }else if(index === 7){
+            return(
+                <>
+                <TeachingFormat data={item.name}/>
+                </>
+            )
+        }else if(index === 8){
+            return(
+                <>
+                <TypeOfStudy data={item.name}/>
+                </>
+            )
+        }else if(index === 9){
+            return(
+                <>
+                <GenderOfTheTeacher data={item.name}/>
+                </>
+            )
+        }
     })
     return (
         <>
@@ -31,10 +94,7 @@ export const CollapseFilter = ({ list, search, setSearch, setList, selectedPrice
     }
 
 
-    // export function useYourState(){
-    //     const Icon = filterData.ic[index]
-    //     return{Icon}
-    // }
+  
 
 
 

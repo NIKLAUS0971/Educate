@@ -14,40 +14,22 @@ function valuetext(value: number) {
 
 export const ThePriceOfTheLesson = ({ selectedPrice, setSelectedPrice, data }: any) => {
 
-    const [isOpen, setIsOpen] = useState(false)
-    const [mouseover, setMouseover] = useState(false)
-    // const [selectedPrice, setSelectedPrice] = React.useState<number[]>([100, 500]);
-
     const handleChange = (event: Event, newValue: number | number[]) => {
         setSelectedPrice(newValue as number[]);
     };
-
-    const ChangeDownIconColor = {
-        transform: isOpen ? 'rotate(180deg)' : '',
-        transition: 'transform 180ms ease',
-        fill: isOpen ? '#663FD7' : mouseover ? '#663FD7' : ''
-    }
-    const ChangeIconColor = {
-        fill: isOpen ? '#663FD7' : mouseover ? '#663FD7' : ''
-    }
-    const ChangeDataTextColor = {
-        color: isOpen ? '#663FD7' : mouseover ? '#663FD7' : ''
-    }
 
 
     return (
         <>
 
             <div className="container_for_under_line">
-                <button onMouseOver={() => setMouseover(true)} onMouseLeave={() => setMouseover(false)} className="icons_bautton_container" onClick={() => setIsOpen(!isOpen)} type="button" >
+                <div className="icons_bautton_container">
                     <div className="click_open_filter_category">
-                        <PriceFilter style={ChangeIconColor} />
-                        <div style={ChangeDataTextColor} >{data}</div>
+                        <PriceFilter />
+                        <div>{data}</div>
                     </div>
-                    <Down style={ChangeDownIconColor} />
-                </button>
-                {
-                    isOpen ? <><Slider
+                </div>
+                <Slider
                         getAriaLabel={() => 'Temperature range'}
                         value={selectedPrice}
                         name="price"
@@ -56,8 +38,7 @@ export const ThePriceOfTheLesson = ({ selectedPrice, setSelectedPrice, data }: a
                         getAriaValueText={valuetext}
                         max={1500}
                         color="secondary"
-                    /></> : null
-                }
+                    />
 
             </div>
 

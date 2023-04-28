@@ -19,6 +19,7 @@ function App() {
         <Header /> 
       </div>
       <div>
+        
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='teachers' element={<TeachersFilter />} />

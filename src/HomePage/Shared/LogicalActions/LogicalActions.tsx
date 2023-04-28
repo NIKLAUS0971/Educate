@@ -10,6 +10,12 @@ export function useLogicalAtions(){
     const [list, setList] = useState(dataList);
     const [sortRating, setSortRating] = useState(false)
     const [selectedPrice, setSelectedPrice] = React.useState<number[]>([100, 500]);
+  
+
+
+  
+
+
 
 
 
@@ -20,6 +26,7 @@ export function useLogicalAtions(){
             const newResponse = response.data.flatMap((item: any) => {
                 return item.data
             })
+
             setDataList(newResponse);
             setList(newResponse);
             setLoading(false)
