@@ -729,10 +729,6 @@ li {
     background: #F8FAFF;
 }
 
-.tabs_toggle.is-active {
-    border: 1px solid #7F5AF0;
-    color: #7F5AF0;
-}
 
 /* all_cart_and_filter */
 .all_cart_and_filter {

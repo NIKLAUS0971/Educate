@@ -12,8 +12,7 @@
                         "price": 1500,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "availableSpace": true,
-                        "checked": false  
+                        "availableSpace": "true" 
                     },
                     {"id":2,
                         "title": "Kamalə Piriyeva",
@@ -23,8 +22,7 @@
                         "price": 1000,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "availableSpace": false,
-                        "checked": false     
+                        "availableSpace": "false" 
                     },
                     {"id": 3,
                         "title": "Piter Parker",
@@ -34,8 +32,7 @@
                         "price": 1500,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Kişi",
-                        "availableSpace": true,
-                        "checked": false     
+                        "availableSpace": "true" 
                     },
                     {"id":4,
                         "title": "Larisa Nataliyevna",
@@ -45,8 +42,7 @@
                         "price": 1100,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "availableSpace": false,
-                        "checked": false    
+                        "availableSpace": "false"
                     },
                     {"id":5,
                         "title": "Şmatko Dmitriy",
@@ -56,8 +52,7 @@
                         "price": 1000,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Kişi",
-                        "availableSpace": true,
-                        "checked": false     
+                        "availableSpace": "true" 
                     },
                     {"id":6,
                         "title": "İvan Petrov",
@@ -67,8 +62,7 @@
                         "price": 900,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Kişi",
-                        "availableSpace": false,
-                        "checked": false     
+                        "availableSpace": "false" 
                     }  
             
                 ]
@@ -85,8 +79,7 @@
                         "price": 800,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "availableSpace": false,
-                        "checked": false    
+                        "availableSpace": "false"
                     },
                     {"id":8,
                         "title": "İsmurzina Şolpan",
@@ -96,8 +89,7 @@
                         "price": 700,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "availableSpace": true,
-                        "checked": false     
+                        "availableSpace": "true" 
                     },
                     {"id":9,
                         "title": "Sergey Rogoşkin",
@@ -107,8 +99,7 @@
                         "price": 600,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Kişi",
-                        "availableSpace": true,
-                        "checked": false     
+                        "availableSpace": "true" 
                     },
                     {"id":10,
                         "title": "Qulnar Sdanisovna",
@@ -118,8 +109,7 @@
                         "price": 500,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "availableSpace": false,
-                        "checked": false    
+                        "availableSpace": "false"
                     },
                     {"id":11,
                         "title": "Mr. Poliglot",
@@ -129,8 +119,7 @@
                         "price": 400,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Kişi",
-                        "availableSpace": true,
-                        "checked": false     
+                        "availableSpace": "true" 
                     },
                     {"id":12,
                         "title": "Nina Dobrev",
@@ -140,8 +129,7 @@
                         "price": 300,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "availableSpace": true,
-                        "checked": false     
+                        "availableSpace": "true" 
                     }  
             
                 ]
@@ -158,8 +146,7 @@
                         "price": 200,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "availableSpace": false,
-                        "checked": false    
+                        "availableSpace": "false"
                     },
                     {"id":14,
                         "title": "Alakayeva Umit",
@@ -169,8 +156,7 @@
                         "price": 100,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "availableSpace": true,
-                        "checked": false     
+                        "availableSpace": "true" 
                     },
                     {"id":15,
                         "title": "Alakayeva Dana",
@@ -180,8 +166,7 @@
                         "price": 350,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "availableSpace": true,
-                        "checked": false     
+                        "availableSpace": "true" 
                     },
                     {"id":16,
                         "title": "Alakayeva Aysel",
@@ -191,8 +176,7 @@
                         "price": 550,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "availableSpace": false,
-                        "checked": false    
+                        "availableSpace": "false"
                     },
                     {"id":17,
                         "title": "Alakayeva Dina",
@@ -202,8 +186,7 @@
                         "price": 650,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "availableSpace": true,
-                        "checked": false     
+                        "availableSpace": "true" 
                     },
                     {"id":18,
                         "title": "Alakayeva Madina",
@@ -213,8 +196,7 @@
                         "price": 750,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "availableSpace": false,
-                        "checked": false     
+                        "availableSpace": "false"  
                     }  
             
                 ]

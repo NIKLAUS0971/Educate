@@ -15,7 +15,42 @@ body {
     width: 79px;
     height: 40px;
 }
-
+.drob_down_new_class{
+     position: relative;
+    width: 100px;
+    border: 1px solid #DBE4EC;
+    border-radius: 5px;
+    width: 79px;
+    height: 40px;
+}
+.just_down_new_class{
+    z-index: 1;
+    left: 200px;    
+}
+.drob_down_new_class .drob_down_btn_new_class{
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-radius: 5px;
+    color: #464D54;
+    width: 79px;
+    height: 40px;
+    box-sizing: border-box;
+}
+.drob_down_new_class .drob_down_content_new_class{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    border: none;
+    position: absolute;
+    cursor: pointer;
+    top: -1px;
+    width: 79px;
+    height: 83px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
 .dropdown .dropdown-btn {
     display: flex;
     justify-content: space-between;
@@ -26,8 +61,10 @@ body {
     width: 79px;
     height: 40px;
     box-sizing: border-box;
-    
+
 }
+
+
 
 .dropdown .dropdown-content {
     position: absolute;
@@ -41,27 +78,50 @@ body {
     box-sizing: border-box;
 }
 
-.JustDown{
+.JustDown {
     position: absolute;
     z-index: 1;
     left: 44px;
 }
 
-.dropdown-item{
+.dropdown-item {
     padding: 10px 0 12px 15px;
     height: 41px;
     color: #6C757D;
     box-sizing: border-box;
+    transition: all ease .20s;
 }
-
-.line_lenguage{
+.dropdown-item:hover{
+    align-items: center;
+    padding: 12px 16px;
+    width: 76px;
+    height: 40px;
+    background: #F7F9FF;
+    border-radius: 5px;
+    transition: all ease .20s;
+}
+.dropdown_item_hover{
+    display: flex;
+    justify-content: none;
+}
+.dropdown_item_hover:hover{
+    align-items: center;
+    padding: 12px 16px;
+    width: 229px;
+    height: 44px;
+    background: #F7F9FF;
+    transition: all ease .20s;
+}
+.line_lenguage {
     position: absolute;
     width: 77px;
     bottom: 41px;
 }
-.down_lenguage{
+
+.down_lenguage {
     z-index: 3;
 }
+
 /* first modal */
 
 .modal {

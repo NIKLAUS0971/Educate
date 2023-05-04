@@ -13,7 +13,6 @@ function valuetext(value: number) {
 }
 
 export const ThePriceOfTheLesson = ({ selectedPrice, setSelectedPrice, data }: any) => {
-
     const handleChange = (event: Event, newValue: number | number[]) => {
         setSelectedPrice(newValue as number[]);
     };
