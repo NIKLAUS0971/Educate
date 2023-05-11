@@ -4,8 +4,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { SliderDataArr } from './SliderDataArr';
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export const SimpleSlider = () => {
+
+  const navigate = useNavigate()
 
   const settings = {
     infinite: true,
@@ -42,9 +46,10 @@ export const SimpleSlider = () => {
   return (
     <Slider {...settings}>
       {SliderDataArr.map((item, index) => (
-        <div className='card' >
+        <div className='card' onClick={() => navigate(`/catalog/${item.name}`)}>
           <div className='card-top ' key={index}>
-            <img src={item.card} />
+            <img className="category_cards" src={item.card} />
+            <span className="card_name" >{item.name}</span>
           </div>
         </div>
       ))}

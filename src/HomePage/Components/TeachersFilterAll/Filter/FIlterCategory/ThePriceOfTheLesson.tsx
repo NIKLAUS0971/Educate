@@ -1,18 +1,19 @@
-import { useState } from "react"
-import { Down } from "../../../../Shared/icons/Down"
+
 import { PriceFilter } from "../../../../Shared/icons/PriceFilter"
 import Slider from '@mui/material/Slider';
 import * as React from 'react';
-import { useEffect } from "react";
-
+import { useContext } from "react";
 import '../../../../Shared/Style/TeachersFilter.css'
+import { CustomContext } from "../../../../Shared/Context/Context";
 
 
 function valuetext(value: number) {
     return `${value}°C`;
 }
 
-export const ThePriceOfTheLesson = ({ selectedPrice, setSelectedPrice, data }: any) => {
+export const ThePriceOfTheLesson = ({data}: any) => {
+    const {selectedPrice, setSelectedPrice} = useContext(CustomContext)
+    
     const handleChange = (event: Event, newValue: number | number[]) => {
         setSelectedPrice(newValue as number[]);
     };

@@ -10,7 +10,7 @@ import { Star } from "../../Shared/icons/Star"
 
 
 export function Card(props: any) {
-    console.log(props)
+
 
     return (
         <div className="carts cart1">

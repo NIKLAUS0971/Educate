@@ -1,18 +1,53 @@
-
-
-
-
+import axios from 'axios';
 import { Categories } from '../Components/Category/Category'
-import { data } from '../Shared/BazaData/BazaData'
 import { BigIcon } from '../Shared/icons/BigIcon'
-import Slider from "react-slick";
 import { Search } from '../Shared/icons/Search';
-import { FindeOnTheMap } from '../Components/FindeOnTheMap/FindeOnTheMap';
-import { ShowSlider } from '../Components/Slider/ShowSlider';
+import { useEffect, useState } from 'react'
 
 import '../Shared/Style/Style.css'
 
+
 export function Main() {
+
+    const [dizayn, setDizayn] = useState([])
+    const [lenguage, setLenguage] = useState([])
+    const [it, setIt] = useState([])
+    
+
+    const fetchDataDizayn = async () => {
+        await axios.get(`http://localhost:3005/data?_limit=3`)
+            .then(({ data }) => {
+                data = data.filter(item=>item.category)
+                const  response = data.filter(val=>val.category == "Dizayn")
+                setDizayn(response)
+                // setDizayn(it)
+            })
+    }
+    const fetchDataLenguage = async () => {
+        await axios.get(`http://localhost:3005/data?_start=9&_limit=3`)
+            .then(({ data }) => {
+                data = data.filter(item=>item.category)
+                const  response = data.filter(val=>val.category == "Dillər")
+                setLenguage(response)
+            })
+    }
+    const fetchDataIt = async () => {
+        await axios.get(`http://localhost:3005/data?_start=13&_limit=3`)
+            .then(({ data }) => {
+                data = data.filter(item=>item.category)
+                const  response = data.filter(val=>val.category == "IT")
+                setIt(response)
+            })
+    }
+   
+ 
+    useEffect(() => {
+        fetchDataDizayn()
+        fetchDataLenguage()
+        fetchDataIt()
+    }, [])
+
+
     return (
         <>
             <div className="wrapper_banner_wrapper">
@@ -35,13 +70,7 @@ export function Main() {
                 <div className="container">
                     <div className="everifthing_abot_cart_is_inside">
                         <div className="wrapper_cart">
-                            <Categories data={data[0]} />
-                            <Categories data={data[1]} />
-                            <ShowSlider/>
-                            <FindeOnTheMap />
-                            <Categories data={data[2]} />
-                            <Categories data={data[3]} />
-                            
+                            <Categories data={dizayn} lenguage={lenguage} it={it}/>
                         </div>
                     </div>
                 </div>

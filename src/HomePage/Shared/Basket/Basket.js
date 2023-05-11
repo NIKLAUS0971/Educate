@@ -1,34 +1,39 @@
-import { CustomContext } from "../../../Shared/Context/Context"
-import Rectangly111 from "../../../Shared/foto/Rectangly111.png"
-import { AddItemToBasket } from "../../../Shared/icons/AddItemToBasket"
-import { RatingStart } from "../../../Shared/icons/RatingStar"
-import { EmptiFile } from "../../EmptiFile/EmptiFile"
-import {useContext, useState} from 'react'
+import React, { useContext } from 'react'
+import { CustomContext } from '../Context/Context'
+import { RatingStart } from '../icons/RatingStar'
+import { NoFavorite } from '../icons/NoFavorite'
+// import Rectangly111 from "../../../Shared/foto/Rectangly111.png"
 
 
 
 
 
-export function AllCard({ coinsData, loading }: any) {
-    const {addBasket} = useContext(CustomContext)
-    const [active, setActive]= useState(false)
-
-    const changeFillSaveBatton = {
-        fill: active? "#663FD7" : "#616E7A"
-    }
-
+export const Basket = () => {
+    const { basket} = useContext(CustomContext)
     return (
         <>
-            <div className='anly_all_card' >
-                {loading ? <h1>Loading...</h1>
-                    : coinsData.length === 0 ?
-                        <EmptiFile /> : coinsData.map((item: any, index: any) => {
+       
+         <div className="banner_banner_wrapper">
+                <div className="container">
+                    <div className="wrapper_inside_history_back">
+                        <a className="Home_page" href="../index.html">Ana səhifə</a>
+                        <p className="className">/</p>
+                        <p className="className">Müəllimlər</p>
+                    </div>
+                </div>
+            </div>
+            <div className="banner_wrapper">
+                <div className="container">
+                    <div className='favorites_card' style={{margin: '36px 0 30px 0'}}>Sevimlilər</div>
+                    <div className="all_cart_and_filter all_cart_and_filter_save_favorites " style={{flexWrap: "wrap", gap: "21px"}}>
+                    { basket.length === 0 ? <NoFavorite />: 
+                     basket.map((item, index) => {
                             return (
                                 <>
                                     <div className="carts cart1">
                                         <div className="information_about_teacher">
                                             <div className="foto_information_and_icon_teacher">
-                                                <img src={Rectangly111} alt="" />
+                                                {/* <img src={Rectangly111} alt="" /> */}
                                                 <a href="../our progect/Teachers card/Teachers card.html" className="foto_information_teacher">
                                                     <div className="foto_teacher">
 
@@ -38,14 +43,10 @@ export function AllCard({ coinsData, loading }: any) {
                                                         <p className="about_teacher_job">{item.profetion}</p>
                                                     </div>
                                                 </a>
-                                                <div  onClick={() => addBasket(item, setActive(!active))}>
-                                                    <AddItemToBasket />
-                                                </div>
                                             </div>
                                             <div className="wrapper_rating">
                                                 <div className="rating">
                                                     <p className="rating_number">{item.rating} <RatingStart /></p>
-
                                                 </div>
                                             </div>
                                             <a href="../our progect/Teachers card/Teachers card.html" className="wrapper_about_price_location_and_litle_about_teacher">
@@ -71,7 +72,10 @@ export function AllCard({ coinsData, loading }: any) {
                             )
                         })
                 }
+                    </div>
+                </div>
             </div>
+           
         </>
     )
 }

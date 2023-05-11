@@ -19,8 +19,8 @@ export const AvailableSpace = ({ handleFirstAvailableSpace, handleSecondAvailabl
 
     return (
         <div className="tabs_head">
-            <button className="tab1 tabs_toggle is-active" type='button' style={secondAvailableStyle} onClick={() => handleSecondAvailableSpace('false', setAvailable(!available))}>Hamısı</button>
-            <button className="tab2 tabs_toggle" type='button' style={firstAvailableStyle} onClick={() => handleFirstAvailableSpace('true', setAvailable(!available))}>Yer olan</button>
+            <button className="tab1 tabs_toggle is-active" type='button' style={secondAvailableStyle} onClick={() => handleSecondAvailableSpace('everyBody', setAvailable(false))}>Hamısı</button>
+            <button className="tab2 tabs_toggle" type='button' style={firstAvailableStyle} onClick={() => handleFirstAvailableSpace('true', setAvailable(true))}>Yer olan</button>
         </div>
     )
 }

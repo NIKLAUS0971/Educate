@@ -11,16 +11,14 @@ import { TypeOfStudy } from '../FIlterCategory/TypeOfStudy';
 import { GenderOfTheTeacher } from '../FIlterCategory/GenderOfTheTeacher';
 
 
-
-export const CollapseFilter = ({ list, search, setSearch, setList, selectedPrice, setSelectedPrice, sortRating }) => {
-
-
+export const CollapseFilter = ({handleChooseSubject, value1}) => {
+    
     const data = filterData.map((item, index) => {
 
         if(index === 0){
             return(
                 <>
-                    <Subject  data={item.name}/>
+                    <Subject value1={value1} handleChooseSubject={handleChooseSubject} data={item.name}/>
                 </>
             )
         } else if(index === 1){
@@ -32,10 +30,7 @@ export const CollapseFilter = ({ list, search, setSearch, setList, selectedPrice
         }else if(index === 2){
             return(
                 <>
-                <ThePriceOfTheLesson
-                selectedPrice={selectedPrice}
-                setSelectedPrice={setSelectedPrice}
-                data={item.name}/>
+                <ThePriceOfTheLesson data={item.name}/>
                 </>
             )
         }else if(index === 3){
@@ -77,7 +72,9 @@ export const CollapseFilter = ({ list, search, setSearch, setList, selectedPrice
         }else if(index === 9){
             return(
                 <>
-                <GenderOfTheTeacher data={item.name}/>
+                    <div key={item.id}>
+                        <GenderOfTheTeacher data={item.name}/>
+                    </div>
                 </>
             )
         }

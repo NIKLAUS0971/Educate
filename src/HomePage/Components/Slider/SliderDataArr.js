@@ -1,22 +1,23 @@
-import BlueCard from '../../Shared/foto/BlueCard.png'
-import GreenCard from '../../Shared/foto/GreenCard.png'
-import OrangeCard from '../../Shared/foto/OrangeCard.png'
-import PerperCard from '../../Shared/foto/PerperCard.png'
+import VioletNew from '../../Shared/foto/VioletNew.png'
+import GreenNew from '../../Shared/foto/GreenNew.png'
+import OrangeNew from '../../Shared/foto/OrangeNew.png'
+import BlueNew from '../../Shared/foto/BlueNew.png'
 
 export const SliderDataArr = [
     {
-        card:[BlueCard]
+        card:[VioletNew],
+        name: 'Dizayn'
     },
     {
-        card:[PerperCard]
+        card:[GreenNew],
+        name: 'Dillər'
     },
     {
-        card:[GreenCard]
+        card:[OrangeNew],
+        name: 'IT'
     },
     {
-        card:[OrangeCard]
+        card:[BlueNew],
+        name: 'Musiqi'
     },
-    {
-        card:[PerperCard]
-    }
 ]
