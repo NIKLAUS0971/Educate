@@ -2,18 +2,30 @@ import axios from 'axios';
 import { Categories } from '../Components/Category/Category'
 import { BigIcon } from '../Shared/icons/BigIcon'
 import { Search } from '../Shared/icons/Search';
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
+import { CustomContext } from '../Shared/Context/Context';
+
 
 import '../Shared/Style/Style.css'
+import { useNavigate } from 'react-router-dom';
+
 
 
 export function Main() {
+    
+    const navigate = useNavigate();
+    const {
+        search,
+        setDataList,
+        setSearch,
+        handleSearch
+    } = useContext(CustomContext)
+
 
     const [dizayn, setDizayn] = useState([])
     const [lenguage, setLenguage] = useState([])
     const [it, setIt] = useState([])
     
-
     const fetchDataDizayn = async () => {
         await axios.get(`http://localhost:3005/data?_limit=3`)
             .then(({ data }) => {
@@ -23,6 +35,7 @@ export function Main() {
                 // setDizayn(it)
             })
     }
+    console.log(search);
     const fetchDataLenguage = async () => {
         await axios.get(`http://localhost:3005/data?_start=9&_limit=3`)
             .then(({ data }) => {
@@ -35,12 +48,11 @@ export function Main() {
         await axios.get(`http://localhost:3005/data?_start=13&_limit=3`)
             .then(({ data }) => {
                 data = data.filter(item=>item.category)
-                const  response = data.filter(val=>val.category == "IT")
+                const  response = data.filter(val=>val.category == "İT")
                 setIt(response)
             })
     }
-   
- 
+  
     useEffect(() => {
         fetchDataDizayn()
         fetchDataLenguage()
@@ -48,6 +60,17 @@ export function Main() {
     }, [])
 
 
+    const handleSubmit = async (e) =>{
+        e.preventDefault()
+         await axios.get(`http://localhost:3005/data?q=${search}`)
+            .then(({ data }) => {
+                    setDataList(data)
+                    setSearch('')
+                    
+            })
+            navigate(`/teachers/${search}`)
+        
+    };
     return (
         <>
             <div className="wrapper_banner_wrapper">
@@ -55,10 +78,10 @@ export function Main() {
                     <div className="everithing_is_inside">
                         <div className="body">Tələbələrin <a className="repetitors" href="#">repetitorlarla</a> görüşdüyü yer.</div>
                         <div className="search_repetitor_wrapper">
-                            <form action="">
+                            <form action="" onSubmit={handleSubmit}>
                                 <div className="search_repetitor_search">
-                                    <input className="search_repetitor" type="text" placeholder="Repetitor axtar" />
-                                    <button className="btn_for_search_repetitor"><Search /></button>
+                                    <input value={search} onChange={(e)=> setSearch(e.target.value)} className="search_repetitor" type="text" placeholder="Repetitor axtar" />
+                                    <button className="btn_for_search_repetitor" type='submit'><Search /></button>
                                 </div>
                             </form>
                         </div>

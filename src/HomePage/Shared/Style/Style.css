@@ -797,6 +797,9 @@ li {
     font-weight: 500;
     font-size: 16px;
     color: #6C757D;
+    border: none;
+    background: none;
+    cursor: pointer;
     transition: width 100s;
 
 }
@@ -1040,6 +1043,7 @@ li {
 .card-top {
     display: flex;
     margin-left: 8px;
+    width: 252px;
 }
 
 .favorites_card {
@@ -1051,7 +1055,8 @@ li {
 
 .all_cart_and_filter_save_favorites {
     position: relative;
-    min-height: 450px;
+    display: flex;
+    min-height: 284px;
 }
 
 .no_favorites_new_class_ {
@@ -1063,7 +1068,7 @@ li {
 
 .category_cards {
     position: relative;
-    width: 262px;
+    width: 252px;
     height: 180px;
 }
 
@@ -1079,7 +1084,7 @@ li {
     z-index: 1;
     padding: 132px 0 21px 23px;
     box-sizing: border-box;
-    width: 24.3%;
+    width: 23.3%;
     position: absolute;
     transition: all ease 0.20s;
     cursor: pointer;

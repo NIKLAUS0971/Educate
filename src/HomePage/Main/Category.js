@@ -3,11 +3,10 @@ import React, { useContext } from "react"
 import { useState, useEffect } from 'react'
 import { CustomContext } from "../Shared/Context/Context"
 import { SliderDataArr } from "../Components/Slider/SliderDataArr"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 export function Category() {
     const navigate = useNavigate()
-
 
     return (
         <>
@@ -22,12 +21,12 @@ export function Category() {
             </div>
             <div className="banner_wrapper">
                 <div className="container">
-                    <div className='favorites_card' style={{ margin: '36px 0 30px 0' }}>Kategoriyalar</div>
-                    <div className="all_cart_and_filter all_cart_and_filter_save_favorites " style={{ flexWrap: "wrap", gap: "24px" }}>
+                    <div className='favorites_card' onClick={()=>navigate('category')} style={{ margin: '36px 0 30px 0' }}>Kategoriyalar</div>
+                    <div className="all_cart_and_filter all_cart_and_filter_save_favorites " style={{ flexWrap: "wrap", gap: "24px",justifyContent:'start'}}>
                         {SliderDataArr.map((item, index) => (
-                            <div className='card' style={{width:'252px'}} onClick={() => navigate(`/catalog/${item.name}`)}>
-                                <div className='card-top ' key={index}>
-                                    <img className="category_cards" src={item.card} />
+                            <div className='card'  onClick={() => navigate(`/catalog/${item.name}`)}>
+                                <div className='card-top ' style={{ marginLeft:"0"}} key={index}>
+                                    <img className="category_cards"  src={item.card} />
                                     <span className="card_name" >{item.name}</span>
                                 </div>
                             </div>

@@ -25,7 +25,7 @@ export const Basket = () => {
             <div className="banner_wrapper">
                 <div className="container">
                     <div className='favorites_card' style={{margin: '36px 0 30px 0'}}>Sevimlilər</div>
-                    <div className="all_cart_and_filter all_cart_and_filter_save_favorites " style={{flexWrap: "wrap", gap: "21px"}}>
+                    <div className=" all_cart_and_filter_save_favorites " style={{flexWrap: "wrap", gap: "21px"}}>
                     { basket.length === 0 ? <NoFavorite />: 
                      basket.map((item, index) => {
                             return (

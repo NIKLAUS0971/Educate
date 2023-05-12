@@ -93,8 +93,9 @@ export const Context = (props) => {
         e.preventDefault()
         return await axios.get(`http://localhost:3005/data?q=${search}`)
             .then(({ data }) => {
-                setDataList(data)
-                setSearch('')
+                    setDataList(data)
+                    setSearch('')
+                    
             })
     }
 
@@ -161,17 +162,17 @@ export const Context = (props) => {
 
     }
 
-const [value1, setValue1] = useState(false)
+    const [value1, setValue1] = useState(false)
 
     const handleChooseSubject = async () => {
         return await axios.get(`http://localhost:3005/data`)
             .then(({ data }) => {
                 data = data.filter((item, index) => {
-                    if(item.category === 'Dizayn'){
-                        return setValue1() 
-                    }else if(item.category === 'Dillər'){
+                    if (item.category === 'Dizayn') {
+                        return setValue1()
+                    } else if (item.category === 'Dillər') {
                         return item.category
-                    }else if(item.category === 'IT'){
+                    } else if (item.category === 'IT') {
                         return item.category
                     }
                 })
@@ -181,7 +182,6 @@ const [value1, setValue1] = useState(false)
 
             })
     }
-
 
     const value = {
         selectedPrice,
@@ -215,8 +215,9 @@ const [value1, setValue1] = useState(false)
         handleRangePriceSlider,
         handleChooseSubject,
         addBasket,
+        handleSearch,
         options,
-        
+
     }
 
     useEffect(() => {

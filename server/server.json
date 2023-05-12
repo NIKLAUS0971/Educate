@@ -165,7 +165,7 @@
                         "price": 200,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "category": "IT",
+                        "category": "İT",
                         "availableSpace": "false",
                         "everyPerson": "everyBody" 
                     },
@@ -178,7 +178,7 @@
                         "price": 100,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "category": "IT",
+                        "category": "İT",
                         "availableSpace": "true",
                         "everyPerson": "everyBody" 
                     },
@@ -191,7 +191,7 @@
                         "price": 350,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "category": "IT",
+                        "category": "İT",
                         "availableSpace": "true",
                         "everyPerson": "everyBody" 
                     },
@@ -204,7 +204,7 @@
                         "price": 550,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "category": "IT",
+                        "category": "İT",
                         "availableSpace": "false",
                         "everyPerson": "everyBody" 
                     },
@@ -217,7 +217,7 @@
                         "price": 650,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "category": "IT",
+                        "category": "İT",
                         "availableSpace": "true",
                         "everyPerson": "everyBody" 
                     },
@@ -230,7 +230,7 @@
                         "price": 750,
                         "location": "Nizami rayon, Cəmşid Naxçıvanski",
                         "gender": "Qadın",
-                        "category": "IT",
+                        "category": "İT",
                         "availableSpace": "false",
                         "everyPerson": "everyBody"   
                     }  

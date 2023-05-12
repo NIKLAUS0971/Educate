@@ -14,7 +14,15 @@ export const SliderDataArr = [
     },
     {
         card:[OrangeNew],
-        name: 'IT'
+        name: 'İT'
+    },
+    {
+        card:[BlueNew],
+        name: 'Musiqi'
+    },
+    {
+        card:[OrangeNew],
+        name: 'İT'
     },
     {
         card:[BlueNew],

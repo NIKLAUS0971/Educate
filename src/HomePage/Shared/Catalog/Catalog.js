@@ -36,7 +36,6 @@ export const Catalog = () => {
     const { category } = useParams()
 
 
-
     // Logicals and useStates for pagination
     const [dataList, setDataList] = useState([])
     const [currentPage, setCurrentPage] = useState(1)

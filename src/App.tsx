@@ -30,7 +30,6 @@ function App() {
           <Route path='contact' element={<Contact />} />
           <Route path='basket' element={<Basket />} />
           <Route path='/catalog/:category' element={<Catalog />} />
-          
         </Routes>
       </div>
       <div>
