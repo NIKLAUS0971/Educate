@@ -16,9 +16,9 @@ import '../Shared/Style/TeachersFilter.css'
 
 
 
-export function TeachersFilter() {
 
-    const { 
+export function TeachersFilter() {
+    const {
         value1,
         selectedPrice,
         dataList,
@@ -43,7 +43,6 @@ export function TeachersFilter() {
         handleChooseSubject,
         options
     } = useContext(CustomContext)
-    
 
     useEffect(() => {
         fetchData()
@@ -52,7 +51,6 @@ export function TeachersFilter() {
     useEffect(() => {
         handleRangePriceSlider()
     }, [selectedPrice])
-    
 
     return (
         <>
@@ -75,17 +73,19 @@ export function TeachersFilter() {
                             </div>
                         </div>
                         <div className="wrapper_for_search_filter">
-                           < NewInp search={search} setSearch={setSearch} handleSearch={handleSearch}/>
+                            < NewInp search={search} setSearch={setSearch} handleSearch={handleSearch} />
                             <div className="tabs">
                                 <AvailableSpace handleFirstAvailableSpace={handleFirstAvailableSpace} handleSecondAvailableSpace={handleSecondAvailableSpace} />
 
 
                                 <div className="drob_down_new_class drob_down_new_class2" style={{ width: '229px', display: 'flex', justifyContent: "center", border: 'none' }}>
-                                    <div className=" drob_down_btn_new_class" onClick={(e) => {
+                                    <div className=" drob_down_btn_new_class" style={{display:'flex', alignItems:'center'}} onClick={(e) => {
                                         setIsActive(!isActive)
                                     }}>
-                                        <SortingArrow style={rotate} />
-                                        <span className='classHover'>{item}</span>
+                                        <div style={{display:'flex', alignItems:'center', gap:'10px', width:'100%'}}>
+                                            <SortingArrow />
+                                            <span className='classHover'>{item}</span>
+                                        </div>
                                         <JustDownNewClass style={rotate} />
                                     </div>
                                     {
@@ -121,7 +121,7 @@ export function TeachersFilter() {
                     </div>
                     <div className="all_cart_and_filter">
                         <ul className="first_item" >
-                            <CollapseFilter handleChooseSubject={handleChooseSubject} value1={value1}/>
+                            <CollapseFilter handleChooseSubject={handleChooseSubject} value1={value1} />
                         </ul>
                         <AllCard coinsData={currentPosts} loading={loading} />
                     </div>
@@ -131,4 +131,3 @@ export function TeachersFilter() {
         </>
     )
 }
-    

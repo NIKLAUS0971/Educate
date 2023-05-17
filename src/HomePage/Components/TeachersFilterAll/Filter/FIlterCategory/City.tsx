@@ -1,47 +1,52 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { CityFilter } from "../../../../Shared/icons/CityFilter"
 import { Down } from "../../../../Shared/icons/Down"
 import { dataForCheckBox } from "../../../../Shared/BazaData/filterData"
+import { CustomContext } from "../../../../Shared/Context/Context"
 
 export const City = ({ data }: any) => {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isActive, setIsActive] = useState(false)
     const [mouseover, setMouseover] = useState(false)
+    const [item, setSelectItem] = useState("Şəhər")
 
- 
+    const {HandleSelectSity} = useContext(CustomContext)
+
 
     const ChangeDownIconColor = {
-        transform: isOpen ? 'rotate(180deg)' : '',
+        transform: isActive ? 'rotate(180deg)' : '',
         transition: 'transform 500ms ease',
-        fill: isOpen ? '#663FD7' : mouseover ? '#663FD7' : ''
+        fill: isActive ? '#663FD7' : mouseover ? '#663FD7' : ''
     }
     const ChangeIconColor = {
-        fill:  isOpen ? '#663FD7' : mouseover ? '#663FD7' : ''
+        fill: isActive ? '#663FD7' : mouseover ? '#663FD7' : ''
     }
     const ChangeDataTextColor = {
-        color: isOpen ? '#663FD7' : mouseover ? '#663FD7' : ''
+        color: isActive ? '#663FD7' : mouseover ? '#663FD7' : ''
     }
     return (
         <>
-            <div className="container_for_under_line">
-                <button onMouseOver={() => setMouseover(true)} onMouseLeave={() => setMouseover(false)} className="icons_bautton_container" onClick={() => setIsOpen(!isOpen)} type="button" >
+            <div className="container_for_under_line" >
+                <div className="icons_bautton_container" onMouseOver={() => setMouseover(true)} onMouseLeave={() => setMouseover(false)} onClick={(e) => { setIsActive(!isActive) }}>
                     <div className="click_open_filter_category">
-                        <CityFilter style={ChangeIconColor } />
-                        <div style={ChangeDataTextColor }>{data}</div>
+                        <CityFilter style={ChangeIconColor} />
+                        <div style={ChangeDataTextColor}>{item}</div>
                     </div>
-                    <Down style={ChangeDownIconColor}/>
-                </button>
+                    <Down style={ChangeDownIconColor} />
+                </div>
                 {
-                    dataForCheckBox[2].map((item) => {
-                        return (
-                            isOpen ? <><form className="filter_category_form">
-                                <label className="label_filter">
-                                    <input type="checkbox" />
-                                    <span className='filter_text'>{item.name}</span>
-                                </label>
-                            </form>
-                            </> : null
-                        )
-                    })
+                    isActive && (
+                        <div className="dropdown-content drob_down_content_new_class" style={{ width: '100%', marginBottom:'24px'}}>
+                            {dataForCheckBox[2].map((option, index) => (
+                                <div
+                                    style={{cursor:'pointer'}}
+                                    key={index} onClick={(e) => {setSelectItem(option.name); setIsActive(false); HandleSelectSity(option.id)
+                                    }
+                                    } className="dropdown-item dropdown_item_hover_select">
+                                    {option.name}
+                                </div>
+                            ))}
+                        </div>
+                    )
                 }
             </div>
 

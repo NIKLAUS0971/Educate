@@ -1,3 +1,4 @@
+import { Subject } from '@mui/icons-material';
 import axios from 'axios';
 import React from 'react'
 import { createContext } from "react"
@@ -14,6 +15,10 @@ export const navigate = Navigate
 
 export const Context = (props) => {
     const [dataList, setDataList] = useState([])
+
+    
+
+
     const [loading, setLoading] = useState(false)
     const [search, setSearch] = useState("")
     const [selectedPrice, setSelectedPrice] = React.useState([10, 1500]);
@@ -57,7 +62,7 @@ export const Context = (props) => {
     }
     // useState for sort
     const options = ["Reytinqə görə sırala", "A-z"]
-    const [item, setSelectItem] = useState("Reytinqə görə sırala")
+    const [item, setSelectItem] = useState("Sırala")
     const [isActive, setIsActive] = useState(false)
 
     const rotate = {
@@ -93,9 +98,9 @@ export const Context = (props) => {
         e.preventDefault()
         return await axios.get(`http://localhost:3005/data?q=${search}`)
             .then(({ data }) => {
-                    setDataList(data)
-                    setSearch('')
-                    
+                setDataList(data)
+                setSearch('')
+
             })
     }
 
@@ -159,31 +164,143 @@ export const Context = (props) => {
                 setDataList(data)
 
             })
+    }
+    const [dataList2, setDataList2] = useState()
+    const [itemCategory, setItemCategory] = useState([])
+    const [itemSelectSubway, setItemSelectSubway] = useState([])
+
+
+    async function fetchData2() {
+        console.log(dataList2);
+                try {
+                    setLoading(true)
+                    await axios.get(`http://localhost:3005/data?_vdfvdf=${dataList2}`)
+                } catch (e) {
+                    setLoading(true)
+                    alert('error')
+                    setLoading(false)
+                }
+            }
+        
+            useEffect(() => {
+                fetchData2()
+            }, [dataList2])
+
+  
+
+    const HandleSelectDistrict = (district) => {
+
+        setDataList2(itemSelectDistrict=> {
+            return{
+                ...itemSelectDistrict,
+                district
+            }
+        })
 
     }
 
-    const [value1, setValue1] = useState(false)
-
-    const handleChooseSubject = async () => {
-        return await axios.get(`http://localhost:3005/data`)
-            .then(({ data }) => {
-                data = data.filter((item, index) => {
-                    if (item.category === 'Dizayn') {
-                        return setValue1()
-                    } else if (item.category === 'Dillər') {
-                        return item.category
-                    } else if (item.category === 'IT') {
-                        return item.category
-                    }
-                })
-
-                setDataList(data)
-
-
-            })
+    const HandleSelectSity = (sity) => {
+        setDataList2(itemSelectSity=> {
+            return{
+                ...itemSelectSity,
+                sity
+            }
+        })
     }
+
+    const HandleSelectSubway = (subway) => {
+        const temp = [...itemSelectSubway]
+        const index = temp.indexOf(subway)
+        if(index === -1){
+            temp.push(subway)
+        }else{
+            temp.splice(index, 1)
+        }
+
+        setItemSelectSubway(temp)
+        setDataList2(itemSelectSubway => {
+            return{
+                ...itemSelectSubway,
+                temp
+            }
+        })
+    }
+    const HandleCategory = (allCategory) => {
+        const category = [...itemCategory];
+        const index = category.indexOf(allCategory);
+
+        if (index === -1) {
+
+            category.push(allCategory)
+        } else {
+            category.splice(index, 1)
+        }
+
+        setItemCategory(category)
+        setDataList2(setItemCategory=>{
+            return{
+                ...setItemCategory,
+                category
+            }
+        })
+
+
+    }
+
+    const HandleSelectTeachingFormat = (teachingFormat) => {
+        setDataList2(itemSelectTeachingFormat => {
+            return{
+                ...itemSelectTeachingFormat, 
+                teachingFormat}
+        })
+    }
+    const HandleSelectTypeOfStudy = (typeOfStudy) => {
+        setDataList2(itemSelectTypeOfStudy => {
+            return{
+                ...itemSelectTypeOfStudy, 
+                typeOfStudy
+            }
+        })
+    }
+    
+    const HandleSelectGenderOfTheTeacher = (genderOfTheTeacher) => {
+        setDataList2(itemSelectGenderOfTheTeacher => {
+            return{
+                ...itemSelectGenderOfTheTeacher, 
+                genderOfTheTeacher
+            }
+        })
+    }
+    const HandleSelectDirection = (allDirection) => {
+        const direction = [...itemCategory];
+        const index = direction.indexOf(allDirection);
+
+        if (index === -1) {
+
+            direction.push(allDirection)
+        } else {
+            direction.splice(index, 1)
+        }
+
+        setItemCategory(direction)
+        setDataList(selectItemDirection=>{
+            return{
+                ...selectItemDirection,
+                direction
+            }
+        })
+    }
+    
 
     const value = {
+        HandleSelectDirection,
+        HandleSelectGenderOfTheTeacher,
+        HandleSelectTypeOfStudy,
+        HandleSelectTeachingFormat,
+        HandleSelectSubway,
+        HandleSelectSity,
+        HandleSelectDistrict,
+        HandleCategory,
         selectedPrice,
         setSelectedPrice,
         basket,
@@ -213,7 +330,6 @@ export const Context = (props) => {
         handleFirstAvailableSpace,
         handleSecondAvailableSpace,
         handleRangePriceSlider,
-        handleChooseSubject,
         addBasket,
         handleSearch,
         options,

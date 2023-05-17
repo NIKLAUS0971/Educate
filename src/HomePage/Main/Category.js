@@ -26,7 +26,8 @@ export function Category() {
                         {SliderDataArr.map((item, index) => (
                             <div className='card'  onClick={() => navigate(`/catalog/${item.name}`)}>
                                 <div className='card-top ' style={{ marginLeft:"0"}} key={index}>
-                                    <img className="category_cards"  src={item.card} />
+                                    <img className="category_cards" src={item.card} />
+                                    <div style={{position:'absolute'}}>{item.iconsSimbol}</div>
                                     <span className="card_name" >{item.name}</span>
                                 </div>
                             </div>

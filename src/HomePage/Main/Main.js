@@ -35,7 +35,6 @@ export function Main() {
                 // setDizayn(it)
             })
     }
-    console.log(search);
     const fetchDataLenguage = async () => {
         await axios.get(`http://localhost:3005/data?_start=9&_limit=3`)
             .then(({ data }) => {
@@ -73,7 +72,7 @@ export function Main() {
     };
     return (
         <>
-            <div className="wrapper_banner_wrapper">
+            <div className="banner_banner_wrapper_wrapper">
                 <div className="container">
                     <div className="everithing_is_inside">
                         <div className="body">Tələbələrin <a className="repetitors" href="#">repetitorlarla</a> görüşdüyü yer.</div>
@@ -89,7 +88,7 @@ export function Main() {
                     <div className="wrapper_for_big_icon"><BigIcon /></div>
                 </div>
             </div>
-            <div className="banner_wrapper">
+            <div className="banner_wrapper_wrapper_banner">
                 <div className="container">
                     <div className="everifthing_abot_cart_is_inside">
                         <div className="wrapper_cart">

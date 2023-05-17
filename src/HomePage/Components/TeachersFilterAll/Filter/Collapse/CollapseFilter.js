@@ -4,21 +4,20 @@ import { Subject } from '../FIlterCategory/Subject';
 import { Direction } from '../FIlterCategory/Direction';
 import { District } from '../FIlterCategory/District';
 import { City } from '../FIlterCategory/City';
-import { Territory } from '../FIlterCategory/Territory';
 import { Subway } from '../FIlterCategory/Subway';
 import { TeachingFormat } from '../FIlterCategory/TeachingFormat';
 import { TypeOfStudy } from '../FIlterCategory/TypeOfStudy';
 import { GenderOfTheTeacher } from '../FIlterCategory/GenderOfTheTeacher';
 
 
-export const CollapseFilter = ({handleChooseSubject, value1}) => {
+export const CollapseFilter = () => {
     
     const data = filterData.map((item, index) => {
 
         if(index === 0){
             return(
                 <>
-                    <Subject value1={value1} handleChooseSubject={handleChooseSubject} data={item.name}/>
+                    <Subject data={item.name}/>
                 </>
             )
         } else if(index === 1){
@@ -45,12 +44,6 @@ export const CollapseFilter = ({handleChooseSubject, value1}) => {
                 <District data={item.name}/>
                 </>
             )
-        }else if(index === 5){
-            return(
-                <>
-                <Territory data={item.name}/>
-                </>
-            )
         }else if(index === 6){
             return(
                 <>
@@ -72,8 +65,8 @@ export const CollapseFilter = ({handleChooseSubject, value1}) => {
         }else if(index === 9){
             return(
                 <>
-                    <div key={item.id}>
-                        <GenderOfTheTeacher data={item.name}/>
+                    <div className='container_for_under_line' key={item} style={{borderBottom:'none'}}>
+                        <GenderOfTheTeacher key={item.id} data={item.name}/>
                     </div>
                 </>
             )

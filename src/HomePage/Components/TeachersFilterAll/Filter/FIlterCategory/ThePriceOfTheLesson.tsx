@@ -2,7 +2,7 @@
 import { PriceFilter } from "../../../../Shared/icons/PriceFilter"
 import Slider from '@mui/material/Slider';
 import * as React from 'react';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import '../../../../Shared/Style/TeachersFilter.css'
 import { CustomContext } from "../../../../Shared/Context/Context";
 
@@ -13,11 +13,13 @@ function valuetext(value: number) {
 
 export const ThePriceOfTheLesson = ({data}: any) => {
     const {selectedPrice, setSelectedPrice} = useContext(CustomContext)
+    const [showPrice, setShowPrice] = useState()
     
     const handleChange = (event: Event, newValue: number | number[]) => {
         setSelectedPrice(newValue as number[]);
     };
 
+// console.log(selectedPrice);
 
     return (
         <>

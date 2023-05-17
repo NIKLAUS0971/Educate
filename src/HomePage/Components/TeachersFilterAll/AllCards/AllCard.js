@@ -1,3 +1,4 @@
+import React from "react"
 import { CustomContext } from "../../../Shared/Context/Context"
 import Rectangly111 from "../../../Shared/foto/Rectangly111.png"
 import { AddItemToBasket } from "../../../Shared/icons/AddItemToBasket"
@@ -9,7 +10,10 @@ import {useContext, useState} from 'react'
 
 
 
-export function AllCard({ coinsData, loading }: any) {
+export function AllCard({ coinsData, loading }) {
+
+    console.log('allCard');
+    
     const {addBasket} = useContext(CustomContext)
     const [active, setActive]= useState(false)
 
@@ -22,7 +26,7 @@ export function AllCard({ coinsData, loading }: any) {
             <div className='anly_all_card' >
                 {loading ? <h1>Loading...</h1>
                     : coinsData.length === 0 ?
-                        <EmptiFile /> : coinsData.map((item: any, index: any) => {
+                        <EmptiFile /> : coinsData.map((item) => {
                             return (
                                 <>
                                     <div className="carts cart1">
