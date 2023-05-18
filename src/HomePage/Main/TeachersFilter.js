@@ -39,6 +39,7 @@ export function TeachersFilter() {
         handleSortForAlfavit,
         handleFirstAvailableSpace,
         handleSecondAvailableSpace,
+        currentPage,
         handleRangePriceSlider,
         handleChooseSubject,
         options
@@ -123,9 +124,9 @@ export function TeachersFilter() {
                         <ul className="first_item" >
                             <CollapseFilter handleChooseSubject={handleChooseSubject} value1={value1} />
                         </ul>
-                        <AllCard coinsData={currentPosts} loading={loading} />
+                        <AllCard  coinsData={currentPosts} loading={loading} />
                     </div>
-                    <Pagination totalPosts={dataList.length} postPerPage={postPerPage} setCurrentPage={setCurrentPage} />
+                    <Pagination currentPage={currentPage} totalPosts={dataList.length} postPerPage={postPerPage} setCurrentPage={setCurrentPage} />
                 </div>
             </div>
         </>

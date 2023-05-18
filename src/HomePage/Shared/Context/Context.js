@@ -1,4 +1,5 @@
 import { Subject } from '@mui/icons-material';
+import { Pagination } from 'antd';
 import axios from 'axios';
 import React from 'react'
 import { createContext } from "react"
@@ -33,8 +34,17 @@ export const Context = (props) => {
     const lastPostIndex = currentPage * postPerPage;
     const firstPostIndex = lastPostIndex - postPerPage;
     const currentPosts = dataList.slice(firstPostIndex, lastPostIndex);
-
-
+    
+    function prePage(){
+        if(currentPage !== firstPostIndex ){
+            setCurrentPage(currentPage - 1)
+        }
+    }
+ function nextPage(){
+    if(currentPage !== firstPostIndex ){
+        setCurrentPage(currentPage + 1)
+    }
+    }
     async function fetchData() {
         try {
             setLoading(true)
@@ -293,6 +303,8 @@ export const Context = (props) => {
     
 
     const value = {
+        nextPage,
+        prePage,
         HandleSelectDirection,
         HandleSelectGenderOfTheTeacher,
         HandleSelectTypeOfStudy,
@@ -305,6 +317,7 @@ export const Context = (props) => {
         setSelectedPrice,
         basket,
         setBasket,
+        currentPage,
         dataList,
         setDataList,
         loading,

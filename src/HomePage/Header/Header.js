@@ -1,7 +1,8 @@
 import { Dropdown } from '../Components/Dropdown/Dropdown'
 import React, { useState } from 'react'
 import '../Shared/Style/Style.css'
-import { useNavigate } from 'react-router-dom';
+import styles from '../Shared/Style/styles.css'
+import { NavLink, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { SaveFavoriteItems } from '../Shared/icons/SaveFavoriteItems';
 export function Header() {
@@ -28,16 +29,16 @@ export function Header() {
                         <div className="navigation">
                             <ul className="secondItem">
                                 <li>
-                                    <Link className="secondCilds" to="/">Ana səhifə</Link>
+                                    <NavLink className="secondCilds"   to="/">Ana səhifə</NavLink>
                                 </li>
                                 <li>
-                                    <Link className="secondCilds" to="teachers">Müəllimlər</Link>
+                                    <NavLink   className="secondCilds" to="teachers">Müəllimlər</NavLink>
                                 </li>
                                 <li>
-                                    <Link className="secondCilds" to="category">Kateqoriylar</Link>
+                                    <NavLink   className="secondCilds" to="category">Kateqoriylar</NavLink>
                                 </li>
                                 <li>
-                                    <Link className="secondCilds" to="map">Xəritədə tap</Link>
+                                    <NavLink  className="secondCilds" to="map">Xəritədə tap</NavLink>
                                 </li>
                             </ul>
                             <form action="" className="header_form">

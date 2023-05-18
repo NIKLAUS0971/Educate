@@ -1,32 +1,29 @@
-import React from "react"
+import * as React from 'react';
 import { CustomContext } from "../../../Shared/Context/Context"
 import Rectangly111 from "../../../Shared/foto/Rectangly111.png"
 import { AddItemToBasket } from "../../../Shared/icons/AddItemToBasket"
 import { RatingStart } from "../../../Shared/icons/RatingStar"
 import { EmptiFile } from "../../EmptiFile/EmptiFile"
-import {useContext, useState} from 'react'
-
+import { useContext, useState } from 'react'
+import { CircularProgress } from '@mui/material';
+import { SaveItemToBasket } from '../../../Shared/icons/SaveItemToBasket';
+// import TurnedInOutlinedIcon from '@mui/icons-material/TurnedInOutlined';
 
 
 
 
 export function AllCard({ coinsData, loading }) {
 
-    console.log('allCard');
+    const { addBasket } = useContext(CustomContext)
+    const [active, setActive] = useState(false)
     
-    const {addBasket} = useContext(CustomContext)
-    const [active, setActive]= useState(false)
-
-    const changeFillSaveBatton = {
-        fill: active? "#663FD7" : "#616E7A"
-    }
-
-    return (
+    return (  
         <>
             <div className='anly_all_card' >
-                {loading ? <h1>Loading...</h1>
-                    : coinsData.length === 0 ?
+
+                { coinsData.length === 0 ?
                         <EmptiFile /> : coinsData.map((item) => {
+
                             return (
                                 <>
                                     <div className="carts cart1">
@@ -42,14 +39,13 @@ export function AllCard({ coinsData, loading }) {
                                                         <p className="about_teacher_job">{item.profetion}</p>
                                                     </div>
                                                 </a>
-                                                <div  onClick={() => addBasket(item, setActive(!active))}>
+                                                <div value={item.id} onClick={() => addBasket(item, setActive(!active))}>
                                                     <AddItemToBasket />
                                                 </div>
                                             </div>
                                             <div className="wrapper_rating">
                                                 <div className="rating">
                                                     <p className="rating_number">{item.rating} <RatingStart /></p>
-
                                                 </div>
                                             </div>
                                             <a href="../our progect/Teachers card/Teachers card.html" className="wrapper_about_price_location_and_litle_about_teacher">
@@ -71,7 +67,6 @@ export function AllCard({ coinsData, loading }) {
                                         </div>
                                     </div>
                                 </>
-
                             )
                         })
                 }

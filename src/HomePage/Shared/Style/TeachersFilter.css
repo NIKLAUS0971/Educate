@@ -51,12 +51,15 @@ body {
 
 .anly_all_card {
     display: flex;
+    position: relative;
     flex-wrap: wrap;
     gap: 20px;
     max-width: 712px;
     width: 712px;
 }
-
+.spinner{
+    margin: 35%;
+}
 /* modal */
 
 .modal {

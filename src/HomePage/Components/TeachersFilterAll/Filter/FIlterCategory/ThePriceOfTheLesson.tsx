@@ -14,7 +14,7 @@ function valuetext(value: number) {
 export const ThePriceOfTheLesson = ({data}: any) => {
     const {selectedPrice, setSelectedPrice} = useContext(CustomContext)
     const [showPrice, setShowPrice] = useState()
-    
+
     const handleChange = (event: Event, newValue: number | number[]) => {
         setSelectedPrice(newValue as number[]);
     };

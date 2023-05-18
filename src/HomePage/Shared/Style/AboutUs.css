@@ -105,20 +105,7 @@ li{
     max-width: 431px;
     padding: 0;
 }
-.secondCilds {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
-    color: #464D54;
-    text-decoration: none;
-    list-style-type: none;
-    transition: .2s;
-}
 
-.secondCilds:hover{
-    color: #7F5AF0;
-    transition: .2s;
-}
 
 /* dropdown_btn_wrapper */
 
