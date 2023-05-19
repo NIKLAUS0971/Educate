@@ -13,7 +13,7 @@ export function Category() {
             <div className="banner_banner_wrapper">
                 <div className="container">
                     <div className="wrapper_inside_history_back">
-                        <a className="Home_page" href="../index.html">Ana səhifə</a>
+                        <a className="Home_page" style={{cursor:'pointer'}} onClick={()=> navigate('/')}>Ana səhifə</a>
                         <p className="className">/</p>
                         <p className="className">Kategoriyalar</p>
                     </div>

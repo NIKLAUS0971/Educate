@@ -13,6 +13,7 @@ import { useContext } from "react"
 import { CustomContext } from '../Shared/Context/Context';
 
 import '../Shared/Style/TeachersFilter.css'
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -45,6 +46,8 @@ export function TeachersFilter() {
         options
     } = useContext(CustomContext)
 
+    const navigate = useNavigate()
+
     useEffect(() => {
         fetchData()
     }, [])
@@ -58,7 +61,7 @@ export function TeachersFilter() {
             <div className="banner_banner_wrapper">
                 <div className="container">
                     <div className="wrapper_inside_history_back">
-                        <a className="Home_page" href="../index.html">Ana səhifə</a>
+                        <a className="Home_page" style={{cursor:'pointer'}} onClick={()=> navigate('/')}  >Ana səhifə</a>
                         <p className="className">/</p>
                         <p className="className">Müəllimlər</p>
                     </div>

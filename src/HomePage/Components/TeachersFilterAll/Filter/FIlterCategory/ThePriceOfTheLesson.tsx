@@ -11,15 +11,15 @@ function valuetext(value: number) {
     return `${value}°C`;
 }
 
-export const ThePriceOfTheLesson = ({data}: any) => {
-    const {selectedPrice, setSelectedPrice} = useContext(CustomContext)
+export const ThePriceOfTheLesson = ({ data }: any) => {
+    const { selectedPrice, setSelectedPrice } = useContext(CustomContext)
     const [showPrice, setShowPrice] = useState()
 
     const handleChange = (event: Event, newValue: number | number[]) => {
         setSelectedPrice(newValue as number[]);
     };
 
-// console.log(selectedPrice);
+    // console.log(selectedPrice);
 
     return (
         <>
@@ -31,16 +31,24 @@ export const ThePriceOfTheLesson = ({data}: any) => {
                         <div>{data}</div>
                     </div>
                 </div>
-                <Slider
+                <div className="price_range_slider_container">
+                    <div className="min_max_price_container">
+                        <div className="select_min_price select_price">Min {selectedPrice[0]} AZN</div>
+                        <div className="select_max_price select_price">Max {selectedPrice[1]} AZN</div>
+                    </div>
+                    <Slider
                         getAriaLabel={() => 'Temperature range'}
                         value={selectedPrice}
                         name="price"
                         onChange={handleChange}
-                        valueLabelDisplay="auto"
                         getAriaValueText={valuetext}
                         max={1500}
                         color="secondary"
+                        aria-label="Small steps"
+                        step={10}
+                        disableSwap
                     />
+                </div>
 
             </div>
 

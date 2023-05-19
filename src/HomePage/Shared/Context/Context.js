@@ -22,7 +22,7 @@ export const Context = (props) => {
 
     const [loading, setLoading] = useState(false)
     const [search, setSearch] = useState("")
-    const [selectedPrice, setSelectedPrice] = React.useState([10, 1500]);
+    const [selectedPrice, setSelectedPrice] = React.useState([30, 1430]);
     const [sortValue, setSortValue] = useState(false)
     const [params, setParams] = useState({})
     const [basket, setBasket] = useState([])

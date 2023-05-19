@@ -39,7 +39,7 @@ export function AllCard({ coinsData, loading }) {
                                                         <p className="about_teacher_job">{item.profetion}</p>
                                                     </div>
                                                 </a>
-                                                <div value={item.id} onClick={() => addBasket(item, setActive(!active))}>
+                                                <div data-id={item.id} onClick={() => addBasket(item, setActive(!active))}>
                                                     <AddItemToBasket />
                                                 </div>
                                             </div>

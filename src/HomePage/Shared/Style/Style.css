@@ -1,10 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@700&family=Mulish:wght@200;300;400;500;600;700;800;900;1000&family=Poppins&family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
 body {
+    height: 100%;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Mulish';
+}
+
+.new_wrapper_new_class {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex-grow: 1;
+    /* flex: 1 1 auto; */
 }
 
 .banner_banner_wrapper_wrapper {
@@ -41,14 +53,17 @@ body {
     z-index: 1;
     left: 200px;
 }
+
 .drob_down_new_class2:hover {
     background: #F8FAFF;
-    color: #7F5AF0;
+    /* color: #7F5AF0; */
 }
-.activePage{
+
+.activePage {
     color: #FFFFFF;
-    background-color:#7F5AF0;
+    background-color: #7F5AF0;
 }
+
 .drob_down_new_class .drob_down_btn_new_class {
     display: flex;
     cursor: pointer;
@@ -106,7 +121,7 @@ body {
 
 .JustDown {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     left: 44px;
 }
 
@@ -630,6 +645,7 @@ li {
     width: 40px;
 }
 
+
 .save_btn {
     width: 20px;
     height: 20px;
@@ -675,6 +691,7 @@ li {
 
 
 .body {
+    height: 100%;
     text-align: center;
     font-weight: 700;
     font-size: 36px;
@@ -1119,19 +1136,23 @@ li {
     font-size: 24px;
     transition: all ease 0.20s;
 }
-.MusiqSimbol{
+
+.MusiqSimbol {
     position: absolute;
     left: 157px;
 }
-.lenguageSimbol{
+
+.lenguageSimbol {
     position: absolute;
     left: 73px;
 }
-.ItSimbol{
+
+.ItSimbol {
     position: absolute;
     left: 86px;
 }
-.PsimbolCategory{
+
+.PsimbolCategory {
     position: absolute;
     left: 106px;
     border-radius: 9px;

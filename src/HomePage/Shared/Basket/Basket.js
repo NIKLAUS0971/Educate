@@ -3,6 +3,7 @@ import { CustomContext } from '../Context/Context'
 import { RatingStart } from '../icons/RatingStar'
 import { NoFavorite } from '../icons/NoFavorite'
 // import Rectangly111 from "../../../Shared/foto/Rectangly111.png"
+import Rectangly111 from "../foto/Rectangly111.png"
 
 
 
@@ -33,7 +34,7 @@ export const Basket = () => {
                                     <div className="carts cart1">
                                         <div className="information_about_teacher">
                                             <div className="foto_information_and_icon_teacher">
-                                                {/* <img src={Rectangly111} alt="" /> */}
+                                                <img src={Rectangly111} alt="" />
                                                 <a href="../our progect/Teachers card/Teachers card.html" className="foto_information_teacher">
                                                     <div className="foto_teacher">
 
