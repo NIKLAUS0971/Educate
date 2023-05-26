@@ -42,11 +42,25 @@ body {
 
 .drob_down_new_class {
     position: relative;
-    width: 100px;
     border: 1px solid #DBE4EC;
     border-radius: 5px;
-    width: 79px;
     height: 40px;
+    border: none;
+    width: 100%;
+    max-width: 123px;
+    display: flex;
+    align-items: center;
+}
+
+.drob_down_btn_new_class div {
+    /* display: flex; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: 45px;
+
 }
 
 .just_down_new_class {
@@ -62,13 +76,23 @@ body {
 .activePage {
     color: #FFFFFF;
     background-color: #7F5AF0;
+    outline: none;
 }
 
+.simple_state{
+    background: #F6F9FC;
+}
+.css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected{
+    background: none;
+    border: 1px solid black;
+}
 .drob_down_new_class .drob_down_btn_new_class {
     display: flex;
+    justify-content: center;
     cursor: pointer;
-    justify-content: space-between;
-    max-width: 209px;
+    gap: 10px;
+    max-width: 123px;
+    align-items: center;
     border-radius: 5px;
     color: #464D54;
     width: 100%;
@@ -86,6 +110,7 @@ body {
     z-index: 1;
     top: -1px;
     width: 79px;
+    right: 0;
     height: 83px;
     border-radius: 5px;
     box-sizing: border-box;
@@ -126,7 +151,7 @@ body {
 }
 
 .dropdown-item {
-    padding: 10px 0 12px 15px;
+    padding: 10px 15px 12px 15px;
     height: 41px;
     color: #6C757D;
     box-sizing: border-box;
@@ -1156,4 +1181,11 @@ li {
     position: absolute;
     left: 106px;
     border-radius: 9px;
+}
+
+.primary{
+    color: #663FD7;
+}
+.css-r93niq-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected{
+    background-color: red;
 }

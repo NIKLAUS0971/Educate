@@ -669,13 +669,14 @@ li {
     align-items: center;
     width: 100%;
     margin-top: 36px;
-    justify-content: space-between;
+    justify-content: flex-end;
     position: relative;
-    max-width: 712px;
+    max-width: 713px;
+    gap: 20px;
 }
 
 .input_search {
-    width: 278px;
+    width: 372px;
     box-sizing: border-box;
     outline: none;
     box-sizing: border-box;
@@ -705,15 +706,15 @@ li {
     width: 20px;
     height: 20px;
     position: absolute;
-    left: 241px;
+    left: 337px;
 }
 
 .tabs {
     display: flex;
     align-items: center;
-    width: 410px;
+    width: 320px;
     height: 44px;
-    justify-content: space-between;
+    gap: 20px;
 }
 
 /* wrapper_for_dropdown */

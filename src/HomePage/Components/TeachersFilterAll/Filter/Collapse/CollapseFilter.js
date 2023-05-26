@@ -17,56 +17,56 @@ export const CollapseFilter = () => {
         if(index === 0){
             return(
                 <>
-                    <Subject data={item.name}/>
+                    <Subject key={index} data={item.name}/>
                 </>
             )
         } else if(index === 1){
             return(
                 <>
-                <Direction data={item.name}/>
+                <Direction key={index} data={item.name}/>
                 </>
             )
         }else if(index === 2){
             return(
                 <>
-                <ThePriceOfTheLesson data={item.name}/>
+                <ThePriceOfTheLesson key={index} data={item.name}/>
                 </>
             )
         }else if(index === 3){
             return(
                 <>
-                <City data={item.name}/>
+                <City key={index} data={item.name}/>
                 </>
             )
         }else if(index === 4){
             return(
                 <>
-                <District data={item.name}/>
+                <District key={index} data={item.name}/>
                 </>
             )
         }else if(index === 6){
             return(
                 <>
-                <Subway data={item.name}/>
+                <Subway key={index} data={item.name}/>
                 </>
             )
         }else if(index === 7){
             return(
                 <>
-                <TeachingFormat data={item.name}/>
+                <TeachingFormat key={index} data={item.name}/>
                 </>
             )
         }else if(index === 8){
             return(
                 <>
-                <TypeOfStudy data={item.name}/>
+                <TypeOfStudy key={index} data={item.name}/>
                 </>
             )
         }else if(index === 9){
             return(
                 <>
-                    <div className='container_for_under_line' key={item} style={{borderBottom:'none'}}>
-                        <GenderOfTheTeacher key={item.id} data={item.name}/>
+                    <div className='container_for_under_line' style={{borderBottom:'none'}}>
+                        <GenderOfTheTeacher key={index} data={item.name}/>
                     </div>
                 </>
             )

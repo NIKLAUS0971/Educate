@@ -14,12 +14,14 @@ import { CustomContext } from '../Shared/Context/Context';
 
 import '../Shared/Style/TeachersFilter.css'
 import { useNavigate } from 'react-router-dom';
+import PaginationRounded from '../Shared/Pagination/Pagination';
 
 
 
 
 export function TeachersFilter() {
     const {
+        numberOfPages, setNumberOfPages,
         value1,
         selectedPrice,
         dataList,
@@ -61,7 +63,7 @@ export function TeachersFilter() {
             <div className="banner_banner_wrapper">
                 <div className="container">
                     <div className="wrapper_inside_history_back">
-                        <a className="Home_page" style={{cursor:'pointer'}} onClick={()=> navigate('/')}  >Ana səhifə</a>
+                        <a className="Home_page" style={{ cursor: 'pointer' }} onClick={() => navigate('/')}  >Ana səhifə</a>
                         <p className="className">/</p>
                         <p className="className">Müəllimlər</p>
                     </div>
@@ -82,14 +84,16 @@ export function TeachersFilter() {
                                 <AvailableSpace handleFirstAvailableSpace={handleFirstAvailableSpace} handleSecondAvailableSpace={handleSecondAvailableSpace} />
 
 
-                                <div className="drob_down_new_class drob_down_new_class2" style={{ width: '229px', display: 'flex', justifyContent: "center", border: 'none' }}>
-                                    <div className=" drob_down_btn_new_class" style={{display:'flex', alignItems:'center'}} onClick={(e) => {
+                                <div className="drob_down_new_class drob_down_new_class2" >
+                                    <div className=" drob_down_btn_new_class"  onClick={(e) => {
                                         setIsActive(!isActive)
                                     }}>
-                                        <div style={{display:'flex', alignItems:'center', gap:'10px', width:'100%'}}>
-                                            <SortingArrow />
-                                            <span className='classHover'>{item}</span>
-                                        </div>
+                                        <SortingArrow />
+                                            
+                                            <div >
+
+                                                <span className='classHover'>{item}</span>
+                                            </div>
                                         <JustDownNewClass style={rotate} />
                                     </div>
                                     {
@@ -127,9 +131,11 @@ export function TeachersFilter() {
                         <ul className="first_item" >
                             <CollapseFilter handleChooseSubject={handleChooseSubject} value1={value1} />
                         </ul>
-                        <AllCard  coinsData={currentPosts} loading={loading} />
+                        <AllCard coinsData={currentPosts} loading={loading} />
                     </div>
-                    <Pagination currentPage={currentPage} totalPosts={dataList.length} postPerPage={postPerPage} setCurrentPage={setCurrentPage} />
+                   <div style={{width:'346px', margin:'0 auto', marginTop:'36px'}}>
+                   <PaginationRounded numberOfPages={numberOfPages}   postPerPage={postPerPage} setCurrentPage={setCurrentPage} />
+                   </div>
                 </div>
             </div>
         </>

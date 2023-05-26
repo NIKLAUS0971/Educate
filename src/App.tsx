@@ -12,6 +12,11 @@ import { Basket } from './HomePage/Shared/Basket/Basket';
 import { Catalog } from './HomePage/Shared/Catalog/Catalog';
 
 import '../src/HomePage/Shared/Style/Style.css'
+import { TheAddressOfTheLesson } from './Dushboard/TheAddressOfTheLesson/TheAddressOfTheLesson';
+import { TeacherProfile } from './Dushboard/TeacherProfile/TeacherProfile';
+import { Contacts } from '../src/Dushboard/Contacts/Contacts';
+import { PersonalInformation } from './Dushboard/PersonalInformation/PersonalInformation';
+import { LessonsSettings } from './Dushboard/LessonsSettings/LessonsSettings';
 
 
 
@@ -32,6 +37,11 @@ function App() {
             <Route path='contact' element={<Contact />} />
             <Route path='basket' element={<Basket />} />
             <Route path='/catalog/:category' element={<Catalog />} />
+            <Route path='lesson_address' element={<TheAddressOfTheLesson />} />
+            <Route path='/teacher_profile/:id' element={<TeacherProfile />} />
+            <Route path='/contacts_dushboard' element={<Contacts />} />
+            <Route path='/personal_information' element={<PersonalInformation />} />
+            <Route path='/lessons_settings' element={<LessonsSettings />} />
           </Routes>
         </div>
         <div>

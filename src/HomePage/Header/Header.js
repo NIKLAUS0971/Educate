@@ -29,25 +29,28 @@ export function Header() {
                         <div className="navigation">
                             <ul className="secondItem">
                                 <li>
-                                    <NavLink className="secondCilds"   to="/">Ana səhifə</NavLink>
+                                    <NavLink className="secondCilds" to="/">Ana səhifə</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink   className="secondCilds" to="teachers">Müəllimlər</NavLink>
+                                    <NavLink className="secondCilds" to="teachers">Müəllimlər</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink   className="secondCilds" to="category">Kateqoriylar</NavLink>
+                                    <NavLink className="secondCilds" to="category">Kateqoriylar</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink  className="secondCilds" to="map">Xəritədə tap</NavLink>
+                                    <NavLink className="secondCilds" to="map">Xəritədə tap</NavLink>
                                 </li>
                             </ul>
                             <form action="" className="header_form">
                                 <Dropdown selectItem={selectItem} setSelectItem={setSelectItem} />
 
-                                <button className="save_icon_btn" type='button' style={{background:'none', cursor: 'pointer'}} onClick={() => navigate('basket')}>
+                                <button className="save_icon_btn" type='button' style={{ background: 'none', cursor: 'pointer' }} onClick={() => navigate('basket')}>
                                     <SaveFavoriteItems />
                                 </button>
-                                <a href="../our progect/Profile settings html/profile settings.html" id="myBtn" className="btn_come_in">Daxil ol</a>
+                                <button style={{ border: 'none', outline: 'none', cursor:'pointer' }}
+                                    type='button' className="btn_come_in"
+                                    onClick={() => navigate('/personal_information')}
+                                >Daxil ol</button>
                             </form>
                         </div>
                     </div>
