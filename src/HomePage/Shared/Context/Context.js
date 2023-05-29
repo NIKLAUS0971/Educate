@@ -4,11 +4,9 @@ import axios from 'axios';
 import React from 'react'
 import { createContext } from "react"
 import { useState, useEffect } from "react";
-import { Navigate } from 'react-router-dom';
 
 
 export const CustomContext = createContext();
-export const navigate = Navigate()
 
 
 
@@ -42,7 +40,7 @@ export const Context = (props) => {
     const [dataList2, setDataList2] = useState()
     const [itemCategory, setItemCategory] = useState([])
     const [itemSelectSubway, setItemSelectSubway] = useState([])
-
+   
 
     const rotate = {
         transform: isActive ? 'rotate(180deg)' : '',
@@ -63,6 +61,7 @@ export const Context = (props) => {
             temp.splice(index, 1)
         }
         setBasket(temp)
+        localStorage.setItem('favorites', JSON.stringify(temp))
 
     }
 
@@ -105,17 +104,28 @@ export const Context = (props) => {
 
 
     // Fetch data inside function for search input
+    // const handleSearch = async (e) => {
+    //     e.preventDefault()
+    //     return await axios.get(`http://localhost:3005/data?q=${search}`)
+    //         .then(({ data }) => {
+    //             setDataList(data)
+    //             setSearch('')
+
+    //         })
+    // }
+
     const handleSearch = async (e) => {
         e.preventDefault()
-        return await axios.get(`http://localhost:3005/data?q=${search}`)
+        // console.log(e.target.value);
+        await axios.get(`http://localhost:3005/data?q=${search}`)
             .then(({ data }) => {
                 setDataList(data)
                 setSearch('')
-
+                setSearch(localStorage.setItem('searchResult', JSON.stringify(data)))
+                console.log(data);
             })
+            
     }
-
-
 
     // Functions for sorting
     const handleSortForRating = () => {
@@ -164,7 +174,7 @@ export const Context = (props) => {
 
 
     async function fetchData2() {
-        console.log(dataList2);
+        // console.log(dataList2);
         try {
             setLoading(true)
             await axios.get(`http://localhost:3005/data?_vdfvdf=${dataList2}`)
@@ -177,9 +187,9 @@ export const Context = (props) => {
 
     useEffect(() => {
         fetchData2()
-    }, [dataList2])
+    }, [])
 
-
+console.log(dataList2);
 
     const HandleSelectDistrict = (district) => {
 
@@ -321,6 +331,9 @@ export const Context = (props) => {
     const [isImageURL, setIsImageURL] = useState()
     const [isImageOrPdfURL, setIsImageOrPdfURL] = useState()
 
+   
+
+    
 
     const fileReader = new FileReader();
     const secondFileReader = new FileReader();
@@ -385,25 +398,11 @@ export const Context = (props) => {
         setIsImageOrPdfURL(file)
         secondFileReader.readAsDataURL(file)
     }
-    // const handlerUploadFilePdfOrJpeg = (e) => {
-    //     e.preventDefault()
-    //     const file = e.target.files[0];
-    //     // file.isUploading = true; 
-
-
-    //     // const formData = new FormData()
-    //     // formData.append(
-    //     //     file.name,
-    //     //     file,
-    //     //     file.name
-    //     // )
-
-    // }
 
     const addNewPerson = (newPerson) => {
         axios.post(`http://localhost:3005/data?`, newPerson)
             .then((response) => {
-                console.log(response);
+                // console.log(response);
             })
     }
 
@@ -437,8 +436,19 @@ export const Context = (props) => {
     }
 
 
+    const [user, setUser] = useState({
+
+    })
+
+    useEffect(()=>{
+        if(localStorage.getItem('user') !== null){
+            setUser(JSON.parse(localStorage.getItem('user')))
+        }
+    }, [])
+
     const value = {
         //dushboard
+        user, setUser,
         address,
         isImageOrPdfURL,
         handlerUploadFilePdfOrJpeg,

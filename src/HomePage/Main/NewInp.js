@@ -1,9 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom"
 import { BlackSearch } from "../Shared/icons/BlackSearch"
+import { useContext, useEffect } from "react"
+import { CustomContext } from "../Shared/Context/Context"
 
 
 export const NewInp = ({search, setSearch, handleSearch}) => {
-const navigate = useNavigate()
+
+
     return (
         <>
             <form style={{ display: 'flex', alignItems: 'center' }} onSubmit={ handleSearch} >

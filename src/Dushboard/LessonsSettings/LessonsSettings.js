@@ -6,7 +6,7 @@ import { IconsForDushboard3 } from '../shared/iconsDushboard/IconsForDushboard3'
 import { IconsForDushboard4 } from '../shared/iconsDushboard/IconsForDushboard4';
 import { SelectDirectionLesson } from './SelectDirectionLesson';
 import { SelectSubjectLesson } from './SelectSubjectLesson';
-
+import { Navigation } from '../shared/navigation/Navigation'
 
 export const LessonsSettings = () => {
     const navigate = useNavigate()
@@ -37,24 +37,7 @@ export const LessonsSettings = () => {
             </div>
             <div className="container">
                 <div className="create_wrapper_for_space_between">
-                    <nav className="inforemation_about_contact_address">
-                        <a style={{ borderBottom: "1px solid #DBE4EC", cursor: "pointer" }} type='button' className="personal information">
-                            <IconsForDushboard1 />
-                            <p className="studies_information">Şəxsi məlumatlar</p>
-                        </a>
-                        <a style={{ borderBottom: "1px solid #DBE4EC", cursor: "pointer" }} className="teaching information">
-                            <IconsForDushboard2 />
-                            <p className="studies_information">Tədris məlumatları</p>
-                        </a>
-                        <a style={{ borderBottom: "1px solid #DBE4EC", cursor: "pointer" }} className="className_address information">
-                            <IconsForDushboard3 />
-                            <p className="studies_information">Dərsin ünvanı</p>
-                        </a>
-                        <a style={{ cursor: "pointer" }} className="contacts_info_contacts information">
-                            <IconsForDushboard4 />
-                            <p className="studies_information">Əlaqə vasitələri</p>
-                        </a>
-                    </nav>
+                    <Navigation />
                     <form>
                         <div className="About_the_subject_wrapper">
                             <div className="title_About_the_subject">

@@ -17,6 +17,11 @@ import { TeacherProfile } from './Dushboard/TeacherProfile/TeacherProfile';
 import { Contacts } from '../src/Dushboard/Contacts/Contacts';
 import { PersonalInformation } from './Dushboard/PersonalInformation/PersonalInformation';
 import { LessonsSettings } from './Dushboard/LessonsSettings/LessonsSettings';
+import { Register } from './Dushboard/shared/register/Register';
+import { Login } from './Dushboard/shared/register/Login';
+import { WrapperHeaderControling } from './HomePage/Header/WrapperHeaderControling/WrapperHeaderControling';
+import { WrapperForFooter } from './HomePage/Footer/WrapperForFooter/WrapperForFooter';
+
 
 
 
@@ -25,7 +30,9 @@ function App() {
     <>
       <div className="new_wrapper_new_class" >
         <div>
-          <Header />
+          <WrapperHeaderControling>
+            <Header />
+          </WrapperHeaderControling>
         </div>
         <div className='main'>
           <Routes>
@@ -42,10 +49,14 @@ function App() {
             <Route path='/contacts_dushboard' element={<Contacts />} />
             <Route path='/personal_information' element={<PersonalInformation />} />
             <Route path='/lessons_settings' element={<LessonsSettings />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<Login />} />
           </Routes>
         </div>
         <div>
-          <Footer />
+          <WrapperForFooter>
+            <Footer />
+          </WrapperForFooter>
         </div>
       </div>
     </>

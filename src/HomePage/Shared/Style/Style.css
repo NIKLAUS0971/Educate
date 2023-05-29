@@ -572,6 +572,7 @@ li {
     font-size: 16px;
     line-height: 20px;
     color: #464D54;
+    fill:#6C757D;
     text-decoration: none;
     list-style-type: none;
     transition: .2s;
@@ -580,6 +581,7 @@ li {
 .secondCilds:hover {
     color: #7F5AF0;
     transition: .2s;
+    fill:#7F5AF0;
 }
 
 .header_form {
@@ -971,6 +973,7 @@ li {
 }
 
 .icon_for_cart {
+    z-index: 10;
     margin-bottom: 60px;
     fill: #616E7A;
 }

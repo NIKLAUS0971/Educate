@@ -252,10 +252,7 @@
   }
 
 
-.banner_banner_wrapper{
-    width: 100%;
-    border-bottom: 1px solid #E4EBF1;
-}
+
 
 .banner_wrapper{
     width: 100%;
@@ -385,7 +382,6 @@
     min-height: 68px;
     background: #FBFCFD;
     border-top: 1px solid #DBE4EC;
-    border-bottom: 1px solid #DBE4EC;
 }
 
 .wrapper_inside_history_back{

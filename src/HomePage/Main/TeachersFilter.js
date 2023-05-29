@@ -21,7 +21,7 @@ import PaginationRounded from '../Shared/Pagination/Pagination';
 
 export function TeachersFilter() {
     const {
-        numberOfPages, setNumberOfPages,
+        numberOfPages,
         value1,
         selectedPrice,
         dataList,
@@ -37,6 +37,7 @@ export function TeachersFilter() {
         setIsActive,
         rotate,
         fetchData,
+        setDataList,
         handleSearch,
         handleSortForRating,
         handleSortForAlfavit,
@@ -47,12 +48,26 @@ export function TeachersFilter() {
         handleChooseSubject,
         options
     } = useContext(CustomContext)
+    
+    useEffect(() => {
+        if(localStorage.getItem('searchResult') !== null){
+            setDataList(JSON.parse(localStorage.getItem('searchResult')))
+        }else{
+            fetchData()
+        }
+            
+    }, [])
+    
+    console.log(dataList);
 
+    
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetchData()
+           handleSearch()
     }, [])
+
+
 
     useEffect(() => {
         handleRangePriceSlider()

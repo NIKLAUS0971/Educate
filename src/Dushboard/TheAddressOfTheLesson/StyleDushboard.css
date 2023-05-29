@@ -267,10 +267,7 @@ body {
     color: #3F67CE;
 }
 
-.banner_banner_wrapper {
-    width: 100%;
-    border-bottom: 1px solid #E4EBF1;
-}
+
 
 
 /*container*/
@@ -447,16 +444,7 @@ body {
     width: 100px;
 }
 
-.goBack {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 30px;
-    text-decoration: none;
-    color: #464D54;
-}
+
 
 /* Profil */
 
@@ -473,30 +461,16 @@ body {
     background: #FFFFFF;
 }
 
-.information {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    gap: 12px;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 16px;
-    line-height: 20px;
-    color: #6C757D;
+.active_page{
+    color:blueviolet
 }
 
-.cangeColor {
-    color: #7F5AF0;
-    background: #FBFCFD;
-}
 
 /* a:is(:link, :active, :visited).active{
     color: #7F5AF0;
     border-left: 2px solid #7F5AF0;
 } */
-.icons_svg {
-    fill: #6C757D;
-}
+
 
 .studies_information {
     margin: 0;
@@ -1100,10 +1074,7 @@ body{
     color: #3F67CE;
   }
 
-.banner_banner_wrapper{
-    width: 100%;
-    border-bottom: 1px solid #E4EBF1;
-}
+
 
 
 /* rating_wrapper modal */
@@ -1420,6 +1391,16 @@ input:checked ~ label{
     background: none;
     border: none;
 }
+/* .goBack {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    text-decoration: none;
+    color: #464D54;
+} */
 /* teacher_name_and_paymant */
 
 .wrapper_for_teachers {
@@ -1578,7 +1559,7 @@ input:checked ~ label{
     color: #6C757D; 
 }
 
-.wrapper_for_contacts {
+.wrapper_for_contacts2 {
     position: static;
     display: flex;
     align-items: center;

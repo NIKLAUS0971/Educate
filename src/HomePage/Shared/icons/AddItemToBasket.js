@@ -5,29 +5,7 @@ import { CustomContext } from '../Context/Context'
 // let favos = [];
 export const AddItemToBasket = () => {
 
-    // const { setDataList } = useContext(CustomContext)
-
-    // const [save, setSave] = useState([])
-
-
-    // const saveCard = {
-    //     display: active ? 'block' : 'none'
-
-    // }
-
-    // const saveCard2 = {
-    //     display: active ? 'none' : 'block'
-    // }
-  
-    // function favourites(e) {
-    //   let flags = localStorage.getItem("flags");
-    //   favos.push(e);
-    //   flags = [2];
-    //   flags = favos.filter((val,idx)=> val != flags[idx])
-    //   console.log(flags)
-    // onClick={(e) => { favourites(e.target.parentNode.getAttribute("data-id")) }}
-    //   // console.log(favos);
-    // }
+   
 
     return (
         <>

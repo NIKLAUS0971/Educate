@@ -8,7 +8,6 @@
     min-height: 68px;
     background: #FBFCFD;
     border-top: 1px solid #DBE4EC;
-    border-bottom: 1px solid #DBE4EC;
 }
 
 
@@ -91,10 +90,7 @@
     color: #464D54;
 }
 
-.banner_banner_wrapper {
-    width: 100%;
-    border-bottom: 1px solid #E4EBF1;
-}
+
 
 .anly_all_card {
     display: flex;
@@ -616,7 +612,7 @@
     color: #663FD7;
 }
 
-svg {
+.svg_icons {
     fill: #6C757D;
 }
 
@@ -924,14 +920,7 @@ li {
     margin: 0;
 }
 
-.icon_for_cart {
-    margin-bottom: 60px;
-    fill: #616E7A;
-}
 
-.icon_for_cart:hover {
-    fill: #7F5AF0;
-}
 
 /* Next wrapper inside carts about rating */
 .wrapper_rating {

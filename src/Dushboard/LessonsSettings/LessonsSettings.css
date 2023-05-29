@@ -227,10 +227,7 @@
     color: #3F67CE;
   }
 
-.banner_banner_wrapper{
-    width: 100%;
-    border-bottom: 1px solid #E4EBF1;
-}
+
 
 .banner_wrapper{
     width: 100%;
@@ -301,16 +298,7 @@
     justify-content: space-between;
     width: 100px;
 }
-.goBack{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 30px;
-    text-decoration: none;
-    color: #464D54;
-}
+
 
 
 .icon-Profile-setting:before {
@@ -320,43 +308,14 @@
 
 /* Profil */
 
-.wrapper_for_profil{
-    display: flex;
-    justify-content: space-between;
-}
 
-.inforemation_about_contact_address{
-    width: 252px;
-    border: 1px solid #DBE4EC;
-    border-radius: 5px;
-    height: 245px;
-    background: #FFFFFF;
-}
 
-.information{
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #DBE4EC;
-    padding: 20px;
-    gap: 12px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
-    color: #6C757D;
-}
 
-.cangeColor{
-    color: #7F5AF0;
-    background: #FBFCFD;
-}
 /* a:is(:link, :active, :visited).active{
     color: #7F5AF0;
     border-left: 2px solid #7F5AF0;
 } */
-.icons_svg{
-    fill:#6C757D;
-}
+
 
 
 

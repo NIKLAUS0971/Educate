@@ -1,7 +1,7 @@
 export const DistrictFilter = ({style}) => {
     return (
         <>
-            <svg style={style} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="svg_icons" style={style} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_2856_810)">
                     <path d="M18.75 20H15.625C15.25 20 15 19.75 15 19.375V10C15 9.625 15.25 9.375 15.625 9.375H18.75C19.125 9.375 19.375 9.625 19.375 10V19.375C19.375 19.75 19.125 20 18.75 20Z" />
                     <path d="M4.375 20H1.25C0.875 20 0.625 19.75 0.625 19.375V13.125C0.625 12.75 0.875 12.5 1.25 12.5H4.375C4.75 12.5 5 12.75 5 13.125V19.375C5 19.75 4.75 20 4.375 20Z" />

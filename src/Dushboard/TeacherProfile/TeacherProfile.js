@@ -38,7 +38,7 @@ export const TeacherProfile = () => {
                     </div>
                 </div>
             </div>
-            <div className="banner_wrapper">
+            <div className="banner_wrapper_">
                 <div className="container">
                     <form className="wrapper_go_back_navigation">
                         <button className="goBack" >
@@ -82,7 +82,7 @@ export const TeacherProfile = () => {
                     </div>
                 </div>
             </div>
-            <div className="banner_wrapper">
+            <div className="banner_wrapper_">
                 <div className="container">
                     <div className="wrapper_Space_is_available_for_new_students">
                         <div className="space_for_new_students">Yeni şagirdlər üçün yer mövcuddur.</div>
@@ -111,7 +111,7 @@ export const TeacherProfile = () => {
                             <p className="location several_text2">{teacherData.city_id}, {teacherData.region_id}, {teacherData.address_text}</p>
                         </div>
                     </div>
-                    <div className="banner_wrapper">
+                    <div className="banner_wrapper_">
                         <div className="container">
                             <div className="wrapper_everithing_about_teachers_inside">
                                 <div className="wrapper_information_about_teachers">
@@ -120,7 +120,7 @@ export const TeacherProfile = () => {
                                         <div className="about_teachers">{teacherData.description}</div>
                                     </div>
                                 </div>
-                                <div className="wrapper_for_contacts">
+                                <div className="wrapper_for_contacts2">
                                     <div className="contacts">
                                         <p className="text_contacts">Əlaqə vasitələri</p>
                                         <div className="number_email_social_network">
@@ -176,7 +176,7 @@ export const TeacherProfile = () => {
                     </div>
                 </div>
             </div>
-            <div className="banner_wrapper">
+            <div className="banner_wrapper_">
                 <div className="container">
                     <div className="sabject_text">
                         Fənnlər
@@ -232,7 +232,7 @@ export const TeacherProfile = () => {
                     </div>
                 </div>
             </div>
-            <div className="banner_wrapper">
+            <div className="banner_wrapper_">
                 <div className="container">
                     <div className="certificates_wrapper">
                         <div className="certificates_text">Sertifikatlar</div>

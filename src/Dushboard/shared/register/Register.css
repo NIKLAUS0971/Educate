@@ -1,0 +1,233 @@
+.wrapper_for_input_ {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 360px;
+}
+
+.several_items_ {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.several_items_ .input {
+    padding: 10px 16px;
+    width: 360px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid #C1CDD8;
+    border-radius: 5px;
+    outline: none;
+    transition: all ease .20s;
+}
+.several_items_ .input:hover {
+    border: 1px solid #464D54;
+    transition: all ease .20s;
+}
+.several_items_ .input:focus {
+    border: 1px solid #7F5AF0;
+    transition: all ease .20s;
+}
+
+.several_items_ span {
+    font-family: 'Mulish';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #464D54;
+
+
+}
+.several_items_2{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.several_items_2 .input {
+    padding: 10px 37px 10px 15px;
+    width: 360px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid #C1CDD8;
+    border-radius: 5px;
+    outline: none;
+    transition: all ease .20s;
+}
+.several_items_2 .input:hover {
+    border: 1px solid #464D54;
+    transition: all ease .20s;
+}
+.several_items_2 .input:focus {
+    border: 1px solid #7F5AF0;
+    transition: all ease .20s;
+}
+
+.several_items_2 span {
+    font-family: 'Mulish';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #464D54;
+
+
+}
+.wrapper_input_check_box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.wrapper_for_button_ button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    width: 360px;
+    height: 40px;
+    background: #7F5AF0;
+    border-radius: 5px;
+    font-family: 'Mulish';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all ease .20s;
+}
+
+.wrapper_for_button_ button:hover {
+    background-color: #663FD7;
+    transition: all ease .20s;
+}
+
+.wrapper_for_button_ {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.wrapper_for_button_ div {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #6C757D;
+}
+
+.wrapper_for_button_ span {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #3F67CE;
+    cursor: pointer;
+}
+
+.form_wrapper_ {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.create_accaunt_ {
+    font-family: 'Mulish';
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 23px;
+    color: #464D54;
+}
+
+.wrapper_for_several_rappers_ {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.other_way_for_create_accaunt {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.other_way_for_create_accaunt span {
+    font-family: 'Mulish';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #464D54;
+}
+
+.wrapper_for_facebook_google_ {
+    display: flex;
+    gap: 12px;
+}
+
+.wrapper_for_several_elements_ {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.wrapper_for_facebook_google_ div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 20px 6px 18px;
+    gap: 10px;
+    width: 127px;
+    height: 30px;
+    border: 1px solid #C1CDD8;
+    border-radius: 5px;
+    font-family: 'Mulish';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #616E7A;
+    cursor: pointer;
+}
+
+.wrapper_sub_container_ {
+    position: absolute;
+    top: 50%;
+    left: 37%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+.wrapper_sub_container_ img {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 50%;
+}
+
+/* .ggg111{} */
+.img_jpeg {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    left: 50%;
+    height: 100vh;
+    background-image: url(../foto//Rectangle19.jpg);
+}
+.label_for_check_box_{
+    display: flex;
+    gap: 6px;
+}
+
+.label_for_check_box_ a {
+    font-family: 'Mulish';
+    font-size: 14px;
+    line-height: 16px;
+    text-decoration-line: underline;
+    color: #3F67CE;
+}
+.label_for_check_box_ span {
+    cursor: pointer;
+}

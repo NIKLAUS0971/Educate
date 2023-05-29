@@ -4,7 +4,7 @@ import Rectangly111 from "../../../Shared/foto/Rectangly111.png"
 import { AddItemToBasket } from "../../../Shared/icons/AddItemToBasket"
 import { RatingStart } from "../../../Shared/icons/RatingStar"
 import { EmptiFile } from "../../EmptiFile/EmptiFile"
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { CircularProgress } from '@mui/material';
 import { SaveItemToBasket } from '../../../Shared/icons/SaveItemToBasket';
 import { TeacherProfile } from '../../../../Dushboard/TeacherProfile/TeacherProfile';
@@ -15,23 +15,35 @@ import { useNavigate } from 'react-router-dom';
 
 
 export function AllCard({ coinsData, loading }) {
-    const { addBasket } = useContext(CustomContext)
+    // const { addBasket } = useContext(CustomContext)
     const [active, setActive] = useState(false)
     const navigate = useNavigate()
-    return (  
+    const { addBasket, setDataList, dataList, fetchData, setBasket } = useContext(CustomContext)
+
+    // useEffect(()=>{
+    //     setBasket(JSON.parse(localStorage.setItem('favorites')))
+    // }, [])
+
+    // useEffect(()=>{
+    //     // fetchData()
+    // },[])
+    
+
+    return (
         <>
             <div className='anly_all_card' >
-                
-                { coinsData.length === 0 ?
-                        <EmptiFile /> : coinsData.map((item) => {
-                            
-                            return (
-                                <>
-                                    <div className="carts cart1" onClick={()=> navigate(`/teacher_profile/${item.id}`)}>
+
+                {coinsData.length === 0 ?
+                    <EmptiFile /> : coinsData.map((item) => {
+
+                        return (
+                            <>
+                                <div>
+                                    <div className="carts cart1" onClick={()=> navigate(`/teacher_profile/${item.id}`)} >
                                         <div className="information_about_teacher">
                                             <div className="foto_information_and_icon_teacher">
                                                 <img src={Rectangly111} alt="" />
-                                                <a  className="foto_information_teacher">
+                                                <a className="foto_information_teacher">
                                                     <div className="foto_teacher">
 
                                                     </div>
@@ -49,7 +61,7 @@ export function AllCard({ coinsData, loading }) {
                                                     <p className="rating_number">{item.rating} <RatingStart /></p>
                                                 </div>
                                             </div>
-                                            <a  className="wrapper_about_price_location_and_litle_about_teacher">
+                                            <a className="wrapper_about_price_location_and_litle_about_teacher">
                                                 <div className="litle_about_teacher">{item.description}</div>
                                             </a>
                                             <div className="wrapper_about_price">
@@ -67,9 +79,10 @@ export function AllCard({ coinsData, loading }) {
                                             </div>
                                         </div>
                                     </div>
-                                </>
-                            )
-                        })
+                                </div>
+                            </>
+                        )
+                    })
                 }
             </div>
         </>
