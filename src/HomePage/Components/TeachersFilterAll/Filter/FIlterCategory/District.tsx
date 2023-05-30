@@ -38,7 +38,7 @@ export const District = ({ data }: any) => {
                             {dataForCheckBox[3].map((option, index) => (
                                 <option
                                     style={{cursor:'pointer'}}
-                                    key={index} value={option.id}  onClick={(e:any) => {setSelectItem(option.name); setIsActive(false); HandleSelectDistrict(option.id)}
+                                    key={option.id} value={option.id}  onClick={(e:any) => {setSelectItem(option.name); setIsActive(false); HandleSelectDistrict(option.id)}
                                     } className="dropdown-item dropdown_item_hover_select">
                                     {option.name}
                                 </option>

@@ -143,9 +143,9 @@ export function TeachersFilter() {
                         </div>
                     </div>
                     <div className="all_cart_and_filter">
-                        <ul className="first_item" >
-                            <CollapseFilter handleChooseSubject={handleChooseSubject} value1={value1} />
-                        </ul>
+                        <div className="first_item" >
+                           <CollapseFilter   />
+                        </div>
                         <AllCard coinsData={currentPosts} loading={loading} />
                     </div>
                    <div style={{width:'346px', margin:'0 auto', marginTop:'36px'}}>

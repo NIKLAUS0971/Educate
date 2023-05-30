@@ -11,7 +11,7 @@ import { Navigation } from '../shared/navigation/Navigation'
 // import { TheAddressOfTheLesson } from './Dushboard/TheAddressOfTheLesson/TheAddressOfTheLesson';
 
 export const PersonalInformation = () => {
-    const { writeMoreInformation, handleWriteFirstNameAndLastName, isImageOrPdfURL, isImageURL, firstNameAndLastName, moreInformation, handleImportImage, handlerUploadFilePdfOrJpeg } = useContext(CustomContext)
+    const { writeMoreInformation, email, isImageOrPdfURL, isImageURL, firstNameAndLastName, moreInformation, handleImportImage, handlerUploadFilePdfOrJpeg } = useContext(CustomContext)
     const navigate = useNavigate()
     const ref = useRef()
     return (
@@ -29,7 +29,7 @@ export const PersonalInformation = () => {
                         <p className="teachers1">/</p>
                         <a className="Home_page" href="../Teachers/teachers.html">Müəllimlər</a>
                         <p className="teachers">/</p>
-                        <p className="teachers">Murad Vahubov</p>
+                        <p className="teachers">{firstNameAndLastName}</p>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@ export const PersonalInformation = () => {
                                 <div class="edit_profile">
                                     <img value={isImageURL} src={isImageURL ? isImageURL : 'no foto'} />
                                     <form for="" class="edit_personal_profile">
-                                        <div class="person_name">Adilə Vahubova</div>
+                                        <div class="person_name">{firstNameAndLastName}</div>
                                         <button type="button" class="change_wrapper">
                                             <label className="change_foto_label" style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
                                                 <ChangeFoto />
@@ -72,11 +72,11 @@ export const PersonalInformation = () => {
                                     <div action="" class="write_first_and_last_name">
                                         <div class="wrapper_for_input">
                                             <label for="" id="writeName" class="write_name use_multiple_elements">Ad, Soyad</label>
-                                            <input value={firstNameAndLastName} onChange={handleWriteFirstNameAndLastName} type="text" id="writeName" class="writeName change_multiple_elements" placeholder="Ad, Soyad" />
+                                            <input value={firstNameAndLastName}  type="text" id="writeName" class="writeName change_multiple_elements" placeholder="Ad, Soyad" />
                                         </div>
                                         <div class="wrapper_for_input">
                                             <label for="" id="writeEmail" class="write_email use_multiple_elements">E-poçt</label>
-                                            <input type="text" id="writeEmail" class="writeEmail change_multiple_elements" placeholder="E-poçt ünvanızı daxil edin" />
+                                            <input value={email} type="text" id="writeEmail" class="writeEmail change_multiple_elements" placeholder="E-poçt ünvanızı daxil edin" />
                                         </div>
                                         <div class="wrapper_for_input">
                                             <label for="" id="moreInformation" class="more_information use_multiple_elements">Ətraflı</label>

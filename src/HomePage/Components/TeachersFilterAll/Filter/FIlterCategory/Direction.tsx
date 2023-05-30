@@ -36,7 +36,7 @@ export const Direction = ({ data }: any) => {
                         isOpen ? <><div style={{ marginBottom: '24px' }}>
                             {dataForCheckBox[1].map((item) => {
                                 return (
-                                    <div className="filter_category_form">
+                                    <div key={item.id} className="filter_category_form">
                                         <label className="label_filter">
                                             <input type="checkbox" value={item.id} onChange={(e) => HandleSelectDirection(item.id)} />
                                             <span className='filter_text'>{item.name}</span>

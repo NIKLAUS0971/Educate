@@ -39,7 +39,7 @@ export const City = ({ data }: any) => {
                             {dataForCheckBox[2].map((option, index) => (
                                 <div
                                     style={{cursor:'pointer'}}
-                                    key={index} onClick={(e) => {setSelectItem(option.name); setIsActive(false); HandleSelectSity(option.id)
+                                    key={option.id} onClick={(e) => {setSelectItem(option.name); setIsActive(false); HandleSelectSity(option.id)
                                     }
                                     } className="dropdown-item dropdown_item_hover_select">
                                     {option.name}

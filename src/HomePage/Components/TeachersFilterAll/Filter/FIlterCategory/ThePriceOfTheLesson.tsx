@@ -1,10 +1,10 @@
-
+import * as React from 'react';
 import { PriceFilter } from "../../../../Shared/icons/PriceFilter"
 import Slider from '@mui/material/Slider';
-import * as React from 'react';
-import { useContext, useState } from "react";
-import '../../../../Shared/Style/TeachersFilter.css'
+import { useContext } from "react";
 import { CustomContext } from "../../../../Shared/Context/Context";
+
+import '../../../../Shared/Style/TeachersFilter.css'
 
 
 function valuetext(value: number) {
@@ -12,18 +12,15 @@ function valuetext(value: number) {
 }
 
 export const ThePriceOfTheLesson = ({ data }: any) => {
-    const { selectedPrice, setSelectedPrice, handleRangePriceSlider } = useContext(CustomContext)
-    const [showPrice, setShowPrice] = useState()
+    const { selectedPrice, setSelectedPrice } = useContext(CustomContext)
 
     function handleChange(event: Event, newValue: number | number[]) {
         setSelectedPrice(newValue as number[]);
     };
 
-    // console.log(selectedPrice);
 
     return (
         <>
-
             <div className="container_for_under_line">
                 <div className="icons_bautton_container">
                     <div className="click_open_filter_category">
@@ -44,15 +41,11 @@ export const ThePriceOfTheLesson = ({ data }: any) => {
                         getAriaValueText={valuetext}
                         max={1500}
                         color="secondary"
-                        aria-label="Small steps"
                         step={10}
                         disableSwap
                     />
                 </div>
-
             </div>
-
-
         </>
     )
 }

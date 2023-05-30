@@ -11,74 +11,59 @@ import { GenderOfTheTeacher } from '../FIlterCategory/GenderOfTheTeacher';
 
 
 export const CollapseFilter = () => {
-    
-    const data = filterData.map((item, index) => {
 
-        if(index === 0){
-            return(
-                <>
-                    <Subject key={index} data={item.name}/>
-                </>
-            )
-        } else if(index === 1){
-            return(
-                <>
-                <Direction key={index} data={item.name}/>
-                </>
-            )
-        }else if(index === 2){
-            return(
-                <>
-                <ThePriceOfTheLesson key={index} data={item.name}/>
-                </>
-            )
-        }else if(index === 3){
-            return(
-                <>
-                <City key={index} data={item.name}/>
-                </>
-            )
-        }else if(index === 4){
-            return(
-                <>
-                <District key={index} data={item.name}/>
-                </>
-            )
-        }else if(index === 6){
-            return(
-                <>
-                <Subway key={index} data={item.name}/>
-                </>
-            )
-        }else if(index === 7){
-            return(
-                <>
-                <TeachingFormat key={index} data={item.name}/>
-                </>
-            )
-        }else if(index === 8){
-            return(
-                <>
-                <TypeOfStudy key={index} data={item.name}/>
-                </>
-            )
-        }else if(index === 9){
-            return(
-                <>
-                    <div className='container_for_under_line' style={{borderBottom:'none'}}>
-                        <GenderOfTheTeacher key={index} data={item.name}/>
-                    </div>
-                </>
-            )
-        }
-    })
+    const maping = filterData.map((item, index) => {
+
+        return(
+              <div key={index}>
+                    <span >
+                        {index === 0 &&(<Subject   data={item.name}/>)}
+                    </span>
+                    <span >
+                        {index === 1 &&(<Direction   data={item.name}/>)}
+                    </span>
+                    <span >
+                        {index === 2 &&(<ThePriceOfTheLesson   data={item.name}/>)}
+                    </span>
+                    <span >
+                        {index === 3 &&(<City   data={item.name}/>)}
+                    </span>
+                    <span >
+                        {index === 4 &&(<District   data={item.name}/>)}
+                    </span>
+                    <span >
+                        {index === 6 &&(<Subway   data={item.name}/>)}
+                    </span>
+                    <span >
+                        {index === 7 &&(<TeachingFormat   data={item.name}/>)}
+                    </span>
+                    <span >
+                        {index === 8 &&(<TypeOfStudy   data={item.name}/>)}
+                    </span>
+                    <span >
+                        {index === 9 &&(
+                        <div className='container_for_under_line' style={{borderBottom:'none'}}>
+                            <GenderOfTheTeacher   data={item.name}/>
+                        </div>
+                        )}
+                    </span>
+              </div>
+              
+              
+              
+              
+              
+              
+              
+              
+        ) 
+   
+      })
+
     return (
         <>
-            <div>
-                <div>
-                    {data}
-                </div>
-            </div>
+            {maping}
+                
         </>
     )
     }

@@ -48,7 +48,7 @@ export const Subject = ({ data }: any) => {
 
                                 return (
 
-                                    <div className="filter_category_form">
+                                    <div key={item.id} className="filter_category_form">
                                         <label className="label_filter">
                                             <input type="checkbox" value={item.id} onChange={(e) => HandleCategory(item.id)} />
                                             <span className='filter_text'>{item.name}</span>

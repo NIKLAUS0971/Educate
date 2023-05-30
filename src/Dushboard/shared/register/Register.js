@@ -11,8 +11,8 @@ import { CustomContext } from "../../../HomePage/Shared/Context/Context"
 
 
 export const Register = () => {
-    const {user, setUser} = useContext(CustomContext)
-    const [email, setEmail] = useState('')
+    const {user, setUser, handleWriteFirstNameAndLastName, handleWritwEmail} = useContext(CustomContext)
+
     const [eye, setEye] = useState(false)
 
     const navigate = useNavigate()
@@ -35,7 +35,7 @@ export const Register = () => {
             localStorage.setItem('user', JSON.stringify ({
                 ...data.data
             }))
-            navigate('/')
+            navigate('/personal_information')
         })
         .catch((err)=>{
             console.log(err);
@@ -54,11 +54,11 @@ console.log(user);
                             <div className="wrapper_for_input_">
                                 <label className="several_items_">
                                     <span>Ad, Soyad</span>
-                                    <input className="input text_input_" type="text" placeholder="Ad və soyadınızı daxil edin" />
+                                    <input  onChange={handleWriteFirstNameAndLastName} className="input text_input_" type="text" placeholder="Ad və soyadınızı daxil edin" />
                                 </label>
                                 <label className="several_items_">
                                     <span>E-poçt</span>
-                                    <input  className="input email_input_" type="email" placeholder="E-poçt ünvanızı daxil edin" />
+                                    <input  onChange={handleWritwEmail}  className="input email_input_" type="email" placeholder="E-poçt ünvanızı daxil edin" />
                                 </label>
 
                                 <label className="several_items_2 " style={{position:'relative'}}>

@@ -57,8 +57,8 @@ export function TheAddressOfTheLesson() {
                                         </label>
                                         <label for="" className="label_area label_alone">
                                             <div className="wrapper_for_input_and_text">
-                                                <span className="select_set_the_address_on_the_map change_together">Xəritədə ünvanı təyin edin</span>
-                                                <input value={address} onChange={handleSetTheAddressOnTheMap} type="text" className="set_the_address_on_the_map_input together_input" placeholder="Axtar" />
+                                                <span value={address} className="select_set_the_address_on_the_map change_together">Xəritədə ünvanı təyin edin</span>
+                                                <input  onChange={handleSetTheAddressOnTheMap} type="text" className="set_the_address_on_the_map_input together_input" placeholder="Axtar" />
                                             </div>
                                             <img className='mark_on_the_map' src={FindeOnTheMap} alt="" />
                                         </label>

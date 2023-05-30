@@ -49,7 +49,7 @@ export function Header() {
                                 </button>
                                 <button style={{ border: 'none', outline: 'none', cursor:'pointer' }}
                                     type='button' className="btn_come_in"
-                                    onClick={() => navigate('/register')}
+                                    onClick={() => navigate('/login')}
                                 >Daxil ol</button>
                             </form>
                         </div>

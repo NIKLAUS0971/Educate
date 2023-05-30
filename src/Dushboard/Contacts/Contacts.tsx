@@ -2,11 +2,25 @@ import React from "react"
 import '../Contacts/ContactDushboard.css'
 import { CustomContext } from "../../HomePage/Shared/Context/Context"
 import { useContext } from 'react'
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { Navigation } from '../shared/navigation/Navigation'
 
 export const Contacts = () => {
-    const { handleWritwPhoneNumber, createnewPersonCard, handleWritwEmail, handleWriteFacebook, handleWriteInstagram, handleWriteLinkedin, handleWriteYoutube } = useContext(CustomContext)
+    const params = useParams()
+    console.log(params);
+    
+    const {email, phoneNumber, isFacebook,
+        isIsnstagram,
+        isLinkedin,
+        isYoutube,
+        handleWritwPhoneNumber, 
+        createnewPersonCard,
+        handleWritwEmail,
+        handleWriteFacebook,
+        handleWriteInstagram,
+        handleWriteLinkedin,
+        handleWriteYoutube } = useContext(CustomContext)
+
     const navigate = useNavigate()
     return (
         <>
@@ -39,11 +53,11 @@ export const Contacts = () => {
                             <div className="wrapper_input_connection" >
                                 <label className="label_connection">
                                     <span className="write_mobile_number change_together">Mobil</span>
-                                    <input onChange={handleWritwPhoneNumber} type="text" className="mobile connection" placeholder="+994 __ ___ __ __" />
+                                    <input value={phoneNumber} onChange={handleWritwPhoneNumber} type="text" className="mobile connection" placeholder="+994 __ ___ __ __" />
                                 </label>
                                 <label className="label_connection">
                                     <span className="write_email change_together">E-poçt</span>
-                                    <input onChange={handleWritwEmail} type="text" className="email connection" placeholder="E-poçt ünvanızı daxil edin" />
+                                    <input value={email}  type="email" className="email connection" placeholder="E-poçt ünvanızı daxil edin" />
                                 </label>
                                 <label className="label_connection">
                                     <span className="write_facebook change_together">Facebook</span>
@@ -52,17 +66,17 @@ export const Contacts = () => {
                                 </label>
                                 <label className="label_connection">
                                     <span className="write_instagram change_together">İnstagram</span>
-                                    <input type="text" onChange={handleWriteInstagram} className="instagram connection" placeholder="İnstagram linkini daxil edin" />
+                                    <input value={isIsnstagram} type="text" onChange={handleWriteInstagram} className="instagram connection" placeholder="İnstagram linkini daxil edin" />
                                     <img className="iconNetWork" src="../icon/ins-gr.svg" alt="" />
                                 </label>
                                 <label className="label_connection">
                                     <span className="write_linkedin change_together">Linkedin</span>
-                                    <input type="text" onChange={handleWriteLinkedin} className="linkedin connection" placeholder="Linkedin linkini daxil edin" />
+                                    <input value={isLinkedin} type="text" onChange={handleWriteLinkedin} className="linkedin connection" placeholder="Linkedin linkini daxil edin" />
                                     <img className="iconNetWork" src="../icon/in-gr.svg" alt="" />
                                 </label>
                                 <label className="label_connection">
                                     <span className="write_youtube change_together">Youtube</span>
-                                    <input type="text" onChange={handleWriteYoutube} className="youtube connection" placeholder="Youtube linkini daxil edin" />
+                                    <input value={isYoutube} type="text" onChange={handleWriteYoutube} className="youtube connection" placeholder="Youtube linkini daxil edin" />
                                     <img className="iconNetWork" src="../icon/yout-gr.svg" alt="" />
                                 </label>
                             </div>
@@ -70,7 +84,7 @@ export const Contacts = () => {
                         <div className="wrapper_click_btn_next">
                             <div className="container">
                                 <span className="btn_next">
-                                    <button type='submit' className="btnNext">Tamamla</button>
+                                    <button type='submit'  className="btnNext">Tamamla</button>
                                 </span>
                             </div>
                         </div>

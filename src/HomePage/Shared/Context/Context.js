@@ -4,6 +4,7 @@ import axios from 'axios';
 import React from 'react'
 import { createContext } from "react"
 import { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
 
 
 export const CustomContext = createContext();
@@ -399,6 +400,11 @@ console.log(dataList2);
         secondFileReader.readAsDataURL(file)
     }
 
+
+
+
+
+    
     const addNewPerson = (newPerson) => {
         axios.post(`http://localhost:3005/data?`, newPerson)
             .then((response) => {
@@ -448,6 +454,7 @@ console.log(dataList2);
 
     const value = {
         //dushboard
+        email, setEmail,
         user, setUser,
         address,
         isImageOrPdfURL,
@@ -457,6 +464,10 @@ console.log(dataList2);
         isImage,
         handleWriteFacebook,
         handleWriteInstagram,
+        isFacebook,
+        isIsnstagram,
+        isLinkedin,
+        isYoutube,
         handleWriteLinkedin,
         handleWriteYoutube,
         writeMoreInformation,
@@ -464,6 +475,7 @@ console.log(dataList2);
         handleWriteFirstNameAndLastName,
         firstNameAndLastName,
         handleWritwPhoneNumber,
+        phoneNumber,
         handleWritwEmail,
         createnewPersonCard,
         handleSelectDistrict,

@@ -37,7 +37,7 @@ export const Subway = ({ data }: any) => {
                             <div style={{ marginBottom: '24px' }}>
                                 {dataForCheckBox[4].map((item) => {
                                     return (
-                                        <div className="filter_category_form" >
+                                        <div key={item.id} className="filter_category_form" >
                                             <label className="label_filter">
                                                 <input type="checkbox" value={item.id} onChange={() => HandleSelectSubway(item.id)} />
                                                 <span className='filter_text'>{item.name}</span>
