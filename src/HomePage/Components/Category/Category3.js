@@ -27,7 +27,7 @@ export function Category3({ it }) {
 
 
     const arr = [
-        [{ category: "İT", name: 'Hamısına bax' },]
+        [{id: 1, category: "İT", name: 'Hamısına bax' },]
     ]
 
 
@@ -35,9 +35,9 @@ export function Category3({ it }) {
         <>
             <div className="individual_components">
                 {
-                    arr[0].map((item) => {
+                    arr[0].map((item, index) => {
                         return (
-                            <div className="all_items">
+                            <div key={item.id} className="all_items">
                                 <div className="wrapper_for_icon_items">
                                     <IconCategory />
                                     <div className="items2">{item.category}</div>
@@ -56,9 +56,9 @@ export function Category3({ it }) {
                     {
                         it.map((elem, index) => {
                             return (
-                                <>
-                                    <Card data={elem} key={index} />
-                                </>
+                                <div key={index}>
+                                    <Card  data={elem}  />
+                                </div>
                             )
                         })
                     }

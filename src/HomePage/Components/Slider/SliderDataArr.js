@@ -10,35 +10,29 @@ import { LenguageSimbol } from '../../Shared/icons/LenguageSimbol'
 
 export const SliderDataArr = [
     {
+        id: 1,
         card:[VioletNew],
         iconsSimbol:[<MusiqSimbol/>],
         name: 'Dizayn'
     },
     {
+        id: 2,
         card:[GreenNew],
         iconsSimbol:[<LenguageSimbol/>],
         name: 'Dillər'
     },
     {
+        id: 3,
         card:[OrangeNew],
         iconsSimbol:[<ItSimbol/>],
         name: 'İT'
     },
     {
+        id: 4,
         card:[BlueNew],
         iconsSimbol:[<PsimbolCategory/>],
         name: 'Musiqi'
-    },
-    {
-        card:[VioletNew],
-        iconsSimbol:[<MusiqSimbol/>],
-        name: 'Dizayn'
-    },
-    {
-        card:[GreenNew],
-        iconsSimbol:[<LenguageSimbol/>],
-        name: 'Dillər'
-    },
+    }
     
 ]
 

@@ -68,7 +68,13 @@ export const dataForCheckBox = [
         {id: 39,name: 'Qrup şəklində'},
     ],
     [
-        {id: 40,name: 'Kişi'},
-        {id: 41,name: 'Qadın'},
+        {id: 40,name: 'Azərbaycan'},
+        {id: 41,name: 'Türk'},
+        {id: 42,name: 'İngilis'},
+        {id: 43,name: 'Rus'},
+    ],
+    [
+        {id: 44,name: 'Kişi'},
+        {id: 45,name: 'Qadın'},
     ]
 ]

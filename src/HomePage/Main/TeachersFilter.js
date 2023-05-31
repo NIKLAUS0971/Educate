@@ -58,7 +58,6 @@ export function TeachersFilter() {
             
     }, [])
     
-    console.log(dataList);
 
     
     const navigate = useNavigate()

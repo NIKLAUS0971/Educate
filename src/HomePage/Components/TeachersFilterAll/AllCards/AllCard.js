@@ -18,7 +18,10 @@ export function AllCard({ coinsData, loading }) {
     // const { addBasket } = useContext(CustomContext)
     const [active, setActive] = useState(false)
     const navigate = useNavigate()
-    const { addBasket, setDataList, dataList, fetchData, setBasket } = useContext(CustomContext)
+    const { addBasket } = useContext(CustomContext)
+
+
+
 
     // useEffect(()=>{
     //     setBasket(JSON.parse(localStorage.setItem('favorites')))
@@ -37,45 +40,45 @@ export function AllCard({ coinsData, loading }) {
                     <EmptiFile /> : coinsData.map((item, index) => {
 
                         return (
+                            <div key={item.id} className='one_more_wrapper_for_cards'>
+                                <div className='click_add_favorite_' data-id={item.id} onClick={() => addBasket(item, setActive(!active))}>
+                                    <AddItemToBasket />
+                                </div>
+                                <div  className="carts cart1" onClick={() => navigate(`/teacher_profile/${item.id}`)} >
+                                    <div className="information_about_teacher">
+                                        <div className="foto_information_and_icon_teacher">
+                                            <img src={Rectangly111} alt="" />
+                                            <a className="foto_information_teacher">
+                                                <div className="foto_teacher">
 
-
-                            <div key={item.id} className="carts cart1" onClick={() => navigate(`/teacher_profile/${item.id}`)} >
-                                <div className="information_about_teacher">
-                                    <div className="foto_information_and_icon_teacher">
-                                        <img src={Rectangly111} alt="" />
-                                        <a className="foto_information_teacher">
-                                            <div className="foto_teacher">
-
+                                                </div>
+                                                <div className="information_teacher">
+                                                    <p className="text_name">{item.userId}</p>
+                                                    <p className="about_teacher_job">{item.profetion}</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div className="wrapper_rating">
+                                            <div className="rating">
+                                                <p className="rating_number">{item.rating} <RatingStart /></p>
                                             </div>
-                                            <div className="information_teacher">
-                                                <p className="text_name">{item.userId}</p>
-                                                <p className="about_teacher_job">{item.profetion}</p>
-                                            </div>
+                                        </div>
+                                        <a className="wrapper_about_price_location_and_litle_about_teacher">
+                                            <div className="litle_about_teacher">{item.description}</div>
                                         </a>
-                                        <div data-id={item.id} onClick={() => addBasket(item, setActive(!active))}>
-                                            <AddItemToBasket />
-                                        </div>
-                                    </div>
-                                    <div className="wrapper_rating">
-                                        <div className="rating">
-                                            <p className="rating_number">{item.rating} <RatingStart /></p>
-                                        </div>
-                                    </div>
-                                    <a className="wrapper_about_price_location_and_litle_about_teacher">
-                                        <div className="litle_about_teacher">{item.description}</div>
-                                    </a>
-                                    <div className="wrapper_about_price">
-                                        <div className="about_price">
-                                            <div className="price several">
+                                        <div className="wrapper_about_price">
+                                            <div className="about_price">
+                                                <div className="price several">
 
-                                                <p className="month_price">Aylıq ödəniş:</p>
+                                                    <p className="month_price">Aylıq ödəniş:</p>
+                                                </div>
+                                                <p className="payment">{item.price} Azn</p>
                                             </div>
-                                            <p className="payment">{item.price} Azn</p>
                                         </div>
-                                    </div>
-                                    <div className="wrapper_location several">
+                                        <div className="wrapper_location several">
 
-                                        <p className="month_price">{item.city_id}, {item.region_id}, {item.address_text}</p>
+                                            <p className="month_price">{item.city_id}, {item.region_id}, {item.address_text}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

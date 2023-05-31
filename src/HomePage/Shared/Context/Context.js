@@ -41,7 +41,7 @@ export const Context = (props) => {
     const [dataList2, setDataList2] = useState()
     const [itemCategory, setItemCategory] = useState([])
     const [itemSelectSubway, setItemSelectSubway] = useState([])
-   
+
 
     const rotate = {
         transform: isActive ? 'rotate(180deg)' : '',
@@ -65,6 +65,22 @@ export const Context = (props) => {
         localStorage.setItem('favorites', JSON.stringify(temp))
 
     }
+    useEffect(() => {
+        if (localStorage.getItem('favorites') !== null){
+            setBasket(JSON.parse(localStorage.getItem('favorites')))
+        }
+    }, [])
+
+    useEffect(() => {
+        if (localStorage.getItem('basket') !== null) {
+            setBasket(JSON.parse(localStorage.getItem('basket')))
+        }
+    }, [])
+    useEffect(() => {
+        localStorage.setItem('basket', JSON.stringify(basket))
+    }, [basket])
+
+
 
     function prePage() {
         if (currentPage !== firstPostIndex) {
@@ -117,15 +133,14 @@ export const Context = (props) => {
 
     const handleSearch = async (e) => {
         e.preventDefault()
-        // console.log(e.target.value);
         await axios.get(`http://localhost:3005/data?q=${search}`)
             .then(({ data }) => {
                 setDataList(data)
                 setSearch('')
                 setSearch(localStorage.setItem('searchResult', JSON.stringify(data)))
-                console.log(data);
+                
             })
-            
+
     }
 
     // Functions for sorting
@@ -175,7 +190,6 @@ export const Context = (props) => {
 
 
     async function fetchData2() {
-        // console.log(dataList2);
         try {
             setLoading(true)
             await axios.get(`http://localhost:3005/data?_vdfvdf=${dataList2}`)
@@ -190,7 +204,6 @@ export const Context = (props) => {
         fetchData2()
     }, [])
 
-console.log(dataList2);
 
     const HandleSelectDistrict = (district) => {
 
@@ -332,9 +345,9 @@ console.log(dataList2);
     const [isImageURL, setIsImageURL] = useState()
     const [isImageOrPdfURL, setIsImageOrPdfURL] = useState()
 
-   
 
-    
+
+
 
     const fileReader = new FileReader();
     const secondFileReader = new FileReader();
@@ -404,11 +417,10 @@ console.log(dataList2);
 
 
 
-    
+
     const addNewPerson = (newPerson) => {
         axios.post(`http://localhost:3005/data?`, newPerson)
             .then((response) => {
-                // console.log(response);
             })
     }
 
@@ -446,8 +458,8 @@ console.log(dataList2);
 
     })
 
-    useEffect(()=>{
-        if(localStorage.getItem('user') !== null){
+    useEffect(() => {
+        if (localStorage.getItem('user') !== null) {
             setUser(JSON.parse(localStorage.getItem('user')))
         }
     }, [])
@@ -534,14 +546,7 @@ console.log(dataList2);
 
     }
 
-    useEffect(() => {
-        if (localStorage.getItem('basket') === null) {
-            setBasket(JSON.parse(localStorage.getItem('basket')))
-        }
-    }, [])
-    useEffect(() => {
-        localStorage.setItem('basket', JSON.stringify(basket))
-    }, [basket])
+
 
     return (
         <CustomContext.Provider value={value}>

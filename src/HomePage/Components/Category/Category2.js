@@ -35,9 +35,9 @@ export function Category2({ lenguage }) {
         <>
             <div className="individual_components">
                 {
-                    arr[0].map((item) => {
+                    arr[0].map((item, index) => {
                         return (
-                            <div className="all_items">
+                            <div key={index} className="all_items">
                                 <div className="wrapper_for_icon_items">
                                     <IconCategory />
                                     <div className="items2">{item.category}</div>
@@ -57,9 +57,9 @@ export function Category2({ lenguage }) {
                     {
                         lenguage.map((elem, index) => {
                             return (
-                                <>
-                                    <Card data={elem} key={index} />
-                                </>
+                                <div key={index}>
+                                    <Card data={elem}  />
+                                </div>
                             )
                         })
                     }

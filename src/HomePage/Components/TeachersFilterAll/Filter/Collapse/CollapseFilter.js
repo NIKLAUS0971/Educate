@@ -8,6 +8,7 @@ import { Subway } from '../FIlterCategory/Subway';
 import { TeachingFormat } from '../FIlterCategory/TeachingFormat';
 import { TypeOfStudy } from '../FIlterCategory/TypeOfStudy';
 import { GenderOfTheTeacher } from '../FIlterCategory/GenderOfTheTeacher';
+import { LanguageOfInstruction } from '../FIlterCategory/LanguageOfInstruction';
 
 
 export const CollapseFilter = () => {
@@ -32,18 +33,21 @@ export const CollapseFilter = () => {
                         {index === 4 &&(<District   data={item.name}/>)}
                     </span>
                     <span >
-                        {index === 6 &&(<Subway   data={item.name}/>)}
+                        {index === 5 &&(<Subway   data={item.name}/>)}
                     </span>
                     <span >
-                        {index === 7 &&(<TeachingFormat   data={item.name}/>)}
+                        {index === 6 &&(<TeachingFormat   data={item.name}/>)}
                     </span>
                     <span >
-                        {index === 8 &&(<TypeOfStudy   data={item.name}/>)}
+                        {index === 7 &&(<TypeOfStudy   data={item.name}/>)}
+                    </span>
+                    <span >
+                        {index === 8 &&(<LanguageOfInstruction   data={item.name}/>)}
                     </span>
                     <span >
                         {index === 9 &&(
                         <div className='container_for_under_line' style={{borderBottom:'none'}}>
-                            <GenderOfTheTeacher   data={item.name}/>
+                            <GenderOfTheTeacher  data={item.name}/>
                         </div>
                         )}
                     </span>
