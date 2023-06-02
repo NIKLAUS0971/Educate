@@ -1,21 +1,27 @@
 import { dataForCheckBox } from "../../HomePage/Shared/BazaData/filterData";
-import { CustomContext } from "../../HomePage/Shared/Context/Context";
 import { JustDown } from "../../HomePage/Shared/icons/JustDown";
-import { useContext, useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 export const SelectSity = ({ handleSelectSity }) => {
 
-    const { sity } = useContext(CustomContext)
-
-
     const [isActive, setIsActive] = useState(false)
-    const [selectItem, setSelectItem] = useState("Şəhər seçin");
+    const [sity, setSity] = useState(() => {
+        const saved = localStorage.getItem('sity');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || 'Şəhər seçin'
+    });
+
+    useEffect(() => {
+        localStorage.setItem('sity', JSON.stringify(sity))
+    }, [sity])
+
 
     const rotate = {
         transform: isActive ? 'rotate(180deg)' : '',
         transition: 'transform 200ms ease',
     }
+
     return (
         <>
             <label for="" class="label_area">
@@ -24,7 +30,7 @@ export const SelectSity = ({ handleSelectSity }) => {
                     <div className="together_input" onClick={(e) => {
                         setIsActive(!isActive)
                     }}>
-                        <span >{selectItem}</span>
+                        <span >{sity}</span>
                         <div style={{ position: 'absolute', left: '282px' }}>
                             <JustDown style={rotate} />
                         </div>
@@ -35,13 +41,12 @@ export const SelectSity = ({ handleSelectSity }) => {
                                 {dataForCheckBox[2].map((option) => (
                                     <div
                                         key={option.name} onClick={(e) => {
-                                            setSelectItem(option.name)
+                                            setSity(option.name)
                                             setIsActive(false)
                                             handleSelectSity(option.name)
                                         }
                                         } className="dropdown-item dropdown_item">
                                         {option.name}
-
                                     </div>
                                 ))}
                             </div>

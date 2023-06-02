@@ -1,27 +1,29 @@
 import React from "react"
-import '../Contacts/ContactDushboard.css'
+
 import { CustomContext } from "../../HomePage/Shared/Context/Context"
 import { useContext } from 'react'
-import { useNavigate, useParams } from "react-router-dom"
 import { Navigation } from '../shared/navigation/Navigation'
 
+import '../Contacts/ContactDushboard.css'
+
 export const Contacts = () => {
-    const params = useParams()
-    console.log(params);
-    
-    const {email, phoneNumber, isFacebook,
-        isIsnstagram,
+
+    const {
+        phoneNumber,
+        isInstagram,
         isLinkedin,
         isYoutube,
-        handleWritwPhoneNumber, 
+        isYourEmail,
+        isFacebook,
+        handleWritwPhoneNumber,
         createnewPersonCard,
-        handleWritwEmail,
         handleWriteFacebook,
         handleWriteInstagram,
         handleWriteLinkedin,
-        handleWriteYoutube } = useContext(CustomContext)
+        handleWriteIsYourEmail,
+        handleWriteYoutube 
+    } = useContext(CustomContext)
 
-    const navigate = useNavigate()
     return (
         <>
             <div className="wrapper_banner_wrapper">
@@ -57,16 +59,16 @@ export const Contacts = () => {
                                 </label>
                                 <label className="label_connection">
                                     <span className="write_email change_together">E-poçt</span>
-                                    <input value={email}  type="email" className="email connection" placeholder="E-poçt ünvanızı daxil edin" />
+                                    <input value={isYourEmail} onChange={handleWriteIsYourEmail} type="email" className="email connection" placeholder="E-poçt ünvanızı daxil edin" />
                                 </label>
                                 <label className="label_connection">
                                     <span className="write_facebook change_together">Facebook</span>
-                                    <input type="text" onChange={handleWriteFacebook} className="facebook connection" placeholder="Facebook linkini daxil edin" />
+                                    <input value={isFacebook} type="text" onChange={handleWriteFacebook} className="facebook connection" placeholder="Facebook linkini daxil edin" />
                                     <img className="iconNetWork" src="../icon/f-gr.svg" alt="" />
                                 </label>
                                 <label className="label_connection">
                                     <span className="write_instagram change_together">İnstagram</span>
-                                    <input value={isIsnstagram} type="text" onChange={handleWriteInstagram} className="instagram connection" placeholder="İnstagram linkini daxil edin" />
+                                    <input value={isInstagram} type="text" onChange={handleWriteInstagram} className="instagram connection" placeholder="İnstagram linkini daxil edin" />
                                     <img className="iconNetWork" src="../icon/ins-gr.svg" alt="" />
                                 </label>
                                 <label className="label_connection">
@@ -84,14 +86,13 @@ export const Contacts = () => {
                         <div className="wrapper_click_btn_next">
                             <div className="container">
                                 <span className="btn_next">
-                                    <button type='submit'  className="btnNext">Tamamla</button>
+                                    <button type='submit' className="btnNext">Tamamla</button>
                                 </span>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-
         </>
     )
 }

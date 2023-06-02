@@ -1,24 +1,31 @@
-import '../TheAddressOfTheLesson/StyleDushboard.css'
-import FindeOnTheMap from '../../HomePage/Shared/foto/FindeOnTheMap.png'
 import { SelectSity } from './SelectSity'
 import { SelectDistrict } from './SelectDistrict'
 import { SelectSubway } from './SelectSubway'
 import { useNavigate } from 'react-router-dom'
-import { useContext, useEffect, useState } from 'react'
+import { useContext} from 'react'
 import { CustomContext } from '../../HomePage/Shared/Context/Context'
-
-import axios from 'axios'
 import { Navigation } from '../shared/navigation/Navigation'
+import FindeOnTheMap from '../../HomePage/Shared/foto/FindeOnTheMap.png'
+
+import '../TheAddressOfTheLesson/StyleDushboard.css'
+
 
 
 export function TheAddressOfTheLesson() {
-    const { handleSelectDistrict, address, handleSelectSity, handleSelectSubway, handleWriteExactAddress, handleSetTheAddressOnTheMap } = useContext(CustomContext)
+    const {
+        handleSelectDistrict,
+        onTheMapAddress,
+        address,
+        handleSelectSity,
+        handleSelectSubway,
+        handleWriteExactAddress,
+        handleSetTheAddressOnTheMap
+    } = useContext(CustomContext)
 
     const navigate = useNavigate()
 
     return (
         <>
-           
             <div className="wrapper_banner_wrapper">
                 <div className="container">
                     <div className="wrapper_inside_history_back">
@@ -53,12 +60,12 @@ export function TheAddressOfTheLesson() {
                                         <SelectSubway handleSelectSubway={handleSelectSubway} />
                                         <label for="" className="label_area">
                                             <span className="select_exact_address change_together">Dəqiq Ünvan</span>
-                                            <input onChange={handleWriteExactAddress} type="text" className="exact_address_input together_input" placeholder="Küçə / Bina / Blok / Mərtəbə" />
+                                            <input value={address} onChange={handleWriteExactAddress} type="text" className="exact_address_input together_input" placeholder="Küçə / Bina / Blok / Mərtəbə" />
                                         </label>
                                         <label for="" className="label_area label_alone">
                                             <div className="wrapper_for_input_and_text">
                                                 <span value={address} className="select_set_the_address_on_the_map change_together">Xəritədə ünvanı təyin edin</span>
-                                                <input  onChange={handleSetTheAddressOnTheMap} type="text" className="set_the_address_on_the_map_input together_input" placeholder="Axtar" />
+                                                <input value={onTheMapAddress} onChange={handleSetTheAddressOnTheMap} type="text" className="set_the_address_on_the_map_input together_input" placeholder="Axtar" />
                                             </div>
                                             <img className='mark_on_the_map' src={FindeOnTheMap} alt="" />
                                         </label>

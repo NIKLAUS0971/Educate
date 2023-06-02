@@ -1,7 +1,7 @@
 import { Subject } from '@mui/icons-material';
 import { Pagination } from 'antd';
 import axios from 'axios';
-import React from 'react'
+import React, { useRef } from 'react'
 import { createContext } from "react"
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
@@ -66,7 +66,7 @@ export const Context = (props) => {
 
     }
     useEffect(() => {
-        if (localStorage.getItem('favorites') !== null){
+        if (localStorage.getItem('favorites') !== null) {
             setBasket(JSON.parse(localStorage.getItem('favorites')))
         }
     }, [])
@@ -138,7 +138,7 @@ export const Context = (props) => {
                 setDataList(data)
                 setSearch('')
                 setSearch(localStorage.setItem('searchResult', JSON.stringify(data)))
-                
+
             })
 
     }
@@ -296,6 +296,7 @@ export const Context = (props) => {
         })
 
     }
+    console.log(dataList2);
 
     const HandleSelectGenderOfTheTeacher = (genderOfTheTeacher) => {
         setDataList2(itemSelectGenderOfTheTeacher => {
@@ -330,20 +331,150 @@ export const Context = (props) => {
 
 
     const [district, setDistrict] = useState('')
+
     const [sity, setSity] = useState('')
     const [subway, setSubway] = useState('')
-    const [address, setAddress] = useState('')
-    const [phoneNumber, setPhoneNumber] = useState('')
-    const [email, setEmail] = useState('')
-    const [firstNameAndLastName, setFirstNameAndLastName] = useState('')
-    const [moreInformation, setMoreInformation] = useState('')
-    const [isFacebook, setFacebook] = useState('')
-    const [isIsnstagram, setInstagram] = useState('')
-    const [isLinkedin, setLinkedin] = useState('')
-    const [isYoutube, setYoutube] = useState('')
-    const [isImage, setIsImage] = useState()
-    const [isImageURL, setIsImageURL] = useState()
+
+    const [isYourEmail, setIsYourEmail] = useState(() => {
+        const saved = localStorage.getItem('isYourEmail');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('isYourEmail', JSON.stringify(isYourEmail))
+    }, [isYourEmail])
+
+    const [address, setAddress] = useState(() => {
+        const saved = localStorage.getItem('address');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('address', JSON.stringify(address))
+    }, [address])
+
+    const [onTheMapAddress, setOnTheMapAddress] = useState(() => {
+        const saved = localStorage.getItem('onTheMapAddress');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('onTheMapAddress', JSON.stringify(onTheMapAddress))
+    }, [onTheMapAddress])
+
+    const [phoneNumber, setPhoneNumber] = useState(() => {
+        const saved = localStorage.getItem('phoneNumber');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('phoneNumber', JSON.stringify(phoneNumber))
+    }, [phoneNumber])
+
+    const [email, setEmail] = useState(() => {
+        const saved = localStorage.getItem('email');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('email', JSON.stringify(email))
+    }, [email])
+
+    const [firstNameAndLastName, setFirstNameAndLastName] = useState(() => {
+        const saved = localStorage.getItem('firstName_LastName');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('firstName_LastName', JSON.stringify(firstNameAndLastName))
+    }, [firstNameAndLastName])
+
+    const [moreInformation, setMoreInformation] = useState(() => {
+        const saved = localStorage.getItem('more_Information');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('more_Information', JSON.stringify(moreInformation))
+    }, [moreInformation])
+
+    const [isFacebook, setFacebook] = useState(() => {
+        const saved = localStorage.getItem('isFacebook');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('isFacebook', JSON.stringify(isFacebook))
+    }, [isFacebook])
+
+    const [isInstagram, setInstagram] = useState(() => {
+        const saved = localStorage.getItem('isInstagram');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('isInstagram', JSON.stringify(isInstagram))
+    }, [isInstagram])
+
+
+    const [isLinkedin, setLinkedin] = useState(() => {
+        const saved = localStorage.getItem('isLinkedin');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('isLinkedin', JSON.stringify(isLinkedin))
+    }, [isLinkedin])
+
+    const [isYoutube, setYoutube] = useState(() => {
+        const saved = localStorage.getItem('isYoutube');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('isYoutube', JSON.stringify(isYoutube))
+    }, [isYoutube])
+
+    const [isImage, setIsImage] = useState(()=>{
+        const saved = localStorage.getItem('isImage');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('isImage', JSON.stringify(isImage))
+    }, [isImage])
+
+
+    const [isImageURL, setIsImageURL] = useState(()=>{
+        const saved = localStorage.getItem('isImageURL');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('isImageURL', JSON.stringify(isImageURL))
+    }, [isImageURL])
+
+
     const [isImageOrPdfURL, setIsImageOrPdfURL] = useState()
+
+
+
+   
+
+
 
 
 
@@ -351,7 +482,9 @@ export const Context = (props) => {
 
     const fileReader = new FileReader();
     const secondFileReader = new FileReader();
-
+    secondFileReader.onloadend = () => {
+        setIsImageOrPdfURL(secondFileReader.result)
+    }
     fileReader.onloadend = () => {
         setIsImageURL(fileReader.result);
     }
@@ -363,7 +496,7 @@ export const Context = (props) => {
     const handleSelectDistrict = (district) => {
         setDistrict(district)
     }
-    const handleSelectSity = (sity) => {
+    const handleSelectSity = (e) => {
         setSity(sity)
     }
     const handleSelectSubway = (subway) => {
@@ -373,11 +506,16 @@ export const Context = (props) => {
         setAddress(e.target.value)
     }
     const handleSetTheAddressOnTheMap = (e) => {
-        setAddress(e.target.value)
+        setOnTheMapAddress(e.target.value)
     }
     const handleWritwPhoneNumber = (e) => {
         setPhoneNumber(e.target.value)
     }
+
+    const handleWriteIsYourEmail = (e) => {
+        setIsYourEmail(e.target.value)
+    }
+
     const handleWritwEmail = (e) => {
         setEmail(e.target.value)
     }
@@ -406,18 +544,21 @@ export const Context = (props) => {
         setIsImage(file)
         fileReader.readAsDataURL(file)
     }
+    const [imagges, setImagges] = useState([])
+
+    
     const handlerUploadFilePdfOrJpeg = (e) => {
         e.preventDefault()
         const file = e.target.files[0]
         setIsImageOrPdfURL(file)
+        // setImagges([...imagges, isImageOrPdfURL])
         secondFileReader.readAsDataURL(file)
     }
-
-
-
-
-
-
+    const addItem=(e)=>{
+        e.preventDefault()
+        setImagges([...imagges, isImageOrPdfURL])
+    }
+    
     const addNewPerson = (newPerson) => {
         axios.post(`http://localhost:3005/data?`, newPerson)
             .then((response) => {
@@ -438,7 +579,7 @@ export const Context = (props) => {
             facebook: isFacebook,
             youtube: isYoutube,
             linkedin: isLinkedin,
-            instagram: isIsnstagram,
+            instagram: isInstagram,
             city_id: sity,
             region_id: district,
             metro_id: subway,
@@ -454,9 +595,7 @@ export const Context = (props) => {
     }
 
 
-    const [user, setUser] = useState({
-
-    })
+    const [user, setUser] = useState({})
 
     useEffect(() => {
         if (localStorage.getItem('user') !== null) {
@@ -466,6 +605,11 @@ export const Context = (props) => {
 
     const value = {
         //dushboard
+        addItem,
+        isFacebook,
+        isInstagram,
+        isLinkedin,
+        isYoutube,
         email, setEmail,
         user, setUser,
         address,
@@ -477,15 +621,17 @@ export const Context = (props) => {
         handleWriteFacebook,
         handleWriteInstagram,
         isFacebook,
-        isIsnstagram,
         isLinkedin,
         isYoutube,
         handleWriteLinkedin,
         handleWriteYoutube,
         writeMoreInformation,
         moreInformation,
+        onTheMapAddress,
         handleWriteFirstNameAndLastName,
         firstNameAndLastName,
+        handleWriteIsYourEmail,
+        isYourEmail,
         handleWritwPhoneNumber,
         phoneNumber,
         handleWritwEmail,
@@ -495,6 +641,7 @@ export const Context = (props) => {
         handleSelectSubway,
         handleWriteExactAddress,
         handleSetTheAddressOnTheMap,
+        imagges,
         //////////////
         handleRangePriceSlider,
         numberOfPages, setNumberOfPages,
@@ -507,7 +654,6 @@ export const Context = (props) => {
         HandleSelectTypeOfStudy,
         HandleSelectTeachingFormat,
         HandleSelectSubway,
-        HandleSelectSity,
         HandleSelectDistrict,
         HandleCategory,
         selectedPrice,
@@ -539,11 +685,9 @@ export const Context = (props) => {
         handleSortForAlfavit,
         handleFirstAvailableSpace,
         handleSecondAvailableSpace,
-        handleRangePriceSlider,
         addBasket,
         handleSearch,
-        options,
-
+        options
     }
 
 

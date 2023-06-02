@@ -196,39 +196,23 @@
       "everyPerson": "everyBody"
     },
     {
-      "name": "nina@mail.ru",
-      "email": "nina@mail.ru",
-      "password": "nina@mail.ru",
-      "id": 16
-    },
-    {
-      "description": "nina@mail.ru",
-      "rating": "",
-      "gender": "",
-      "map_point": "",
-      "address_text": "nina@mail.ru",
-      "phone": "nina@mail.ru",
-      "contact_email": "nina@mail.ru",
-      "facebook": "",
-      "youtube": "",
-      "linkedin": "",
-      "instagram": "",
-      "city_id": "Gəncə",
-      "region_id": "Abşeron",
-      "metro_id": "28 May",
-      "userId": "nina@mail.ru",
-      "profetion": "",
-      "price": "",
-      "category": "",
+      "id": 16,
+      "title": "Nina Dobrev",
+      "profetion": "Ingilis dili",
+      "rating": 3,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "price": 300,
+      "location": "Nizami rayon, Cəmşid Naxçıvanski",
+      "gender": "Qadın",
+      "category": "İT",
       "availableSpace": "true",
-      "everyPerson": "everyBody",
-      "id": 17
+      "everyPerson": "everyBody"
     },
     {
       "name": "",
       "email": "tgtg@mail.ru",
       "password": "123",
-      "id": 18
+      "id": 17
     }
   ]
 }

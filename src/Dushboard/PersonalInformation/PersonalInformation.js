@@ -3,25 +3,49 @@ import Rectangly111 from '../../HomePage/Shared/foto/Rectangly111.png'
 import '../PersonalInformation/PersonalInformation.css'
 import { ChangeFoto } from "../shared/iconsDushboard/ChangeFotoIcon"
 import { CustomContext } from "../../HomePage/Shared/Context/Context"
-import { useContext, useRef } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { Navigation } from '../shared/navigation/Navigation'
-// import { Contacts } from '../src/Dushboard/Contacts/Contacts';
-// // import { PersonalInformation } from './Dushboard/PersonalInformation/PersonalInformation';
-// import { LessonsSettings } from './Dushboard/LessonsSettings/LessonsSettings';
-// import { TheAddressOfTheLesson } from './Dushboard/TheAddressOfTheLesson/TheAddressOfTheLesson';
 
 export const PersonalInformation = () => {
-    const { writeMoreInformation, email, isImageOrPdfURL, isImageURL, firstNameAndLastName, moreInformation, handleImportImage, handlerUploadFilePdfOrJpeg } = useContext(CustomContext)
+    const {
+        writeMoreInformation,
+        handleWritwEmail,
+        email,
+        // isImageOrPdfURL,
+        isImageURL,
+        firstNameAndLastName,
+        moreInformation,
+        handleWriteFirstNameAndLastName,
+        handleImportImage,
+        // handlerUploadFilePdfOrJpeg,
+
+    } = useContext(CustomContext)
+   
+   
+
+
     const navigate = useNavigate()
-    const ref = useRef()
+    // const [image, setImage] = useState('')
+    
+    const [isImageOrPdfURL, setIsImageOrPdfURL] = useState()
+    const [images, setImages] = useState([])
+    const secondFileReader = new FileReader();
+    secondFileReader.onloadend = () => {
+        setIsImageOrPdfURL(secondFileReader.result)
+    }
+    
+
+    const handlerUploadFilePdfOrJpeg = (e) => {
+        e.preventDefault()
+        setIsImageOrPdfURL(e.target.files[0])
+        
+        
+    }
+const addItem=()=>{
+    setImages([...images, isImageOrPdfURL])
+    }
     return (
         <>
-            {/* <div>
-                <Route path='/contacts_dushboard' element={<Contacts />} />
-                <Route path='/personal_information' element={<PersonalInformation />} />
-                <Route path='/lessons_settings' element={<LessonsSettings />} />
-                <Route path='lesson_address' element={<TheAddressOfTheLesson />} />
-            </div> */}
             <div className="wrapper_banner_wrapper">
                 <div className="container">
                     <div className="wrapper_inside_history_back">
@@ -47,14 +71,14 @@ export const PersonalInformation = () => {
                         <div class="information_about_person">
                             <div class="wrapper_edit">
                                 <div class="edit_profile">
-                                    <img value={isImageURL} src={isImageURL ? isImageURL : 'no foto'} />
+                                    <img value={isImageURL[0]} src={isImageURL ? isImageURL : ''} />
                                     <form for="" class="edit_personal_profile">
                                         <div class="person_name">{firstNameAndLastName}</div>
                                         <button type="button" class="change_wrapper">
                                             <label className="change_foto_label" style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
                                                 <ChangeFoto />
-                                                <span className="change_foto" style={{ width: "78px" }}>Şəkili dəyiş</span>
-                                                <input style={{ opacity: "0" }} type="file" onChange={handleImportImage} />
+                                                <span className="change_foto" style={{ width: "79px" }}>{isImageURL ? 'Şəkili dəyiş' : 'Şəkili yüklə'}</span>
+                                                <input multiple style={{ opacity: "0", width: "0" }} type="file" onChange={handleImportImage} />
                                             </label>
                                         </button>
                                     </form>
@@ -68,15 +92,14 @@ export const PersonalInformation = () => {
                                     <div class="person_information">
                                         <div class="change_person_information">Şəxsi məlumatlar</div>
                                     </div>
-
                                     <div action="" class="write_first_and_last_name">
                                         <div class="wrapper_for_input">
                                             <label for="" id="writeName" class="write_name use_multiple_elements">Ad, Soyad</label>
-                                            <input value={firstNameAndLastName}  type="text" id="writeName" class="writeName change_multiple_elements" placeholder="Ad, Soyad" />
+                                            <input value={firstNameAndLastName} onChange={handleWriteFirstNameAndLastName} type="text" id="writeName" class="writeName change_multiple_elements" placeholder="Ad, Soyad" />
                                         </div>
                                         <div class="wrapper_for_input">
                                             <label for="" id="writeEmail" class="write_email use_multiple_elements">E-poçt</label>
-                                            <input value={email} type="text" id="writeEmail" class="writeEmail change_multiple_elements" placeholder="E-poçt ünvanızı daxil edin" />
+                                            <input value={email} onChange={handleWritwEmail} type="text" id="writeEmail" class="writeEmail change_multiple_elements" placeholder="E-poçt ünvanızı daxil edin" />
                                         </div>
                                         <div class="wrapper_for_input">
                                             <label for="" id="moreInformation" class="more_information use_multiple_elements">Ətraflı</label>
@@ -84,23 +107,33 @@ export const PersonalInformation = () => {
                                         </div>
                                         <div class="wrapper_for_input">
                                             <label for="" id="uploadFile" class="upload_file use_multiple_elements">Sertifikatlar</label>
+
+
+
                                             <div class="btn_uploadCertificates">
                                                 <button type="button" class="uploadFile">
                                                     <img src="../icon/File upload.svg" alt="" />
-                                                    <label>
+                                                    <label style={{ cursor: "pointer", width: "100%", height: "44px", display: 'flex', justifyContent: "center", alignItems: "center" }}>
                                                         <span>Fayl yüklə (PDF,JPEG)</span>
-                                                        <input type="file" style={{ opacity: "0" }} onChange={handlerUploadFilePdfOrJpeg} />
+                                                        <input type="file" multiple style={{ opacity: "0", width: "0" }} onChange={handlerUploadFilePdfOrJpeg} />
                                                     </label>
                                                 </button>
+                                                <button type="button" onClick={addItem}>upload</button>
                                                 <div class="certificates">
 
                                                     <div class="certificate">
-                                                        <img style={{ width: "52px", height: "60px" }} value={isImageOrPdfURL} src={isImageOrPdfURL ? isImageOrPdfURL : 'no foto'} />
+                                                        {/* <img style={{ width: "52px", height: "60px" }} value={isImageOrPdfURL} src={isImageOrPdfURL ? isImageOrPdfURL : 'no foto'} /> */}
+                                                        {images.map((img) => (
+                                                            <img src={URL.createObjectURL(img)} alt="imagges" width='200px' />
+                                                        ))}
                                                     </div>
 
                                                 </div>
                                             </div>
                                         </div>
+
+
+
                                     </div>
                                 </div>
                                 <div class="wrapper_click_btn_next">
