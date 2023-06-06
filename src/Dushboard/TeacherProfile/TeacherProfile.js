@@ -12,6 +12,7 @@ export const TeacherProfile = () => {
     const params = useParams()
 
 
+
     useEffect(() => {
         axios(`http://localhost:3005/data/${params.id}`)
             .then(({ data }) => {
@@ -75,6 +76,7 @@ export const TeacherProfile = () => {
                                             {/* <img src="../icon/star.svg" alt=""> */}
                                         </div>
                                         <a href="#" id="ratiIt" className="vote">Qiymətləndirin</a>
+                                        {teacherData.chooseTeachingLanguages}
                                     </div>
                                 </div>
                             </div>
@@ -89,16 +91,16 @@ export const TeacherProfile = () => {
                     </div>
                     <div className="wrapper_teaching_format">
                         <div className="wrapper_At_the_teachers several_wrapper">
-                            {/* <img src="../icon/Lesson.svg" alt=""> */}
                             <p className="teachers_format_text several_text1">Tədris formatı:</p>
-                            <p className="type_teaching several_text2">Onlayn</p>
-                            <p className="At_the_teachers_address several_text2">Müəllimin ünvanında</p>
+                            <p className="type_teaching several_text2">{teacherData.atTheTeachersAddress ? 'Müəllimin ünvanında' : null}</p>
+                            <p className="At_the_teachers_address several_text2">{teacherData.atTheStudentsAddress ? 'Şagirdin ünvanında' : null}</p>
+                            <p className="type_teaching several_text2">{teacherData.lessonnsOnlyne ? 'Onlayn' : null}</p>
                         </div>
                         <div className="wrapper_At_the_teachers several_wrapper">
                             {/* <img src="../icon/Group.svg" alt=""> */}
                             <p className="teachers_format_text several_text1">Tədris növü:</p>
-                            <p className="type_teaching several_text2">İndividual</p>
-                            <p className="At_the_teachers several_text2">Qrup şəklində</p>
+                            <p className="type_teaching several_text2">{teacherData.individual ? 'individual' : null} {teacherData.group ? 'Qrup şəklində' : null}</p>
+                            <p className="At_the_teachers several_text2"></p>
                         </div>
                         <div className="wrapper_At_the_teachers several_wrapper">
                             {/* <img src="../icon/Metro, grey.svg" alt=""> */}
@@ -189,45 +191,28 @@ export const TeacherProfile = () => {
                     <div className="table_wrapper">
                         <div className="table">
                             <div className="cell">
-                                <span>1. UX/UI Dizayn</span>
-                                <div className="location_is_available">Yer mövcuddur</div>
+                                <span>1. {teacherData.isSubject} {teacherData.isDirection}</span>
+                                <div className="location_is_available" >{teacherData.haveSpace}</div>
                             </div>
                             <table className="parentTable">
                                 <tr>
                                     <td className="childTable1">Qrup şəklində</td>
-                                    <td className="childTable">5 AZN</td>
-                                    <td className="childTable">5 AZN</td>
-                                    <td className="childTable">$5 AZN</td>
+                                    <td className='td_for_language' rowSpan='2'>
+                                        <span className='wrapper_for_fix_language_'>
+                                            <span style={{display:'flex', flexDirection:'column'}}>{teacherData.chooseTeachingLanguages}</span>
+                                        </span>
+                                    </td>
+                                    <td className="childTable">{teacherData.asAGroupAtTheTeachersAddress}</td>
+                                    <td className="childTable">{teacherData.asAGroupatTheStudentsAddress}</td>
+                                    <td className="childTable">{teacherData.asAGroupOnlyne}</td>
                                 </tr>
                                 <tr>
                                     <td className="childTable1">İnduvidual</td>
-                                    <td className="childTable">10 AZN</td>
-                                    <td className="childTable">10 AZN</td>
-                                    <td className="childTable">10 AZN</td>
+                                    <td className="childTable">{teacherData.atTheTeachersAddress}</td>
+                                    <td className="childTable">{teacherData.atTheStudentsAddress}</td>
+                                    <td className="childTable">{teacherData.lessonnsOnlyne}</td>
                                 </tr>
                             </table>
-                        </div>
-                        <div className="table">
-                            <div className="table">
-                                <div className="cell">
-                                    <span>2. Qrafik Dizayn</span>
-                                    <div className="location_is_not_available">Yer mövcuddur</div>
-                                </div>
-                                <table className="parentTable">
-                                    <tr>
-                                        <td className="childTable1">Qrup şəklində</td>
-                                        <td className="childTable">5 AZN</td>
-                                        <td className="childTable">5 AZN</td>
-                                        <td className="childTable">$5 AZN</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="childTable1">İnduvidual</td>
-                                        <td className="childTable">10 AZN</td>
-                                        <td className="childTable">10 AZN</td>
-                                        <td className="childTable">10 AZN</td>
-                                    </tr>
-                                </table>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -237,10 +222,7 @@ export const TeacherProfile = () => {
                     <div className="certificates_wrapper">
                         <div className="certificates_text">Sertifikatlar</div>
                         <div className="certificates">
-                            <img src={Sertificate} alt="" />
-                            <img src={Sertificate} alt="" />
-                            <img src={Sertificate} alt="" />
-                            <img src={Sertificate} alt="" />
+                            {teacherData.file}
                         </div>
                     </div>
                 </div>

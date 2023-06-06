@@ -228,7 +228,24 @@ body {
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
 }
-
+.add_new_expand{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    cursor: pointer;
+}
+.dropzone_image{
+    display: flex;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    align-items: baseline;
+}
+.fixed_input_space{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
 .close_modal_btn {
     display: flex;
     justify-content: flex-end;

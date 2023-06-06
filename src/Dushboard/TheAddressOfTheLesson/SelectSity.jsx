@@ -1,20 +1,17 @@
 import { dataForCheckBox } from "../../HomePage/Shared/BazaData/filterData";
+import { CustomContext } from "../../HomePage/Shared/Context/Context";
 import { JustDown } from "../../HomePage/Shared/icons/JustDown";
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 
 
 export const SelectSity = ({ handleSelectSity }) => {
 
+    const {sity, setSity} = useContext(CustomContext)
     const [isActive, setIsActive] = useState(false)
-    const [sity, setSity] = useState(() => {
-        const saved = localStorage.getItem('sity');
-        const initiolValue = JSON.parse(saved)
-        return initiolValue || 'Şəhər seçin'
-    });
 
-    useEffect(() => {
-        localStorage.setItem('sity', JSON.stringify(sity))
-    }, [sity])
+
+
+   
 
 
     const rotate = {
@@ -43,7 +40,6 @@ export const SelectSity = ({ handleSelectSity }) => {
                                         key={option.name} onClick={(e) => {
                                             setSity(option.name)
                                             setIsActive(false)
-                                            handleSelectSity(option.name)
                                         }
                                         } className="dropdown-item dropdown_item">
                                         {option.name}

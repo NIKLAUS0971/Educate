@@ -447,7 +447,7 @@
 .child2{
     display: flex;
     gap: 32px;
-    padding: 30px 30px 20px;
+    padding: 30px 17px 20px;
     box-sizing: border-box;
     background: #FBFCFD;
     border-radius: 5px;

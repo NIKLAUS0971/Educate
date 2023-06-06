@@ -1,12 +1,13 @@
 import { JustDown } from '../../HomePage/Shared/icons/JustDown';
 import { dataForCheckBox } from '../../HomePage/Shared/BazaData/filterData';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { CustomContext } from '../../HomePage/Shared/Context/Context';
 
 
 
 export const SelectSubjectLesson = () => {
+    const {isSubject, setIsSubject} = useContext(CustomContext)
     const [isActive, setIsActive] = useState(false)
-    const [selectItem, setSelectItem] = useState("Fənn seçin");
 
     const rotate = {
         transform: isActive ? 'rotate(180deg)' : '',
@@ -20,7 +21,7 @@ export const SelectSubjectLesson = () => {
                     <div className="together_input" onClick={(e) => {
                         setIsActive(!isActive)
                     }}>
-                        <span>{selectItem}</span>
+                        <span>{isSubject}</span>
                         <div style={{ position: 'absolute', left: '282px' }}>
                             <JustDown style={rotate} />
                         </div>
@@ -29,15 +30,15 @@ export const SelectSubjectLesson = () => {
                         isActive && (
                             <div className="dropdown-content dropdown_content" style={{ width: '360px', top: '41px', border: "none" }}>
                                 {dataForCheckBox[0].map((option) => (
-                                    <div
+                                    <option
                                         key={option.name} onClick={(e) => {
-                                            setSelectItem(option.name)
+                                            setIsSubject(option.name)
                                             setIsActive(false)
                                         }
                                         } className="dropdown-item dropdown_item">
                                         {option.name}
 
-                                    </div>
+                                    </option>
                                 ))}
                             </div>
                         )

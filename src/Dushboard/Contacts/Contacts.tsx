@@ -47,7 +47,7 @@ export const Contacts = () => {
             <div className="container">
                 <div className="create_wrapper_for_space_between">
                     <Navigation />
-                    <form onSubmit={createnewPersonCard}>
+                    <form >
                         <div className="wrapper_connection">
                             <div className="title_text">
                                 <span>Əlaqə vasitələri</span>

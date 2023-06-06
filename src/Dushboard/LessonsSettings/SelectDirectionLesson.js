@@ -1,12 +1,13 @@
 import { JustDown } from '../../HomePage/Shared/icons/JustDown';
 import { dataForCheckBox } from '../../HomePage/Shared/BazaData/filterData';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { CustomContext } from '../../HomePage/Shared/Context/Context';
 
 
 
 export const SelectDirectionLesson = () => {
     const [isActive, setIsActive] = useState(false)
-    const [selectItem, setSelectItem] = useState("İstiqamət seçin");
+    const {isDirection, setIsDirection} = useContext(CustomContext)
 
     const rotate = {
         transform: isActive ? 'rotate(180deg)' : '',
@@ -20,7 +21,7 @@ export const SelectDirectionLesson = () => {
                     <div className="together_input" onClick={(e) => {
                         setIsActive(!isActive)
                     }}>
-                        <span>{selectItem}</span>
+                        <span>{isDirection}</span>
                         <div style={{ position: 'absolute', left: '282px' }}>
                             <JustDown style={rotate} />
                         </div>
@@ -31,7 +32,7 @@ export const SelectDirectionLesson = () => {
                                 {dataForCheckBox[1].map((option) => (
                                     <div
                                         key={option.name} onClick={(e) => {
-                                            setSelectItem(option.name)
+                                            setIsDirection(option.name)
                                             setIsActive(false)
                                         }
                                         } className="dropdown-item dropdown_item">

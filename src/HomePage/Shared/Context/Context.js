@@ -332,8 +332,100 @@ export const Context = (props) => {
 
     const [district, setDistrict] = useState('')
 
-    const [sity, setSity] = useState('')
+    const [sity, setSity] = useState(() => {
+        const saved = localStorage.getItem('sity');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || 'Şəhər seçin'
+    })
+
+    useEffect(() => {
+        localStorage.setItem('sity', JSON.stringify(sity))
+    }, [sity])
+
+
     const [subway, setSubway] = useState('')
+
+
+
+
+
+    const [selectIndividualTeachingFormat, setSelectIndividualTeachingFormat] = useState(false)
+
+    const SelectTeachingFormat = () => {
+        setSelectIndividualTeachingFormat(!selectIndividualTeachingFormat)
+    }
+
+    const [handleSelaectAsAGroup, setHandleSelaectAsAGroup] = useState(false)
+
+    const HandleSelaectAsAGroup = () => {
+        setHandleSelaectAsAGroup(!handleSelaectAsAGroup)
+    }
+    const [atTheTeachersAddress, setAtTheTeachersAddress] = useState('')
+
+    const HandleAtTheTeachersAddress = (e) => {
+        setAtTheTeachersAddress(e.target.value)
+    }
+
+    const [atTheStudentsAddress, setAtTheStudentsAddress] = useState('')
+
+    const HandleAtTheStudentsAddress = (e) => {
+        setAtTheStudentsAddress(e.target.value)
+    }
+
+
+
+    const [lessonnsOnlyne, setLessonnsOnlyne] = useState('')
+
+    const HandlelessonnsOnlyne = (e) => {
+        setLessonnsOnlyne(e.target.value)
+    }
+    console.log(lessonnsOnlyne, 'kkk');
+
+
+    const [chooseTeachingLanguages, setChooseTeachingLanguages] = useState([])
+
+    const handleChooseTeachingLanguages = (language) => {
+        const temp = [...chooseTeachingLanguages];
+        const index = temp.indexOf(language);
+        if (index === -1) {
+            temp.push(language)
+        } else {
+            temp.splice(index, 1)
+        }
+        setChooseTeachingLanguages(temp)
+    }
+
+    const [asAGroupAtTheTeachersAddress, setAsAGroupAtTheTeachersAddress] = useState('')
+
+
+
+    const handleSelaectAsAGroupAtTheTeachersAddress = (e) => {
+        setAsAGroupAtTheTeachersAddress(e.target.value)
+    }
+
+    const [asAGroupatTheStudentsAddress, setAsAGroupatTheStudentsAddress] = useState('')
+
+    const handleSelaectAsAGroupAtTheStudentsAddress = (e) => {
+        setAsAGroupatTheStudentsAddress(e.target.value)
+    }
+
+    const [asAGroupOnlyne, setAsAGroupOnlyne] = useState('')
+
+    const handleSelaectAsAGroupOnlyne = (e) => {
+        setAsAGroupOnlyne(e.target.value)
+    }
+
+    const [haveSpace, setHaveSpace] = useState([])
+
+    const handleAvailableSpaceHere = (space) => {
+        setHaveSpace([space])
+    }
+
+    console.log(haveSpace);
+
+
+
+
 
     const [isYourEmail, setIsYourEmail] = useState(() => {
         const saved = localStorage.getItem('isYourEmail');
@@ -446,7 +538,7 @@ export const Context = (props) => {
         localStorage.setItem('isYoutube', JSON.stringify(isYoutube))
     }, [isYoutube])
 
-    const [isImage, setIsImage] = useState(()=>{
+    const [isImage, setIsImage] = useState(() => {
         const saved = localStorage.getItem('isImage');
         const initiolValue = JSON.parse(saved)
         return initiolValue || ''
@@ -457,7 +549,7 @@ export const Context = (props) => {
     }, [isImage])
 
 
-    const [isImageURL, setIsImageURL] = useState(()=>{
+    const [isImageURL, setIsImageURL] = useState(() => {
         const saved = localStorage.getItem('isImageURL');
         const initiolValue = JSON.parse(saved)
         return initiolValue || ''
@@ -470,9 +562,10 @@ export const Context = (props) => {
 
     const [isImageOrPdfURL, setIsImageOrPdfURL] = useState()
 
+    const [file, setFile] = useState([])
 
-
-   
+    const [isSubject, setIsSubject] = useState('Fənn seçin')
+    const [isDirection, setIsDirection] = useState('İstiqamət seçin')
 
 
 
@@ -546,7 +639,7 @@ export const Context = (props) => {
     }
     const [imagges, setImagges] = useState([])
 
-    
+
     const handlerUploadFilePdfOrJpeg = (e) => {
         e.preventDefault()
         const file = e.target.files[0]
@@ -554,11 +647,11 @@ export const Context = (props) => {
         // setImagges([...imagges, isImageOrPdfURL])
         secondFileReader.readAsDataURL(file)
     }
-    const addItem=(e)=>{
+    const addItem = (e) => {
         e.preventDefault()
         setImagges([...imagges, isImageOrPdfURL])
     }
-    
+
     const addNewPerson = (newPerson) => {
         axios.post(`http://localhost:3005/data?`, newPerson)
             .then((response) => {
@@ -568,6 +661,7 @@ export const Context = (props) => {
     const createnewPersonCard = (e) => {
         e.preventDefault();
         const newPerson = {
+            language: chooseTeachingLanguages,
             description: moreInformation,
             photo: isImageURL,
             rating: '',
@@ -588,7 +682,19 @@ export const Context = (props) => {
             price: '',
             category: "",
             availableSpace: "true",
-            everyPerson: "everyBody"
+            isSubject:isSubject,
+            isDirection:isDirection,
+            everyPerson: "everyBody",
+            group: handleSelaectAsAGroup,
+            individual: selectIndividualTeachingFormat,
+            haveSpace: haveSpace,
+            lessonnsOnlyne: lessonnsOnlyne,
+            atTheStudentsAddress: atTheStudentsAddress,
+            atTheTeachersAddress: atTheTeachersAddress,
+            asAGroupOnlyne: asAGroupOnlyne,
+            asAGroupatTheStudentsAddress: asAGroupatTheStudentsAddress,
+            asAGroupAtTheTeachersAddress: asAGroupAtTheTeachersAddress,
+            chooseTeachingLanguages: chooseTeachingLanguages,
         }
 
         addNewPerson(newPerson)
@@ -605,6 +711,37 @@ export const Context = (props) => {
 
     const value = {
         //dushboard
+        chooseTeachingLanguages,
+        haveSpace,
+        file, setFile,
+        isDirection, setIsDirection,
+        isSubject, setIsSubject,
+        sity, setSity,
+
+        handleAvailableSpaceHere,
+        asAGroupOnlyne,
+        handleSelaectAsAGroupOnlyne,
+
+        asAGroupatTheStudentsAddress,
+        handleSelaectAsAGroupAtTheStudentsAddress,
+
+        setAsAGroupAtTheTeachersAddress,
+        asAGroupAtTheTeachersAddress,
+        handleSelaectAsAGroupAtTheTeachersAddress,
+
+        handleChooseTeachingLanguages,
+        lessonnsOnlyne,
+        HandlelessonnsOnlyne,
+
+        atTheStudentsAddress,
+        HandleAtTheStudentsAddress,
+
+        atTheTeachersAddress,
+        HandleAtTheTeachersAddress,
+        handleSelaectAsAGroup,
+        HandleSelaectAsAGroup,
+        selectIndividualTeachingFormat,
+        SelectTeachingFormat,
         addItem,
         isFacebook,
         isInstagram,

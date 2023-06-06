@@ -5,6 +5,8 @@ import { ChangeFoto } from "../shared/iconsDushboard/ChangeFotoIcon"
 import { CustomContext } from "../../HomePage/Shared/Context/Context"
 import { useContext, useEffect, useRef, useState } from 'react'
 import { Navigation } from '../shared/navigation/Navigation'
+import { DropZoneComponents } from "../DropZoneComponents/DropZoneComponents"
+import { Image } from "antd"
 
 export const PersonalInformation = () => {
     const {
@@ -17,33 +19,14 @@ export const PersonalInformation = () => {
         moreInformation,
         handleWriteFirstNameAndLastName,
         handleImportImage,
+        file, setFile
         // handlerUploadFilePdfOrJpeg,
 
     } = useContext(CustomContext)
-   
-   
-
+    
 
     const navigate = useNavigate()
-    // const [image, setImage] = useState('')
-    
-    const [isImageOrPdfURL, setIsImageOrPdfURL] = useState()
-    const [images, setImages] = useState([])
-    const secondFileReader = new FileReader();
-    secondFileReader.onloadend = () => {
-        setIsImageOrPdfURL(secondFileReader.result)
-    }
-    
 
-    const handlerUploadFilePdfOrJpeg = (e) => {
-        e.preventDefault()
-        setIsImageOrPdfURL(e.target.files[0])
-        
-        
-    }
-const addItem=()=>{
-    setImages([...images, isImageOrPdfURL])
-    }
     return (
         <>
             <div className="wrapper_banner_wrapper">
@@ -115,25 +98,25 @@ const addItem=()=>{
                                                     <img src="../icon/File upload.svg" alt="" />
                                                     <label style={{ cursor: "pointer", width: "100%", height: "44px", display: 'flex', justifyContent: "center", alignItems: "center" }}>
                                                         <span>Fayl yüklə (PDF,JPEG)</span>
-                                                        <input type="file" multiple style={{ opacity: "0", width: "0" }} onChange={handlerUploadFilePdfOrJpeg} />
+                                                        < DropZoneComponents file={file} setFile={setFile} />
                                                     </label>
                                                 </button>
-                                                <button type="button" onClick={addItem}>upload</button>
                                                 <div class="certificates">
-
-                                                    <div class="certificate">
-                                                        {/* <img style={{ width: "52px", height: "60px" }} value={isImageOrPdfURL} src={isImageOrPdfURL ? isImageOrPdfURL : 'no foto'} /> */}
-                                                        {images.map((img) => (
-                                                            <img src={URL.createObjectURL(img)} alt="imagges" width='200px' />
-                                                        ))}
+                                                    <div class="certificate" >
+                                                        <ul className="dropzone_image" >
+                                                            {
+                                                                file.map(file => (
+                                                                    <li  style={{ display: 'flex', alignItems: 'center', width: "52px", height: "60px" }} key={file.name}>
+                                                                        <Image  src={file.preview} />
+                                                                    </li>
+                                                                ))
+                                                                
+                                                            }
+                                                        </ul>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
-
-
-
                                     </div>
                                 </div>
                                 <div class="wrapper_click_btn_next">
