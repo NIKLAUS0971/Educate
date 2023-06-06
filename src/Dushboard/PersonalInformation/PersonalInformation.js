@@ -6,7 +6,7 @@ import { CustomContext } from "../../HomePage/Shared/Context/Context"
 import { useContext, useEffect, useRef, useState } from 'react'
 import { Navigation } from '../shared/navigation/Navigation'
 import { DropZoneComponents } from "../DropZoneComponents/DropZoneComponents"
-import { Image } from "antd"
+
 
 export const PersonalInformation = () => {
     const {
@@ -19,11 +19,12 @@ export const PersonalInformation = () => {
         moreInformation,
         handleWriteFirstNameAndLastName,
         handleImportImage,
-        file, setFile
+        file, setFile, file1
         // handlerUploadFilePdfOrJpeg,
 
     } = useContext(CustomContext)
     
+        
 
     const navigate = useNavigate()
 
@@ -104,14 +105,22 @@ export const PersonalInformation = () => {
                                                 <div class="certificates">
                                                     <div class="certificate" >
                                                         <ul className="dropzone_image" >
-                                                            {
-                                                                file.map(file => (
-                                                                    <li  style={{ display: 'flex', alignItems: 'center', width: "52px", height: "60px" }} key={file.name}>
-                                                                        <Image  src={file.preview} />
-                                                                    </li>
-                                                                ))
-                                                                
-                                                            }
+                                                        {file1[0]}
+                                                        </ul>
+                                                    </div>
+                                                    <div class="certificate" >
+                                                        <ul className="dropzone_image" >
+                                                        {file1[1]}
+                                                        </ul>
+                                                    </div>
+                                                    <div class="certificate" >
+                                                        <ul className="dropzone_image" >
+                                                        {file1[2]}
+                                                        </ul>
+                                                    </div>
+                                                    <div class="certificate" >
+                                                        <ul className="dropzone_image" >
+                                                        {file1[3]}
                                                         </ul>
                                                     </div>
                                                 </div>

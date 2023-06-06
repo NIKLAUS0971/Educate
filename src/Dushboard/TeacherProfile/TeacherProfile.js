@@ -6,7 +6,7 @@ import { CustomContext } from '../../HomePage/Shared/Context/Context'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 export const TeacherProfile = () => {
-    const { dataList, fetchData } = useContext(CustomContext)
+    const { dataList, fetchData, file1 } = useContext(CustomContext)
     const [teacherData, setTeacherData] = useState({})
 
     const params = useParams()
@@ -222,7 +222,16 @@ export const TeacherProfile = () => {
                     <div className="certificates_wrapper">
                         <div className="certificates_text">Sertifikatlar</div>
                         <div className="certificates">
-                            {teacherData.file}
+                            {file1[0]}
+                        </div>
+                        <div className="certificates">
+                            {file1[1]}
+                        </div>
+                        <div className="certificates">
+                            {file1[2]}
+                        </div>
+                        <div className="certificates">
+                            {file1[3]}
                         </div>
                     </div>
                 </div>

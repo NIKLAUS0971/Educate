@@ -5,7 +5,7 @@ import React, { useRef } from 'react'
 import { createContext } from "react"
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-
+import { Image } from "antd"
 
 export const CustomContext = createContext();
 
@@ -709,11 +709,17 @@ export const Context = (props) => {
         }
     }, [])
 
+    const file1 = file.map(file => (
+        <li  style={{ display: 'flex', alignItems: 'center', width: "52px", height: "60px" }} key={file.name}>
+            <Image  src={file.preview} />
+        </li>
+    ))
+
     const value = {
         //dushboard
         chooseTeachingLanguages,
         haveSpace,
-        file, setFile,
+        file, setFile,file1,
         isDirection, setIsDirection,
         isSubject, setIsSubject,
         sity, setSity,
