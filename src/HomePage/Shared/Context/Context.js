@@ -6,19 +6,12 @@ import { createContext } from "react"
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { Image } from "antd"
-
+import { v4 as uuidv4 } from 'uuid'
 export const CustomContext = createContext();
-
-
-
 
 
 export const Context = (props) => {
     const [dataList, setDataList] = useState([])
-
-
-
-
     const [loading, setLoading] = useState(false)
     const [search, setSearch] = useState("")
     const [selectedPrice, setSelectedPrice] = React.useState([30, 1430]);
@@ -96,9 +89,6 @@ export const Context = (props) => {
             }
         }
     }
-
-
-
 
 
     // Just fetch anly all data
@@ -349,24 +339,54 @@ export const Context = (props) => {
 
 
 
-    const [selectIndividualTeachingFormat, setSelectIndividualTeachingFormat] = useState(false)
+    const [selectIndividualTeachingFormat, setSelectIndividualTeachingFormat] = useState(localStorage.getItem('individualLessons') === 'true')
+    const [isDisabled, setIsDisabled] = useState(true)
 
-    const SelectTeachingFormat = () => {
-        setSelectIndividualTeachingFormat(!selectIndividualTeachingFormat)
+    const SelectTeachingFormat = (e) => {
+        setSelectIndividualTeachingFormat(localStorage.getItem('individualLessons'))
+
+        setIsDisabled(!isDisabled)
+        localStorage.setItem('individualLessons', `${e.target.checked}`)
     }
 
     const [handleSelaectAsAGroup, setHandleSelaectAsAGroup] = useState(false)
+    const [isSecondDisabled, setIsSecondDisabled] = useState(true)
 
     const HandleSelaectAsAGroup = () => {
         setHandleSelaectAsAGroup(!handleSelaectAsAGroup)
+        localStorage.setItem('groupLessons', JSON.stringify(!handleSelaectAsAGroup))
+        setIsSecondDisabled(!isSecondDisabled)
     }
-    const [atTheTeachersAddress, setAtTheTeachersAddress] = useState('')
+
+    useEffect(() => {
+        if (localStorage.getItem('groupLessons') !== 'true') {
+            setSelectIndividualTeachingFormat(JSON.parse(localStorage.getItem('groupLessons')))
+        }
+    }, [])
+
+    const [atTheTeachersAddress, setAtTheTeachersAddress] = useState(() => {
+        const saved = localStorage.getItem('atTheTeachersAddress');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('atTheTeachersAddress', JSON.stringify(atTheTeachersAddress))
+    }, [atTheTeachersAddress])
 
     const HandleAtTheTeachersAddress = (e) => {
         setAtTheTeachersAddress(e.target.value)
     }
 
-    const [atTheStudentsAddress, setAtTheStudentsAddress] = useState('')
+    const [atTheStudentsAddress, setAtTheStudentsAddress] = useState(() => {
+        const saved = localStorage.getItem('atTheStudentsAddress');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('atTheStudentsAddress', JSON.stringify(atTheStudentsAddress))
+    }, [atTheStudentsAddress])
 
     const HandleAtTheStudentsAddress = (e) => {
         setAtTheStudentsAddress(e.target.value)
@@ -374,12 +394,19 @@ export const Context = (props) => {
 
 
 
-    const [lessonnsOnlyne, setLessonnsOnlyne] = useState('')
+    const [lessonnsOnlyne, setLessonnsOnlyne] = useState(() => {
+        const saved = localStorage.getItem('lessonnsOnlyne');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('lessonnsOnlyne', JSON.stringify(lessonnsOnlyne))
+    }, [lessonnsOnlyne])
 
     const HandlelessonnsOnlyne = (e) => {
         setLessonnsOnlyne(e.target.value)
     }
-    console.log(lessonnsOnlyne, 'kkk');
 
 
     const [chooseTeachingLanguages, setChooseTeachingLanguages] = useState([])
@@ -393,23 +420,53 @@ export const Context = (props) => {
             temp.splice(index, 1)
         }
         setChooseTeachingLanguages(temp)
+
+        localStorage.setItem('language', JSON.stringify(temp))
     }
 
-    const [asAGroupAtTheTeachersAddress, setAsAGroupAtTheTeachersAddress] = useState('')
+    useEffect(() => {
+        if (localStorage.getItem('language') === 'true') {
+            setChooseTeachingLanguages(JSON.parse(localStorage.getItem('language')))
+        }
+    }, [])
 
+    const [asAGroupAtTheTeachersAddress, setAsAGroupAtTheTeachersAddress] = useState(() => {
+        const saved = localStorage.getItem('asAGroupAtTheTeachersAddress');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
 
+    useEffect(() => {
+        localStorage.setItem('asAGroupAtTheTeachersAddress', JSON.stringify(asAGroupAtTheTeachersAddress))
+    }, [asAGroupAtTheTeachersAddress])
 
     const handleSelaectAsAGroupAtTheTeachersAddress = (e) => {
         setAsAGroupAtTheTeachersAddress(e.target.value)
     }
 
-    const [asAGroupatTheStudentsAddress, setAsAGroupatTheStudentsAddress] = useState('')
+    const [asAGroupatTheStudentsAddress, setAsAGroupatTheStudentsAddress] = useState(() => {
+        const saved = localStorage.getItem('asAGroupatTheStudentsAddress');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('asAGroupatTheStudentsAddress', JSON.stringify(asAGroupatTheStudentsAddress))
+    }, [asAGroupatTheStudentsAddress])
 
     const handleSelaectAsAGroupAtTheStudentsAddress = (e) => {
         setAsAGroupatTheStudentsAddress(e.target.value)
     }
 
-    const [asAGroupOnlyne, setAsAGroupOnlyne] = useState('')
+    const [asAGroupOnlyne, setAsAGroupOnlyne] = useState(() => {
+        const saved = localStorage.getItem('asAGroupOnlyne');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || ''
+    })
+
+    useEffect(() => {
+        localStorage.setItem('asAGroupOnlyne', JSON.stringify(asAGroupOnlyne))
+    }, [asAGroupOnlyne])
 
     const handleSelaectAsAGroupOnlyne = (e) => {
         setAsAGroupOnlyne(e.target.value)
@@ -419,7 +476,12 @@ export const Context = (props) => {
 
     const handleAvailableSpaceHere = (space) => {
         setHaveSpace([space])
+        localStorage.setItem('haveSpace', JSON.stringify(space))
     }
+
+    useEffect(() => {
+        setHaveSpace(JSON.parse(localStorage.getItem('haveSpace')))
+    }, [])
 
     console.log(haveSpace);
 
@@ -564,9 +626,26 @@ export const Context = (props) => {
 
     const [file, setFile] = useState([])
 
-    const [isSubject, setIsSubject] = useState('Fənn seçin')
-    const [isDirection, setIsDirection] = useState('İstiqamət seçin')
+    const [isSubject, setIsSubject] = useState(() => {
+        const saved = localStorage.getItem('isSubject');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || 'Fənn seçin'
+    })
 
+    useEffect(() => {
+        localStorage.setItem('isSubject', JSON.stringify(isSubject))
+    }, [isSubject])
+
+
+    const [isDirection, setIsDirection] = useState(() => {
+        const saved = localStorage.getItem('isDirection');
+        const initiolValue = JSON.parse(saved)
+        return initiolValue || 'İstiqamət seçin'
+    })
+
+    useEffect(() => {
+        localStorage.setItem('isDirection', JSON.stringify(isDirection))
+    }, [isDirection])
 
 
 
@@ -682,8 +761,8 @@ export const Context = (props) => {
             price: '',
             category: "",
             availableSpace: "true",
-            isSubject:isSubject,
-            isDirection:isDirection,
+            isSubject: isSubject,
+            isDirection: isDirection,
             everyPerson: "everyBody",
             group: handleSelaectAsAGroup,
             individual: selectIndividualTeachingFormat,
@@ -701,8 +780,20 @@ export const Context = (props) => {
     }
 
 
-    const [user, setUser] = useState({})
 
+
+    const [addTable, setAddTable] = useState([{}])
+
+    const hanldeConectTableWithAddNewExpand = (e) => {
+        e.preventDefault()
+        const addNewTable = [...addTable]
+        addNewTable.push({
+            id: uuidv4(),
+        })
+        setAddTable(addNewTable)
+    }
+
+    const [user, setUser] = useState({})
     useEffect(() => {
         if (localStorage.getItem('user') !== null) {
             setUser(JSON.parse(localStorage.getItem('user')))
@@ -710,16 +801,20 @@ export const Context = (props) => {
     }, [])
 
     const file1 = file.map(file => (
-        <li  style={{ display: 'flex', alignItems: 'center', width: "52px", height: "60px" }} key={file.name}>
-            <Image  src={file.preview} />
+        <li className='dropzone_li_' key={file.name}>
+            <Image src={file.preview} />
         </li>
     ))
 
     const value = {
         //dushboard
+        addTable,
+
+        isDisabled,
+        isSecondDisabled,
         chooseTeachingLanguages,
         haveSpace,
-        file, setFile,file1,
+        file, setFile, file1,
         isDirection, setIsDirection,
         isSubject, setIsSubject,
         sity, setSity,

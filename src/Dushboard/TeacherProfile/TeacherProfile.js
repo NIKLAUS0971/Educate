@@ -6,13 +6,10 @@ import { CustomContext } from '../../HomePage/Shared/Context/Context'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 export const TeacherProfile = () => {
-    const { dataList, fetchData, file1 } = useContext(CustomContext)
+    const { dataList, fetchData, file1, addTable } = useContext(CustomContext)
     const [teacherData, setTeacherData] = useState({})
 
     const params = useParams()
-
-
-
     useEffect(() => {
         axios(`http://localhost:3005/data/${params.id}`)
             .then(({ data }) => {
@@ -68,7 +65,7 @@ export const TeacherProfile = () => {
                                 <div className="teacher_name_and_rating">
                                     <div className="teacher_name">
                                         <p className="teacherName">{teacherData.userId}</p>
-                                        <p className="aboutJob">UX/UI Dizayn</p>
+                                        <p className="aboutJob">{teacherData.isDirection}</p>
                                     </div>
                                     <div className="teacher_rating">
                                         <div className="star_rating">
@@ -76,7 +73,6 @@ export const TeacherProfile = () => {
                                             {/* <img src="../icon/star.svg" alt=""> */}
                                         </div>
                                         <a href="#" id="ratiIt" className="vote">Qiymətləndirin</a>
-                                        {teacherData.chooseTeachingLanguages}
                                     </div>
                                 </div>
                             </div>
@@ -188,50 +184,59 @@ export const TeacherProfile = () => {
                         <p className="text_place_of_study">Oflayn</p>
                         <p className="text_place_of_study">Şagirdin ünvanında   </p>
                     </div>
-                    <div className="table_wrapper">
-                        <div className="table">
-                            <div className="cell">
-                                <span>1. {teacherData.isSubject} {teacherData.isDirection}</span>
-                                <div className="location_is_available" >{teacherData.haveSpace}</div>
-                            </div>
-                            <table className="parentTable">
-                                <tr>
-                                    <td className="childTable1">Qrup şəklində</td>
-                                    <td className='td_for_language' rowSpan='2'>
-                                        <span className='wrapper_for_fix_language_'>
-                                            <span style={{display:'flex', flexDirection:'column'}}>{teacherData.chooseTeachingLanguages}</span>
-                                        </span>
-                                    </td>
-                                    <td className="childTable">{teacherData.asAGroupAtTheTeachersAddress}</td>
-                                    <td className="childTable">{teacherData.asAGroupatTheStudentsAddress}</td>
-                                    <td className="childTable">{teacherData.asAGroupOnlyne}</td>
-                                </tr>
-                                <tr>
-                                    <td className="childTable1">İnduvidual</td>
-                                    <td className="childTable">{teacherData.atTheTeachersAddress}</td>
-                                    <td className="childTable">{teacherData.atTheStudentsAddress}</td>
-                                    <td className="childTable">{teacherData.lessonnsOnlyne}</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+                    {
+                        addTable.map((item) => {
+                            return (
+                                <div className="table_wrapper">
+                                    <div className="table">
+                                        <div className="cell">
+                                            <span>1. {teacherData.isSubject} {teacherData.isDirection}</span>
+                                            <div className="location_is_available" >{teacherData.haveSpace}</div>
+                                        </div>
+                                        <table className="parentTable">
+                                            <tr>
+                                                <td className="childTable1">Qrup şəklində</td>
+                                                <td className='td_for_language' rowSpan='2'>
+                                                    <span className='wrapper_for_fix_language_'>
+                                                        <span style={{ display: 'flex', flexDirection: 'column' }}>{teacherData.chooseTeachingLanguages}</span>
+                                                    </span>
+                                                </td>
+                                                <td className="childTable">{teacherData.asAGroupAtTheTeachersAddress}</td>
+                                                <td className="childTable">{teacherData.asAGroupatTheStudentsAddress}</td>
+                                                <td className="childTable">{teacherData.asAGroupOnlyne}</td>
+                                            </tr>
+                                            <tr>
+                                                <td className="childTable1">İnduvidual</td>
+                                                <td className="childTable">{teacherData.atTheTeachersAddress}</td>
+                                                <td className="childTable">{teacherData.atTheStudentsAddress}</td>
+                                                <td className="childTable">{teacherData.lessonnsOnlyne}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+
                 </div>
             </div>
             <div className="banner_wrapper_">
                 <div className="container">
                     <div className="certificates_wrapper">
                         <div className="certificates_text">Sertifikatlar</div>
-                        <div className="certificates">
-                            {file1[0]}
-                        </div>
-                        <div className="certificates">
-                            {file1[1]}
-                        </div>
-                        <div className="certificates">
-                            {file1[2]}
-                        </div>
-                        <div className="certificates">
-                            {file1[3]}
+                        <div className='wrapper_for_sertificates'>
+                            <div style={{ position: "relative" }} className="certificates">
+                                {file1[0]}
+                            </div>
+                            <div style={{ position: "relative" }} className="certificates">
+                                {file1[1]}
+                            </div>
+                            <div style={{ position: "relative" }} className="certificates">
+                                {file1[2]}
+                            </div>
+                            <div style={{ position: "relative" }} className="certificates">
+                                {file1[3]}
+                            </div>
                         </div>
                     </div>
                 </div>

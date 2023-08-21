@@ -23,8 +23,9 @@ export const PersonalInformation = () => {
         // handlerUploadFilePdfOrJpeg,
 
     } = useContext(CustomContext)
-    
-        
+
+
+
 
     const navigate = useNavigate()
 
@@ -104,23 +105,24 @@ export const PersonalInformation = () => {
                                                 </button>
                                                 <div class="certificates">
                                                     <div class="certificate" >
+                                                    {file1[0]}
                                                         <ul className="dropzone_image" >
-                                                        {file1[0]}
+                                                            
                                                         </ul>
                                                     </div>
                                                     <div class="certificate" >
                                                         <ul className="dropzone_image" >
-                                                        {file1[1]}
+                                                            {file1[1]}
                                                         </ul>
                                                     </div>
                                                     <div class="certificate" >
                                                         <ul className="dropzone_image" >
-                                                        {file1[2]}
+                                                            {file1[2]}
                                                         </ul>
                                                     </div>
                                                     <div class="certificate" >
                                                         <ul className="dropzone_image" >
-                                                        {file1[3]}
+                                                            {file1[3]}
                                                         </ul>
                                                     </div>
                                                 </div>

@@ -32,11 +32,14 @@ export const LessonsSettings = () => {
         asAGroupOnlyne,
         handleSelaectAsAGroupOnlyne,
         handleAvailableSpaceHere,
-        createnewPersonCard
+        createnewPersonCard,
+        isDisabled,
+        isSecondDisabled
     } = useContext(CustomContext)
 
-    const [addSettings, setAddSettings] = useState([{}])
+    
     const [isOpen, setIsOpen] = useState(true)
+
 
 
     const lenguage = [
@@ -49,7 +52,7 @@ export const LessonsSettings = () => {
         { id: 1, name: "Yer mövcuddur" },
         { id: 2, name: "Yer mövcud deyil" }
     ]
-
+const [addSettings, setAddSettings] = useState([{}])
     const handleAddNewExpand = (e) => {
         e.preventDefault()
         const addNewExpand = [...addSettings]
@@ -116,10 +119,8 @@ export const LessonsSettings = () => {
                                                                     return (
                                                                         <>
                                                                             <div className="wrapper_for_checkbox">
-                                                                                <label for="1" className="language make_a_choice">
-                                                                                    <img className="check_mark" src="../icon/check mark.svg" alt="" />
-                                                                                    <span className="icon_checkBox"></span>
-                                                                                    <input value={item.id} onChange={(e) => handleChooseTeachingLanguages(item.name)} type="checkbox" className="checkbox choose_language" />
+                                                                                <label className="language make_a_choice">
+                                                                                    <input value={item.id} onChange={(e) => handleChooseTeachingLanguages(item.name, e.target.checked)} type="checkbox" className="checkbox choose_language" />
                                                                                     <span className="country_language">{item.name}</span>
                                                                                 </label>
                                                                             </div>
@@ -137,10 +138,8 @@ export const LessonsSettings = () => {
                                                                     <div className="wrapper_for_checkbox">
 
                                                                         <div className="wrapper_for_checkbox">
-                                                                            <label for="6" className="format make_a_choice">
-                                                                                <img className="check_mark" src="../icon/check mark.svg" alt="" />
-                                                                                <span className="icon_checkBox"></span>
-                                                                                <input onChange={SelectTeachingFormat} name='address' type="checkbox" className="checkbox choose_format" />
+                                                                            <label className="format make_a_choice">
+                                                                                <input onChange={SelectTeachingFormat} name='address' type="checkbox" className="checkbox choose_format" checked={selectIndividualTeachingFormat} />
                                                                                 <span className="students_address course">İndividual</span>
                                                                             </label>
                                                                         </div>
@@ -148,56 +147,30 @@ export const LessonsSettings = () => {
                                                                     </div>
                                                                 </div>
                                                                 <div className="wrapper_at_the_teachers_address">
-
                                                                     <div className="wrapper_for_input">
-
                                                                         <div >
-                                                                            {
-                                                                                selectIndividualTeachingFormat ?
-                                                                                    <>
-                                                                                        <div className='fixed_input_space'>
-                                                                                            <label for="" className="at_the_teachers_address use_multiple_elements">
-                                                                                                <span>Müəllimin ünvanında</span>
-                                                                                                <input value={atTheTeachersAddress} onChange={HandleAtTheTeachersAddress} type="text" className="teachers_address use_together" placeholder="0 AZN" />
-                                                                                            </label>
-                                                                                            <labe className="at_the_teachers_address use_multiple_elements">
-                                                                                                <span>Şagirdin ünvanında</span>
-                                                                                                <input value={atTheStudentsAddress} onChange={HandleAtTheStudentsAddress} type="text" className="teachers_address use_together" placeholder="0 AZN" />
-                                                                                            </labe>
-                                                                                            <labe className="at_the_teachers_address use_multiple_elements">
-                                                                                                <span>Onlayn</span>
-                                                                                                <input value={lessonnsOnlyne} onChange={HandlelessonnsOnlyne} type="text" className="teachers_address use_together" placeholder="0 AZN" />
-                                                                                            </labe>
-                                                                                        </div>
-                                                                                    </> :
-                                                                                    <>
-                                                                                        <div className='fixed_input_space'>
-                                                                                            <label className="at_the_teachers_address use_multiple_elements">
-                                                                                                <span>Müəllimin ünvanında</span>
-                                                                                                <input disabled style={{ background: "rgb(248, 247, 247)" }} type="text" id="teachersAddress" className="teachers_address use_together" placeholder="0 AZN" />
-                                                                                            </label>
-                                                                                            <label className="at_the_teachers_address use_multiple_elements">
-                                                                                                <span>Şagirdin ünvanında</span>
-                                                                                                <input disabled style={{ background: "rgb(248, 247, 247)" }} type="text" id="teachersAddress" className="teachers_address use_together" placeholder="0 AZN" />
-                                                                                            </label>
-                                                                                            <label className="at_the_teachers_address use_multiple_elements">
-                                                                                                <span>Onlayn</span>
-                                                                                                <input disabled style={{ background: "rgb(248, 247, 247)" }} type="text" id="teachersAddress" className="teachers_address use_together" placeholder="0 AZN" />
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </>
-                                                                            }
+                                                                            <div className='fixed_input_space'>
+                                                                                <label for="" className="at_the_teachers_address use_multiple_elements">
+                                                                                    <span>Müəllimin ünvanında</span>
+                                                                                    <input disabled={isDisabled} value={atTheTeachersAddress} onChange={HandleAtTheTeachersAddress} type="text" className="teachers_address use_together" placeholder="0 AZN" />
+                                                                                </label>
+                                                                                <labe className="at_the_teachers_address use_multiple_elements">
+                                                                                    <span>Şagirdin ünvanında</span>
+                                                                                    <input disabled={isDisabled} value={atTheStudentsAddress} onChange={HandleAtTheStudentsAddress} type="text" className="teachers_address use_together" placeholder="0 AZN" />
+                                                                                </labe>
+                                                                                <labe className="at_the_teachers_address use_multiple_elements">
+                                                                                    <span>Onlayn</span>
+                                                                                    <input disabled={isDisabled} value={lessonnsOnlyne} onChange={HandlelessonnsOnlyne} type="text" className="teachers_address use_together" placeholder="0 AZN" />
+                                                                                </labe>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-
                                                                 </div>
                                                             </div>
                                                             <div className="wrapper_content">
                                                                 <div className="choose_type_of_study child2">
                                                                     <div className="wrapper_for_checkbox">
-                                                                        <label for="" className="lable">
-                                                                            <img className="check_mark" src="../icon/check mark.svg" alt="" />
-                                                                            <span className="icon_checkBox"></span>
+                                                                        <label className="lable">
                                                                             <input onChange={HandleSelaectAsAGroup} type="checkbox" className="checkbox choose_Individual" />
                                                                             <span className=" make_a_choice">Qrup şəklində</span>
                                                                         </label>
@@ -205,38 +178,20 @@ export const LessonsSettings = () => {
                                                                 </div>
                                                                 <div className="wrapper_at_the_teachers_address">
                                                                     <div className="wrapper_for_input">
-                                                                        {
-                                                                            handleSelaectAsAGroup ?
-                                                                                <div className='fixed_input_space'>
-                                                                                    <label for="" className="at_the_teachers_address use_multiple_elements">
-                                                                                        <span>Müəllimin ünvanında</span>
-                                                                                        <input value={asAGroupAtTheTeachersAddress} onChange={handleSelaectAsAGroupAtTheTeachersAddress} type="text" id="teachersAddress" className="teachers_address use_together" placeholder="0 AZN" />
-                                                                                    </label>
-                                                                                    <label for="" className="at_the_teachers_address use_multiple_elements">
-                                                                                        <span>Şagirdin ünvanında</span>
-                                                                                        <input value={asAGroupatTheStudentsAddress} onChange={handleSelaectAsAGroupAtTheStudentsAddress} type="text" id="teachersAddress" className="teachers_address use_together" placeholder="0 AZN" />
-                                                                                    </label>
-                                                                                    <label for="" className="at_the_teachers_address use_multiple_elements">
-                                                                                        <span>Onlayn</span>
-                                                                                        <input value={asAGroupOnlyne} onChange={handleSelaectAsAGroupOnlyne} type="text" id="teachersAddress" className="teachers_address use_together" placeholder="0 AZN" />
-                                                                                    </label>
-                                                                                </div>
-                                                                                :
-                                                                                <div className='fixed_input_space'>
-                                                                                    <label for="" className="at_the_teachers_address use_multiple_elements">
-                                                                                        <span>Müəllimin ünvanında</span>
-                                                                                        <input disabled style={{ background: "rgb(248, 247, 247)" }} type="text" id="teachersAddress" className="teachers_address use_together" placeholder="0 AZN" />
-                                                                                    </label>
-                                                                                    <label for="" className="at_the_teachers_address use_multiple_elements">
-                                                                                        <span>Şagirdin ünvanında</span>
-                                                                                        <input disabled style={{ background: "rgb(248, 247, 247)" }} type="text" id="teachersAddress" className="teachers_address use_together" placeholder="0 AZN" />
-                                                                                    </label>
-                                                                                    <label for="" className="at_the_teachers_address use_multiple_elements">
-                                                                                        <span>Onlayn</span>
-                                                                                        <input disabled style={{ background: "rgb(248, 247, 247)" }} type="text" id="teachersAddress" className="teachers_address use_together" placeholder="0 AZN" />
-                                                                                    </label>
-                                                                                </div>
-                                                                        }
+                                                                        <div className='fixed_input_space'>
+                                                                            <label for="" className="at_the_teachers_address use_multiple_elements">
+                                                                                <span>Müəllimin ünvanında</span>
+                                                                                <input disabled={isSecondDisabled} value={asAGroupAtTheTeachersAddress} onChange={handleSelaectAsAGroupAtTheTeachersAddress} type="text" id="teachersAddress" className="teachers_address use_together" placeholder="0 AZN" />
+                                                                            </label>
+                                                                            <label for="" className="at_the_teachers_address use_multiple_elements">
+                                                                                <span>Şagirdin ünvanında</span>
+                                                                                <input disabled={isSecondDisabled} value={asAGroupatTheStudentsAddress} onChange={handleSelaectAsAGroupAtTheStudentsAddress} type="text" id="teachersAddress" className="teachers_address use_together" placeholder="0 AZN" />
+                                                                            </label>
+                                                                            <label for="" className="at_the_teachers_address use_multiple_elements">
+                                                                                <span>Onlayn</span>
+                                                                                <input disabled={isSecondDisabled} value={asAGroupOnlyne} onChange={handleSelaectAsAGroupOnlyne} type="text" id="teachersAddress" className="teachers_address use_together" placeholder="0 AZN" />
+                                                                            </label>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>

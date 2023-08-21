@@ -546,6 +546,26 @@ body {
     color: #BCC7D1;
 }
 
+.dropzone_li_ {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.ant-image{
+    height: 100%;
+    width: 100%;
+}
+.ant-image .ant-image-img{
+    height: 100%;
+    width: 100%;
+}
+.wrapper_for_sertificates {
+    display: flex;
+    height: 187px;
+    align-items: center;
+    gap: 24px;
+}
+
 .btn_uploadCertificates {
     display: flex;
     flex-direction: column;
@@ -555,10 +575,14 @@ body {
 .certificates {
     display: flex;
     gap: 10px;
-    width: 238px;
+    width: 252px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
 .certificate {
+    position: relative;
     width: 52px;
     height: 60px;
     background: #EFF3F8;

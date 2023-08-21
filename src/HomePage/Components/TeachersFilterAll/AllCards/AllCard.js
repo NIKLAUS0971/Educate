@@ -47,7 +47,7 @@ export function AllCard({ coinsData, loading }) {
                                 <div  className="carts cart1" onClick={() => navigate(`/teacher_profile/${item.id}`)} >
                                     <div className="information_about_teacher">
                                         <div className="foto_information_and_icon_teacher">
-                                            <img src={Rectangly111} alt="" />
+                                            <img src={item.photo} alt="" />
                                             <a className="foto_information_teacher">
                                                 <div className="foto_teacher">
 
